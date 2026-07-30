@@ -1,0 +1,2965 @@
+A Clear Sense of Scheol|Adventurer
+A Clear Sense of Scheol (Team)|Adventurer
+A Clear Sense of Scheol - Extended (Team|Adventurer
+A Clear View of Adonis|Adventurer
+A Clear View of Penumbra|Adventurer
+A Keeper's Physique|Keeper
+A Maker's Touch|Engineer
+A sergeants knowledge|Soldier
+Abolish Aluminium|Trader
+Abolish Bismuth|Trader
+Abolish Gallium|Trader
+Abolish Polonium|Trader
+Abolish Thallium|Trader
+Abolish Tin|Trader
+Abscess Explosion|Doctor
+Absolute Concentration|Agent
+Absolve Guilt|Agent
+Absorb Punishment|Enforcer
+Absorption Shield|Soldier
+Abyssal Flames|NanoTechnician
+Accelerated Decay|NanoTechnician
+Accelerated Titanium Pellet|NanoTechnician
+Accomplished Health Haggler|Trader
+Accumulate Scars|Doctor
+Acidic Conversion|NanoTechnician
+Acidic Droplets|NanoTechnician
+Acidic Lesions|Doctor
+Acidic Projection|NanoTechnician
+Active Distributed Entanglement|Fixer
+Active Micro Entanglement|Fixer
+Active Remedy|Doctor
+Active Viral Agent|Doctor
+Active Viral Compressor|Fixer
+Adaptive Resonance Field|Soldier
+Advanced Absorption Shield|Soldier
+Advanced Administrator-Droid|Bureaucrat
+Advanced Aide-Droid|Bureaucrat
+Advanced Android|Engineer
+Advanced Assistant-Droid|Bureaucrat
+Advanced Attendant-Droid|Bureaucrat
+Advanced Augmentation Cloud|Fixer
+Advanced Automaton|Engineer
+Advanced Bodyguard|Bureaucrat
+Advanced Cellular Rebuild|Doctor
+Advanced Collapsing Barrier|NanoTechnician
+Advanced Combat Barrier|Soldier
+Advanced Defensive Screen|Engineer
+Advanced Delayed Health Payment|Trader
+Advanced Face Graft|Agent
+Advanced Fleeting Immunity|NanoTechnician
+Advanced Force Field|Engineer
+Advanced Frailty|Doctor
+Advanced Gladiatorbot|Engineer
+Advanced Guardbot|Engineer
+Advanced Health Freeloader|Trader
+Advanced Health Funnel|Trader
+Advanced Health Plunder|Trader
+Advanced Helper|Bureaucrat
+Advanced Instinctive Control|Doctor
+Advanced Insurance Hack|Fixer
+Advanced Layered Protection|NanoTechnician
+Advanced Medical Claim|Fixer
+Advanced Minion|Bureaucrat
+Advanced Nano Gorger|Doctor
+Advanced Policy Skim|Fixer
+Advanced Predator M-30|Engineer
+Advanced Protective Field|Engineer
+Advanced Secretary-Droid|Bureaucrat
+Advanced Shielding Barrier|Engineer
+Advanced Software Hacking Shielding|Engineer
+Advanced Survival Technique|Adventurer
+Advanced Symbol Manipulation|MetaPhysicist
+Advanced Warbot|Engineer
+Advanced Warmachine|Engineer
+Advanced Worker|Bureaucrat
+Aegis Barrier|Engineer
+Aegis of Metal|MartialArtist
+Aegis of Notum|MartialArtist
+Aegis of Stone|MartialArtist
+Aggressive Captivation|Soldier
+Aggressive Instincts|Enforcer
+Aggressive Insult|Soldier
+Aggressive Mutagen|NanoTechnician
+All-Consuming Toxin|Doctor
+Alleviate Pain|Adventurer
+Alleysweeper|Soldier
+Allure of Servitude|Bureaucrat
+Alpha & Omega|Doctor
+Amateur Health Haggler|Trader
+Ambient Alleviation|Keeper
+Ambient Amelioration|Keeper
+Ambient Convalescence|Keeper
+Ambient Invigoration|Keeper
+Ambient Regeneration|Keeper
+Ambient Rehabilitation|Keeper
+Ambient Rejuvenation|Keeper
+Ambient Renaissance|Keeper
+Ambient Restoration|Keeper
+Ambient Revitalization|Keeper
+Anatomy Lesson|Agent
+Android|Engineer
+Anger Addlement|Bureaucrat
+Anger Manifestation|MetaPhysicist
+Anger Shock|Agent
+Anger of the Porcupine|Adventurer
+Anima of Fathomless Rage|MetaPhysicist
+Anima of Implacable Hatred|MetaPhysicist
+Anima of Maddening Wrath|MetaPhysicist
+Anima of Pure Malevolence|MetaPhysicist
+Anima of Relentless Fury|MetaPhysicist
+Anima of The Abomination|MetaPhysicist
+Anima of Unleashed Malice|MetaPhysicist
+Anima of Unrestrained Ferocity|MetaPhysicist
+Annihilating Hadron String|NanoTechnician
+Annoying Insult|Soldier
+Annoying Presence|Soldier
+Anticipation of Retaliation|MetaPhysicist
+Anvil Fists|MartialArtist
+Anvils Bane|Enforcer
+Appeal for Freedom|Bureaucrat
+Apprentice Health Haggler|Trader
+Apprentice: Electrical Engineering|Trader
+Apprentice: Field Quantum Physics|Trader
+Apprentice: Mechanical Engineering|Trader
+Apprentice: Pharmaceuticals|Trader
+Apprentice: Weapon Smithing|Trader
+Arctic Cloak|Enforcer
+Arctic Gale|Adventurer
+Arctic Welcome|NanoTechnician
+Ariu's Neutron Annihilator|NanoTechnician
+Armor Megaboost|Engineer
+Armor Trade-In|Trader
+Art of War|Soldier
+Art of peace|Soldier
+Artillery Fire|Soldier
+Assassin's Aimed Shot|Agent
+Assassin's Grin|Agent
+Assauge Pain|Doctor
+Assault Rifle Mastery|Soldier
+Assist Aggression Subsystem|Engineer
+Assist Combat Array|Engineer
+Assume Profession: Adventurer|Agent
+Assume Profession: Bureaucrat|Agent
+Assume Profession: Doctor|Agent
+Assume Profession: Enforcer|Agent
+Assume Profession: Engineer|Agent
+Assume Profession: Fixer|Agent
+Assume Profession: Martial Artist|Agent
+Assume Profession: Meta-Physicist|Agent
+Assume Profession: Nanotechnician|Agent
+Assume Profession: Soldier|Agent
+Assume Profession: Trader|Agent
+Assurance Advocacy|Engineer
+Assurance Attention|Engineer
+Assurance Relief|Engineer
+Astinus's Stellar Pulse|NanoTechnician
+Atomic Collapse|NanoTechnician
+Attack Booster|Soldier
+Attenuate Defense|Trader
+Augment fight (Team)|Soldier
+Augmentation Cloud|Fixer
+Augmented Energized Beam|NanoTechnician
+Augmented Mirror Shield MK I|Soldier
+Augmented Mirror Shield MK II|Soldier
+Augmented Mirror Shield MK III|Soldier
+Augmented Mirror Shield MK IV|Soldier
+Augmented Mirror Shield MK V|Soldier
+Authority Figure|Bureaucrat
+Automatic Targeting|Soldier
+Automaton|Engineer
+Autonomous Viral Agent|Doctor
+Autumn Leaves|MartialArtist
+Avenging Shield|Enforcer
+Average Delayed Health Payment|Trader
+Awaken Shadowland Soul Memory|MetaPhysicist
+Backpain|Fixer
+Backpiercer|Shade
+Backstabber|Shade
+Backyard Revitalization|Fixer
+Bacterial Invasion|NanoTechnician
+Bad Blood|MartialArtist
+Bail Out|Agent
+Balanced Striker|Trader
+Baleful Stare|Enforcer
+Ball and Chain|NanoTechnician
+Ballad of Smoke|Adventurer
+Ballad of the Desperado|Adventurer
+Ballad of the Pistolero|Adventurer
+Ballad of the Plains Wanderer|Adventurer
+Bane of the Living|NanoTechnician
+Barbaric Blades|Enforcer
+Bargain with Fate|Fixer
+Barrage of Blades|NanoTechnician
+Barrage of Fire|NanoTechnician
+Barrier of the Devoted|Keeper
+Barrier of the Loyal|Keeper
+Barrier of the Resolute|Keeper
+Barrier of the Righteous|Keeper
+Barrier of the Staunch|Keeper
+Barrier of the Veracious|Keeper
+Basic Administrator|Bureaucrat
+Basic Aide-Droid|Bureaucrat
+Basic Assistant-Droid|Bureaucrat
+Basic Attendant-Droid|Bureaucrat
+Basic Bodyguard|Bureaucrat
+Basic Crystalizing Ray|NanoTechnician
+Basic Defensive Screen|Engineer
+Basic Force Field|Engineer
+Basic Helper-Droid|Bureaucrat
+Basic Humidity Extractor|NanoTechnician
+Basic Insurance Hack|Fixer
+Basic Minion|Bureaucrat
+Basic Nanite Robot Protection|Bureaucrat
+Basic Omni-Med Enhancement|Doctor
+Basic Policy Skim|Fixer
+Basic Protective Field|Engineer
+Basic Secretary-Droid|Bureaucrat
+Basic Shielding Barrier|Engineer
+Basic Worker-Droid|Bureaucrat
+Baton of Authority|Bureaucrat
+Baton of Command|Bureaucrat
+Baton of Leadership|Bureaucrat
+Battery Fire|Soldier
+Battlefield Devastator Drone|Engineer
+Battlefield Endurance|Soldier
+Beacon Warp|Engineer
+Beauty of Life|Adventurer
+Beg for Freedom|Bureaucrat
+Belligerent Stance|Enforcer
+Bend Will|Bureaucrat
+Beneficial Scourge|MetaPhysicist
+Benevolent Ward|Keeper
+Berserk Rage|Enforcer
+Beseech Freedom|Bureaucrat
+Bestow Healing|Doctor
+Bewilder|NanoTechnician
+Bind Wounds|Doctor
+Bio-Acid Spray|NanoTechnician
+BioMet Mastery|MetaPhysicist
+Biological-Digital Conversion|Doctor
+Biomolecular Corrosion|NanoTechnician
+Biosign Rejuvenator|Fixer
+Biotoxin MK I|Doctor
+Biotoxin MK II|Doctor
+Biotoxin MK III|Doctor
+Biotoxin MK IV|Doctor
+Bite of the Wind|Adventurer
+Biting Blades|Adventurer
+Blackmail Notum|Trader
+Blackmarket Prescription|Fixer
+Blade Chaos|NanoTechnician
+Blanket of Shadows|Agent
+Blast of Avoidance|Agent
+Blast of Circumvention|Agent
+Blast of Neglect|Agent
+Blast of Ommitance|Agent
+Blast of Outflanking|Agent
+Blast of Rejection|Agent
+Blaze of Hephaestos|NanoTechnician
+Blessed By Shadow|Fixer
+Blessing of Purity|Doctor
+Blight|NanoTechnician
+Blindside|Fixer
+Blissful Calm|Adventurer
+Blizzard of Red Tape|Bureaucrat
+Blood Circle|Doctor
+Blood Makes Noise|Fixer
+Blood of Hephaestos|NanoTechnician
+Bloom of Health|Doctor
+Blow Their Cover|Keeper
+Blunt Defense|Trader
+Blur of Claws|Adventurer
+Bodily Amplification|Doctor
+Bodily Invigoration|Doctor
+Bodily Purification|Doctor
+Bodily Reinforcement|Doctor
+Boil Blood|NanoTechnician
+Boil From Within|NanoTechnician
+Bone Crusher|Enforcer
+Bone Eater|Doctor
+Boon of Ergo - Aban-Shere|MetaPhysicist
+Boon of Ergo - Enel-Bhotaar|MetaPhysicist
+Boon of Ergo - Enel-Roch|MetaPhysicist
+Boon of Ergo - Enel-Thar|MetaPhysicist
+Boon of Ergo - Enel-Xum|MetaPhysicist
+Boon of Ergo - Ocra-Bhotaar|MetaPhysicist
+Boon of Ergo - Ocra-Roch|MetaPhysicist
+Boon of Ergo - Ocra-Shere|MetaPhysicist
+Boon of Ergo - Ocra-Thar|MetaPhysicist
+Boon of Ergo - Ocra-Xum|MetaPhysicist
+Boon of the Forester|Adventurer
+Boon of the Ranger|Adventurer
+Boon of the Wanderer|Adventurer
+Boost Aggression Subsystem|Engineer
+Boost Combat Array|Engineer
+Boost Fight (Team)|Soldier
+Boosted Tendons|Engineer
+Boot Camp Toughness|Soldier
+Bootleg Beamers 'n Bolters (OP-C)|Fixer
+Bootleg Beamers 'n Bolters (OP-CC)|Fixer
+Bootleg Beamers 'n Bolters (OP-CLX)|Fixer
+Bootleg Beamers 'n Bolters (OP-CLXXX)|Fixer
+Bootleg Beamers 'n Bolters (OP-CXL)|Fixer
+Bootleg Beamers 'n Bolters (OP-CXX)|Fixer
+Bootleg Beamers 'n Bolters (OP-LX)|Fixer
+Bootleg Beamers 'n Bolters (OP-LXXX)|Fixer
+Bootleg Beamers 'n Bolters (OP-XL)|Fixer
+Bootleg Beamers 'n Bolters (OP-XX)|Fixer
+Bootleg Blades 'n Blunts (OP-C)|Fixer
+Bootleg Blades 'n Blunts (OP-CC)|Fixer
+Bootleg Blades 'n Blunts (OP-CLX)|Fixer
+Bootleg Blades 'n Blunts (OP-CLXXX)|Fixer
+Bootleg Blades 'n Blunts (OP-CXL)|Fixer
+Bootleg Blades 'n Blunts (OP-CXX)|Fixer
+Bootleg Blades 'n Blunts (OP-LX)|Fixer
+Bootleg Blades 'n Blunts (OP-LXXX)|Fixer
+Bootleg Blades 'n Blunts (OP-XL)|Fixer
+Bootleg Blades 'n Blunts (OP-XX)|Fixer
+Borrow Reflect|Trader
+Bot Reproduction|Bureaucrat
+Bought Freedom|Trader
+Bought Indulgence|Trader
+Boundless Humidity Extractor|NanoTechnician
+Brain Bender|Trader
+Brain Freeze|Bureaucrat
+Brain Swap|Trader
+Brave Challenger to Behemoth|Enforcer
+Brave Challenger to Colossus|Enforcer
+Brave Challenger to Cyclops|Enforcer
+Brave Challenger to Gargantua|Enforcer
+Brave Challenger to Leviathan|Enforcer
+Brave Challenger to Titan|Enforcer
+Break Chains|Agent
+Break Out|Agent
+Bribe for Freedom|Bureaucrat
+Brief Interrogation|Agent
+Brief Poison Fog|NanoTechnician
+Bright Shiny Sparkling Thing|Trader
+Bristling Guard|Enforcer
+Bristling Shield|Enforcer
+Brutal Cornea Attack|NanoTechnician
+Brutal Thug|Enforcer
+Build Basic Spirit Tech Source Projector|Adventurer
+Build Boosted Spirit Tech Source Fountain|Adventurer
+Build Spirit Tech Source Drill|Adventurer
+Build Spirit Tech Source Fountain|Adventurer
+Build Spirit Tech Source Geyser|Adventurer
+Build Spirit Tech Source Pump|Adventurer
+Build Spirit Tech Source Waterfall Projector|Adventurer
+Build Twinked Basic Spirit Tech Source Projector|Adventurer
+Build Upgraded Spirit Tech Source Fountain|Adventurer
+Build Yuttos Upgraded Spirit Tech Source Projector|Adventurer
+Bulk Trader|Trader
+Burden of Atlas|NanoTechnician
+Burn from Within|NanoTechnician
+Burning Bones|NanoTechnician
+Burning Orb|NanoTechnician
+Burning Quartet|NanoTechnician
+Burning Rage|Enforcer
+Burning Triumvirate|NanoTechnician
+Burst Bonds|Fixer
+Burst Bonds (Other)|Fixer
+Burst Out|Agent
+Bypass Limitations|Bureaucrat
+Bypass me|Soldier
+CEO Guardian|Bureaucrat
+Calia's Anatomy: Pit Lizard|Adventurer
+Calia's Anatomy: Sabretooth|Adventurer
+Calia's Anatomy: Wolf|Adventurer
+Calia's Figure: Sabretooth|Adventurer
+Calia's Figure: Wolf|Adventurer
+Calia's Form: Parrot|Adventurer
+Calia's Form: Parrot (Other)|Adventurer
+Calia's Form: Parrot (Team)|Adventurer
+Calia's Form: Pit Lizard|Adventurer
+Calia's Form: Pit Lizard (Other)|Adventurer
+Calia's Form: Pit Lizard (Team)|Adventurer
+Calia's Form: Sabretooth|Adventurer
+Calia's Form: Sabretooth (Other)|Adventurer
+Calia's Form: Sabretooth (Team)|Adventurer
+Calia's Form: Wolf|Adventurer
+Calia's Form: Wolf (Other)|Adventurer
+Calia's Form: Wolf (Team)|Adventurer
+Calia's Morph Sabretooth|Adventurer
+Calia's Morph: Pit Lizard|Adventurer
+Calia's Morph: Wolf|Adventurer
+Call of the Maelstorm|Enforcer
+Calling of Altumus|MetaPhysicist
+Calling of Belamorte|MetaPhysicist
+Calling of Curatem The Grand|MetaPhysicist
+Calling of Medinos|MetaPhysicist
+Calling of Mortificant the Eternal|MetaPhysicist
+Calling of Restite|MetaPhysicist
+Calling of Salvinous|MetaPhysicist
+Calling of Sanoo|MetaPhysicist
+Calling of The Vivificator|MetaPhysicist
+Calling of Thor|Enforcer
+Calling of Valentyia|MetaPhysicist
+Cancerous Burrower|Doctor
+Candycane|NanoTechnician
+Canonry Fire|Soldier
+Capable Health Haggler|Trader
+Captivate Crowd|Bureaucrat
+Captivated Thoughts|Bureaucrat
+Captivating Speech|Bureaucrat
+Capture Attention|Bureaucrat
+Caring Needle|NanoTechnician
+Carnage Reaper|Keeper
+Cascade of the Storm|NanoTechnician
+Casual Insult|Soldier
+Cellular Crashcart|Fixer
+Cellular Decay|NanoTechnician
+Cellular Dismantlement|Doctor
+Cellular Grafting|Doctor
+Cellular Rebirth|Doctor
+Cellular Rebuild|Doctor
+Cellular Recuperation|Doctor
+Cellular Reformation|Adventurer
+Ceremonial Caress|Shade
+Ceremonial Embrace|Shade
+Ceremonial Grasp|Shade
+Chains of Iron|Bureaucrat
+Challenger to Behemoth|Enforcer
+Challenger to Colossus|Enforcer
+Challenger to Cyclops|Enforcer
+Challenger to Gargantua|Enforcer
+Challenger to Leviathan|Enforcer
+Challenger to Titan|Enforcer
+Channel Notum Vein: Adonis|MetaPhysicist
+Channel Notum Vein: Elysium|MetaPhysicist
+Channel Notum Vein: Scheol|MetaPhysicist
+Chant of Effortless Strikes|MetaPhysicist
+Chant of Frenzied Blows|MetaPhysicist
+Chaos Lights|NanoTechnician
+Chaotic Entropy|NanoTechnician
+Character Assassin|Bureaucrat
+Charismatic Rapture|Bureaucrat
+Cheat Notum|Trader
+Chemical Burn|NanoTechnician
+Chemical Concoction|Agent
+Chemical Liquefaction|NanoTechnician
+Chill Spear|MetaPhysicist
+Chilled Touch|NanoTechnician
+Chilling Presence|NanoTechnician
+Chilling Stream|NanoTechnician
+Chirp of the Mournful Cricket|MartialArtist
+Chthonic Dissipation|Shade
+Circle Scythe|NanoTechnician
+Circle of Renewal|Doctor
+Circle of Winter|NanoTechnician
+Circulate Health|Doctor
+Circumvent Restrictions|Bureaucrat
+Circumvent me|Soldier
+Citadel of Spikes|Engineer
+Claw Eyes|NanoTechnician
+Cleanse Outfit (Team)|Trader
+Cleanse Wounds|Doctor
+Clear Victim|Soldier
+Cloak of Fire|Adventurer
+Cloak of Night|Agent
+Close Escape|Agent
+Close Wounds|Doctor
+Coat of Barbs|Adventurer
+Coherent Gridspace Anomaly|NanoTechnician
+Coherent Nano Pathway|NanoTechnician
+Coherent Notum Web|MetaPhysicist
+Coherent Polarized Screening|Engineer
+Coherent Positron Stream|NanoTechnician
+Coherent Sloughing Assault Shield|Engineer
+Coherent Sloughing Defensive Shield|Engineer
+Coherent Sloughing Protective Barrier|Engineer
+Cohesion Amplifier|NanoTechnician
+Cohort|MartialArtist
+Cold Blooded|Adventurer
+Collapsing Barrier|NanoTechnician
+Collapsing Hadron String|NanoTechnician
+Colossal Health|Doctor
+Colossus of Swords|Keeper
+Combat Barrier|Soldier
+Combat Hardening|Soldier
+Combustive Envelopment|NanoTechnician
+Common Android|Engineer
+Common Automaton|Engineer
+Common Gladiatorbot|Engineer
+Common Guardbot|Engineer
+Common Warbot|Engineer
+Common Warmachine|Engineer
+Commonplace Delayed Health Payment|Trader
+Communication Disruption|Fixer
+Compacted Neutron Missile|NanoTechnician
+Company Policy|Doctor
+Complete Healing|Doctor
+Complex Nano Contagion|Doctor
+Composite Infuse With Knowledge|MetaPhysicist
+Composite Mastery|MetaPhysicist
+Composite Mochams (1 hour)|MetaPhysicist
+Composite Mochams (2 hours)|MetaPhysicist
+Composite Mochams (4 hours)|MetaPhysicist
+Composite Mochams (8 hours)|MetaPhysicist
+Composite Teachings|MetaPhysicist
+Compress Wounds|Doctor
+Compressed Shockwave|NanoTechnician
+Conator's Collapsing Hadron String|NanoTechnician
+Condensed Halon Jet|NanoTechnician
+Condensed Pellet of Fire|NanoTechnician
+Conduction Stream|NanoTechnician
+Conductive Spike|Engineer
+Conglomerate Health Plan|Doctor
+Constant Barrage|NanoTechnician
+Constitution Magnification|Doctor
+Consuming Toxin|Doctor
+Consummate Carer|Doctor
+Contact Poison|Fixer
+Contained Plasma Sphere|NanoTechnician
+Contemplation|Bureaucrat
+Continuous Cellular Reconditioning|Doctor
+Continuous Reconstruction|Doctor
+Control Ends and Means|Trader
+Controlled Energy Overload|Engineer
+Convergent Energy Beam|NanoTechnician
+Cornea Attack|NanoTechnician
+Coronet of Frost|NanoTechnician
+Corporate Guardian|Bureaucrat
+Corporate Insurance Policy|Bureaucrat
+Corporate Leadership: Clemency|Bureaucrat
+Corporate Leadership: Dispensation|Bureaucrat
+Corporate Leadership: Exoneration|Bureaucrat
+Corporate Leadership: Impunity|Bureaucrat
+Corporate Protection|Trader
+Corporate Strategy|Bureaucrat
+Corrosive Barrier|Adventurer
+Corrosive Cloud|Adventurer
+Corrosive Fists|MartialArtist
+Corrosive Spray|NanoTechnician
+Corrupt Molecular Integrity|NanoTechnician
+Corrupting Ooze|Doctor
+Corruption|NanoTechnician
+Corruption of Resolve|MetaPhysicist
+Corruption of The Pest|NanoTechnician
+Corruption of Will|MetaPhysicist
+Coruscating Screen|Enforcer
+Cosmic Relaxation|Trader
+Counteract Damage|Doctor
+Courage Of The Just|Keeper
+Course of Treatment|Doctor
+Cracker's Luck|Fixer
+Crash of Thunder|MartialArtist
+Creation: Asp of Semol|MetaPhysicist
+Creation: Azure Cobra of Orma|MetaPhysicist
+Creation: Belthior's Flame Ward|MetaPhysicist
+Creation: Bitis Striker|MetaPhysicist
+Creation: Coplan's Hand Taipan|MetaPhysicist
+Creation: Death Ward|MetaPhysicist
+Creation: Gold Acantophis|MetaPhysicist
+Creation: Living Shield of Evernan|MetaPhysicist
+Creation: Mocham's Guard|MetaPhysicist
+Creation: Notum Defender|MetaPhysicist
+Creation: Shield of Asmodian|MetaPhysicist
+Creation: Shield of Zset|MetaPhysicist
+Creation: Solar Guard|MetaPhysicist
+Creation: The Crotalus|MetaPhysicist
+Creation: Viper Staff|MetaPhysicist
+Creation: Vital Buckler|MetaPhysicist
+Creation: Wave Breaker|MetaPhysicist
+Creation: Wixel's Notum Python|MetaPhysicist
+Cripple Defense|Trader
+Crowbar Subtlety|Engineer
+Crowd Disperser|Soldier
+Crown of Frost|NanoTechnician
+CrunchCom Code Sieve|NanoTechnician
+CrunchCom Nano Compressor|NanoTechnician
+CrunchCom Nano Compressor Pro|NanoTechnician
+Crusader Reaper|Keeper
+Crush Bravery|Bureaucrat
+Crystalizing Ray|NanoTechnician
+Cubicle Dweller|Bureaucrat
+Curse of Chronos|MetaPhysicist
+Cursory Examination|Doctor
+Curtain of Darkness|NanoTechnician
+Cut Red Tape|Bureaucrat
+Cycle of Life|Doctor
+Cycle of Reconstruction|Doctor
+Cyclic Arctic Gale|Adventurer
+Cyclic Biting Blades|Adventurer
+Cyclic Cloak of Fire|Adventurer
+Cyclic Coat of Barbs|Adventurer
+Cyclic Corrosive Barrier|Adventurer
+Cyclic Enshroud with Barbs|Adventurer
+Cyclic Fiery Vengeance|Adventurer
+Cyclic Fiery Wrap|Adventurer
+Cyclic Firefly's Fury|Adventurer
+Cyclic Frost With Snow|Adventurer
+Cyclic Guard of the Grizzly|Adventurer
+Cyclic Interlocking Barbs|Adventurer
+Cyclic Jacket of Blades|Adventurer
+Cyclic Lightning's Child|Adventurer
+Cyclic Magma Coating|Adventurer
+Cyclic Nest of Vipers|Adventurer
+Cyclic Personal Blizzard|Adventurer
+Cyclic Porcupine Barrier|Adventurer
+Cyclic Protection of the Storm|Adventurer
+Cyclic Razor Barrier|Adventurer
+Cyclic Retaliatory Venom Spit|Adventurer
+Cyclic Retribution of the Aesir|Adventurer
+Cyclic Revenge of the Valkyrie|Adventurer
+Cyclic Skin of the Toad|Adventurer
+Cyclic Sparking Touch|Adventurer
+Cyclic Wings of the Phoenix|Adventurer
+Dagger in the Back|Shade
+Damage Amplifier|Soldier
+Damage Multiplier|Soldier
+Dance of the Dervish|Adventurer
+Dark Movement|NanoTechnician
+Dark Venom|Doctor
+Dead Cold|Agent
+Deaden Pain|Enforcer
+Death's Gaze|Agent
+Death's Knocking|Agent
+Deathless Blessing|Doctor
+Debasement of Resolve|MetaPhysicist
+Debasement of Will|MetaPhysicist
+Debilitate Defense|Trader
+Decision Maker|Keeper
+Deck Recoder|Fixer
+Decommissioned Wardroid|Engineer
+Decrepitude|Doctor
+Dedication of Thought|MetaPhysicist
+Deep Chemical Burn|NanoTechnician
+Deep Slash|NanoTechnician
+Deep Thought|Trader
+Deep Tissue Repair|Doctor
+Deep Wounds Cleanser|Doctor
+Deepen fight (Team)|Soldier
+Defamation 101|Bureaucrat
+Defeat Righteousness|Shade
+Defender's Poise|Keeper
+Defensive Screen|Engineer
+Defilement of Resolve|MetaPhysicist
+Defilement of Will|MetaPhysicist
+Deflection Shield|Soldier
+Deflection Shield (Extended)|Soldier
+Degeneration of Alacrity|Shade
+Degeneration of Celerity|Shade
+Degeneration of Legerity|Shade
+Degeneration of Rapidity|Shade
+Degredation of Resolve|MetaPhysicist
+Degredation of Will|MetaPhysicist
+Delay Pursuers|Agent
+Delay Retreat|Fixer
+Delay the Inevitable|Agent
+Delayed Assassin|Agent
+Delayed Health Payment|Trader
+Demand Freedom|Bureaucrat
+Demolish Shackles|Agent
+Demotivate|Bureaucrat
+Demotivational Speech: 10 Thumbs|Bureaucrat
+Demotivational Speech: Administrative Error|Bureaucrat
+Demotivational Speech: Certainty of Defeat|Bureaucrat
+Demotivational Speech: Factory Recall|Bureaucrat
+Demotivational Speech: Fumble Fingers|Bureaucrat
+Demotivational Speech: Let's Make a Committee|Bureaucrat
+Demotivational Speech: Mourner's March|Bureaucrat
+Demotivational Speech: Retreat to Glory|Bureaucrat
+Demotivational Speech: Surge in the System|Bureaucrat
+Demotivational Speech: Swapdisk Mayhem|Bureaucrat
+Demotivational Speech: That is not on the Agenda|Bureaucrat
+Demotivational Speech: Who Writes the Minutes?|Bureaucrat
+Dense Matter Missile|NanoTechnician
+Dense Matter Missile MK II|NanoTechnician
+Dense Poison Fog|NanoTechnician
+Depravation of Alacrity|Shade
+Depravation of Celerity|Shade
+Depravation of Legerity|Shade
+Deprive Skills|Trader
+Deprive Skills (Advanced)|Trader
+Deprive Skills (Average)|Trader
+Deprive Skills (Lesser)|Trader
+Deprive Skills (Major)|Trader
+Deprive Skills (Minor)|Trader
+Deprive Skills (Weak)|Trader
+Deranged Mindreaver|MetaPhysicist
+Desecration of Resolve|MetaPhysicist
+Desecration of Will|MetaPhysicist
+Desist me|Soldier
+Desolator Assault Drone|Engineer
+Despoil Notum|Trader
+Detailed Medical Claim|Fixer
+Detain Customer|Trader
+Detain Suspect|Agent
+Devastator Drone|Engineer
+Diamond Skin|MartialArtist
+Dichotomy of Nature|Adventurer
+Digital Existence|Trader
+Digitizing Sequencer|Doctor
+Dire Circumstance|Agent
+Director-Grade Administrator-Droid|Bureaucrat
+Director-Grade Aide-Droid|Bureaucrat
+Director-Grade Assistant-Droid|Bureaucrat
+Director-Grade Attendant-Droid|Bureaucrat
+Director-Grade Bodyguard|Bureaucrat
+Director-Grade Helper-Droid|Bureaucrat
+Director-Grade Minion|Bureaucrat
+Director-Grade Secretary-Droid|Bureaucrat
+Director-Grade Worker-Droid|Bureaucrat
+Dirty Fighter|MartialArtist
+Disable Defense|Trader
+Disappear|Agent
+Disciplinary Action|Bureaucrat
+Discipline of the Vindicator|Keeper
+Discourage Involvement|NanoTechnician
+Disjointed From Reality|Bureaucrat
+Disjointed Psyche|Bureaucrat
+Dispersed Nanoblade Cloud|NanoTechnician
+Displace Thought Patterns|Bureaucrat
+Disrupted Psyche|Bureaucrat
+Disruptive Barrier Negator|Engineer
+Disruptive Cocoon Harmonics|Engineer
+Disruptive Field Harmonics|Engineer
+Disruptive Field Negator|Engineer
+Disruptive Insult|Soldier
+Disruptive Phase Harmonics|Engineer
+Disruptive Photon Absorber|Engineer
+Disruptive Photon Annihilator|Engineer
+Disruptive Photon Deflector|Engineer
+Disruptive Photon Devourer|Engineer
+Disruptive Retaliatory Negator|Engineer
+Disruptive Retributive Negator|Engineer
+Disruptive Shielding Negator|Engineer
+Disruptive Void Projector|Engineer
+Dissolve Molecular Bonding|Doctor
+Dissolving Sphere|NanoTechnician
+Distinct Victim|Soldier
+Distortion of Resolve|MetaPhysicist
+Distortion of Will|MetaPhysicist
+Distract with Trinkets|Trader
+Distracted Gaze|Bureaucrat
+Distracting Baubles|Trader
+Distracting Nuisance|MartialArtist
+Distracting Shower|NanoTechnician
+Distracting Sphere|MetaPhysicist
+Distributed Care|Doctor
+Divest Damage|Trader
+Divest Skills|Trader
+Divest Skills (Advanced)|Trader
+Divest Skills (Average)|Trader
+Divest Skills (Lesser)|Trader
+Divest Skills (Major)|Trader
+Divest Skills (Minor)|Trader
+Divest Skills (Nanite Enhanced)|Trader
+Divest Skills (Weak)|Trader
+Divine Sanctifier|Keeper
+Division of the Winds|Adventurer
+Doctor's Grace|Doctor
+Dodge Pursuers|Agent
+Dominate Foe|Enforcer
+Dominate Psyche|Bureaucrat
+Dominate: BioMet|MetaPhysicist
+Dominate: MatCrea|MetaPhysicist
+Dominate: MatMet|MetaPhysicist
+Dominate: PsyMod|MetaPhysicist
+Dominate: SenseImp|MetaPhysicist
+Dominate: SpaceTime|MetaPhysicist
+Double Cover|Shade
+Double Fence|Shade
+Douse Anger|MetaPhysicist
+Dr Blaze's Mutagenic Compound|Doctor
+Dr Hack 'n Quack|Fixer
+Dragon Stance|MartialArtist
+Draw AC|Trader
+Draw AC (Advanced)|Trader
+Draw AC (Greater)|Trader
+Draw AC (Invasive)|Trader
+Draw AC (Major)|Trader
+Draw AC (Minor)|Trader
+Draw AC (Weak)|Trader
+Draw Attention|Soldier
+Dreadbringer|Enforcer
+Dress Wounds|Doctor
+Drill Missile|Bureaucrat
+Droid Damage Matrix|Bureaucrat
+Droid Overhaul|Bureaucrat
+Droid Repair|Bureaucrat
+Dual Defender|Shade
+Dual Energized Beams|NanoTechnician
+Dual Ion Stream|NanoTechnician
+Dubious Accounting|Trader
+Duplex Wall|Shade
+Eagle Eye|Adventurer
+Earthshattering Cataclysm|NanoTechnician
+Earthshattering Double|NanoTechnician
+Earthshattering Triple|NanoTechnician
+Ease of Execution|MetaPhysicist
+Easing Touch|Doctor
+Edge of Diamond|Enforcer
+Edge of Molybdenum|Enforcer
+Edge of Steel|Enforcer
+Edge of Titanium|Enforcer
+Edge of the Barber|Enforcer
+Edge of the Buccaneer|Enforcer
+Efficient Humidity Extractor|NanoTechnician
+Ego Taunt|Soldier
+Electrical Chastiser|Engineer
+Electrical Discharge Field|Engineer
+Electrical Engineering Knowledge|Engineer
+Electrifying Containment|NanoTechnician
+Eleet Friend|Adventurer
+Element of Corrosion|Enforcer
+Element of Flame|Enforcer
+Element of Ice|Enforcer
+Element of Malice|Enforcer
+Element of Poison|Enforcer
+Element of Radiation|Enforcer
+Elemental Dissipation|Shade
+Elementary Delayed Health Payment|Trader
+Elementary Nano Contagion|Doctor
+Eletrical Engineering Mastery|Engineer
+Elude Pain|Keeper
+Elude Step|MartialArtist
+Elude me|Soldier
+Elusive Target|MartialArtist
+Emasculate Defense|Trader
+Embrace of Greed|Trader
+Embrace of Shadows|Fixer
+Emergency Medical Response|Doctor
+Emergency Stitching|Doctor
+Emergency Vector Tap|Fixer
+Emergency XP Loss Reducer: 30|Bureaucrat
+Empowered Anger Addlement|Bureaucrat
+Empowered Chaotic Mind|Bureaucrat
+Empowered Contemplation|Bureaucrat
+Empowered Cubicle Dweller|Bureaucrat
+Empowered Deflection Shield|Soldier
+Empowered Demotivate|Bureaucrat
+Empowered Disjointed From Reality|Bureaucrat
+Empowered Distracted Gaze|Bureaucrat
+Empowered Divided Ego|Bureaucrat
+Empowered Greater Deflection Shield|Soldier
+Empowered Greater Harmonic Cocoon|Engineer
+Empowered Greater Reflective Field|Soldier
+Empowered Harmonic Cocoon|Engineer
+Empowered Introspective Engagement|Bureaucrat
+Empowered Lesser Deflection Shield|Soldier
+Empowered Lesser Harmonic Cocoon|Engineer
+Empowered Lesser Reflective Field|Soldier
+Empowered Major Deflection Shield|Soldier
+Empowered Major Reflective Field|Soldier
+Empowered Minor Deflection Shield|Soldier
+Empowered Minor Harmonic Cocoon|Engineer
+Empowered Minor Reflective Field|Soldier
+Empowered Partial Deflection Shield|Soldier
+Empowered Partial Harmonic Cocoon|Engineer
+Empowered Partial Reflective Field|Soldier
+Empowered Reactive Deflection Shield|Soldier
+Empowered Reactive Harmonic Cocoon|Engineer
+Empowered Reactive Reflective Field|Soldier
+Empowered Reflective Field|Soldier
+Empowered Sleep|Bureaucrat
+Empowered Wandering Mind|Bureaucrat
+Encircle with Blades|NanoTechnician
+Encode DNA Sequence|Doctor
+Encourage Hatred|MartialArtist
+Encourage Regrowth|Adventurer
+Energize Rubi-Ka Grid Tunnel|Fixer
+Energize Shell|Engineer
+Energized Beam|NanoTechnician
+Energized Bolt|Bureaucrat
+Energized Casing of the Faithful Servant|Engineer
+Energized Collapse|NanoTechnician
+Energized Fists|MartialArtist
+Energy Cocoon|Engineer
+Energy Projectile|NanoTechnician
+Energy Spike|Engineer
+Enervate Bindings|Keeper
+Enervate Bonds|Keeper
+Enervate Constraints|Keeper
+Enervate Impediments|Keeper
+Enervate Imprisonment|Keeper
+Enervate Shackles|Keeper
+Enfeeble Defense|Trader
+Enforce Rest Break|Bureaucrat
+Enforced Loan|Trader
+Enforced Sloth|Bureaucrat
+Enfraam's Augmented Fortification|NanoTechnician
+Enfraam's Blistering Blast|NanoTechnician
+Enfraam's Cataclysm|NanoTechnician
+Enfraam's Cortex Accelerator|NanoTechnician
+Enfraam's Double|NanoTechnician
+Enfraam's Fortification|NanoTechnician
+Enfraam's Glacial Encasement|NanoTechnician
+Enfraam's Glorious Fortification|NanoTechnician
+Enfraam's Greater Fortification|NanoTechnician
+Enfraam's Inverted Restrainer|NanoTechnician
+Enfraam's Lesser Fortification|NanoTechnician
+Enfraam's Major Fortification|NanoTechnician
+Enfraam's Minor Fortification|NanoTechnician
+Enfraam's Perceiver|NanoTechnician
+Enfraam's Perception Deciever|NanoTechnician
+Enfraam's Perfected Fortification|NanoTechnician
+Enfraam's Superior Fortification|NanoTechnician
+Enfraam's Supreme Fortification|NanoTechnician
+Enfraam's Toolkit|NanoTechnician
+Enfraam's Triple|NanoTechnician
+Enfraam's Trivial Fortification|NanoTechnician
+Enfraam's Ultimate Destroyer|NanoTechnician
+Engineer Composite Specialist Tradeskills (8 hours)|Engineer
+Engrossing Activity|MetaPhysicist
+Engulf in Flame|NanoTechnician
+Enhance Aggression Subsystem|Engineer
+Enhance Combat Array|Engineer
+Enhance Constitution|Doctor
+Enhance Nano Cohesion|NanoTechnician
+Enhance Nano Communication|NanoTechnician
+Enhance Team Health|Doctor
+Enhanced First Aid|Doctor
+Enhanced Health Surge|Doctor
+Enhanced Senses|Agent
+Enhanced Sureshot|Agent
+Enhanced Trueshot|Agent
+Enlarge|Doctor
+Enlightened Aura of Healing|MartialArtist
+Enlightened Healing Touch|MartialArtist
+Enliven Outfit (Team)|Trader
+Enmity Personification|MetaPhysicist
+Enraged Mind|Soldier
+Enrapturing Bondage|Bureaucrat
+Enshroud with Barbs|Adventurer
+Entrap Victim|Agent
+Entrepreneurial Thrall|Trader
+Entropic Sores|Doctor
+Entropy Beam|NanoTechnician
+Entropy Weapon|Engineer
+Entropy's Advance|NanoTechnician
+Enveloping Darkness|NanoTechnician
+Epsilon Purge|Doctor
+Erasing Ray|Bureaucrat
+Eroding Spray|NanoTechnician
+Erratic Laser|Bureaucrat
+Escape Captivation|Fixer
+Essence of Behemoth|Enforcer
+Essence of Boundless Health|Enforcer
+Essence of Colossus|Enforcer
+Essence of Cyclops|Enforcer
+Essence of Gargantua|Enforcer
+Essence of Leviathan|Enforcer
+Essence of Life|Adventurer
+Essence of Might|Enforcer
+Essence of Titan|Enforcer
+Essence of Vitality|Enforcer
+Essence of the Brave Challenger|Enforcer
+Eternal Enmity|MartialArtist
+Evade Responsibility|Bureaucrat
+Evade the Chase|Agent
+Evangelical Reaper|Keeper
+Eviscerate Defense|Trader
+Eviscerate Eyes|NanoTechnician
+Evocation of Fathomless Rage|MetaPhysicist
+Evocation of Implacable Hatred|MetaPhysicist
+Evocation of Maddening Wrath|MetaPhysicist
+Evocation of Pure Malevolence|MetaPhysicist
+Evocation of Relentless Fury|MetaPhysicist
+Evocation of The Abomination|MetaPhysicist
+Evocation of The Cleansed|MetaPhysicist
+Evocation of The Empowered|MetaPhysicist
+Evocation of The Enlightened|MetaPhysicist
+Evocation of The Enraged|MetaPhysicist
+Evocation of The Pure|MetaPhysicist
+Evocation of The Reinforced|MetaPhysicist
+Evocation of Unleashed Malice|MetaPhysicist
+Evocation of Unrestrained Ferocity|MetaPhysicist
+Exaggerated Health|Doctor
+Exalted Sanctifier|Keeper
+Exceptional Delayed Health Payment|Trader
+Executive-Grade Administrator-Droid|Bureaucrat
+Executive-Grade Aide-Droid|Bureaucrat
+Executive-Grade Assistant-Droid|Bureaucrat
+Executive-Grade Attendant-Droid|Bureaucrat
+Executive-Grade Bodyguard|Bureaucrat
+Executive-Grade Helper-Droid|Bureaucrat
+Executive-Grade Minion|Bureaucrat
+Executive-Grade Secretary-Droid|Bureaucrat
+Executive-Grade Worker-Droid|Bureaucrat
+Exhaust Defense|Trader
+Exhaust Muscles|Doctor
+Exoskeleton Pulse|Bureaucrat
+Expanding Neutron Pulse|NanoTechnician
+Experienced Survivor|Fixer
+Experimental Panacea|Doctor
+Expert Health Haggler|Trader
+Explosive Cataclysm|NanoTechnician
+Explosive Double|NanoTechnician
+Explosive Triple|NanoTechnician
+Extended Line of Credit|Trader
+Extreme Prejudice|Engineer
+Eye of Light|NanoTechnician
+Eyeblighter|NanoTechnician
+Face Graft|Agent
+Face in the Crowd|Bureaucrat
+Fade From Memory|Agent
+Failing Impregnability|Enforcer
+Faithful Administrator-Droid|Bureaucrat
+Faithful Aide-Droid|Bureaucrat
+Faithful Assistant-Droid|Bureaucrat
+Faithful Attendant-Droid|Bureaucrat
+Faithful Bodyguard|Bureaucrat
+Faithful Helper-Droid|Bureaucrat
+Faithful Minion|Bureaucrat
+Faithful Secretary-Droid|Bureaucrat
+Faithful Worker-Droid|Bureaucrat
+Fake Out|MartialArtist
+False Profession: Adventurer|Agent
+False Profession: Bureaucrat|Agent
+False Profession: Doctor|Agent
+False Profession: Enforcer|Agent
+False Profession: Engineer|Agent
+False Profession: Fixer|Agent
+False Profession: Martial Artist|Agent
+False Profession: Meta-Physicist|Agent
+False Profession: Nanotechnician|Agent
+False Profession: Soldier|Agent
+False Profession: Trader|Agent
+Falsify Medical Records|Fixer
+Fanatic Reaper|Keeper
+Fangs of the Snake|Adventurer
+Fast Team Tissue Repair|Doctor
+Faster than your Shadow|Shade
+Fear of Attention|Bureaucrat
+Fearbringer|Enforcer
+Fearsome Shout|Enforcer
+Feeble Android|Engineer
+Feeble Blade Chaos|NanoTechnician
+Feeble Delayed Health Payment|Trader
+Feeble Gladiatorbot|Engineer
+Feeble Gravitational Anomaly|NanoTechnician
+Feeble Guardbot|Engineer
+Feeble Warbot|Engineer
+Feeble Warmachine|Engineer
+Feelings of Mortality|Soldier
+Feet of Iron|NanoTechnician
+Feet of Lead|NanoTechnician
+Feet of Stone|NanoTechnician
+Feline Grace|Agent
+Feline Rage|Adventurer
+Fell Rage|Enforcer
+Ferocious Impactor Missile|NanoTechnician
+Fervor of the Devotee|Keeper
+Fervor of the Disciple|Keeper
+Fervor of the Fanatic|Keeper
+Fervor of the Henchman|Keeper
+Fervor of the Minion|Keeper
+Fervor of the Zealot|Keeper
+Festering Plague|Doctor
+Field Dressings|Doctor
+Field Quantum Physics Knowledge|Engineer
+Field Quantum Physics Mastery|Engineer
+Field Workshop|Engineer
+Field of Sparks|Enforcer
+Fieldsweeper Devastator Drone|Engineer
+Fiery Blast|NanoTechnician
+Fiery Vengeance|Adventurer
+Fiery Wrap|Adventurer
+Fill Inbox|Doctor
+Finality's Edge|Keeper
+Fine Tuning|Trader
+Fire Snake|NanoTechnician
+Fire Stream|NanoTechnician
+Firefly's Fury|Adventurer
+Firewalled Sync Compressor|Fixer
+First Strike|MartialArtist
+First-Degree Burns|Doctor
+Fists of Fire|MartialArtist
+Fists of Shocking Touch|MartialArtist
+Fists of Stellar Harmony|MartialArtist
+Fists of the Lightning Crane|MartialArtist
+Fists of the Maelstrom|MartialArtist
+Fists of the Polar Star|MartialArtist
+Fists of the Sorrowful Toad|MartialArtist
+Fists of the Winter Flame|MartialArtist
+Flamespout|Adventurer
+Flawed Android|Engineer
+Flawed Automaton|Engineer
+Flawed Defensive Screen|Engineer
+Flawed Force Field|Engineer
+Flawed Gladiatorbot|Engineer
+Flawed Guardbot|Engineer
+Flawed Protective Field|Engineer
+Flawed Shielding Barrier|Engineer
+Flawed Warbot|Engineer
+Flawed Warmachine|Engineer
+Flawless Lick Wounds|Adventurer
+Flawless Medical Claim|Fixer
+Flawless Stitching|Adventurer
+Fleet Foot|MartialArtist
+Fleeting Immunity|NanoTechnician
+Flesh Eater|Doctor
+Flourishing Heal|MartialArtist
+Flow of Time|Trader
+Fluctuate Gridspace|NanoTechnician
+Fluctuate Manifestation|MetaPhysicist
+Flurry of Feathers|Adventurer
+Flurry of Feathers (Other)|Adventurer
+Flurry of Feathers (Team)|Adventurer
+Focused Anger|Enforcer
+Focused Ray|NanoTechnician
+Fold Time and Space: Borealis|NanoTechnician
+Fold Time and Space: Newland|NanoTechnician
+Fold Time and Space: Omni-1|NanoTechnician
+Fold Time and Space: Rome|NanoTechnician
+Fold Time and Space: Tir|NanoTechnician
+Fold Time and Space: West Athen|NanoTechnician
+Footpad Apprentice|Shade
+Footsteps of The Master|MartialArtist
+Force Field|Engineer
+Force of the Thunderclap|Enforcer
+Forced Bankruptcy|Trader
+Forget Me!|NanoTechnician
+Form of Tessai|MartialArtist
+Form of The Executioner|Agent
+Formula 22|Engineer
+Fortify|Enforcer
+Fortress of Spikes|Engineer
+Fortune's Smile|Fixer
+Foul Bane|NanoTechnician
+Foul Eyeblighter|NanoTechnician
+Four Fists of Kali|MartialArtist
+Free Movement|Adventurer
+Freedom of the Forester|Adventurer
+Freedom of the Ranger|Adventurer
+Freedom of the Wanderer|Adventurer
+Freezing Lancets|NanoTechnician
+Freezing Surge|NanoTechnician
+Frenzy Embodiment|MetaPhysicist
+Frenzy of Fur|Adventurer
+Frenzy of Shells|Fixer
+Frequent Customer|Trader
+Friend of the Wild|Adventurer
+Frigid Blast|MetaPhysicist
+Frigid Landscape|NanoTechnician
+Frost Slivers|MetaPhysicist
+Frost With Snow|Adventurer
+Frosty Welcome|NanoTechnician
+Full Automatic Targeting|Soldier
+Full-body Acid Coating|NanoTechnician
+Furious Assault|NanoTechnician
+Furious Wind Blade|NanoTechnician
+Fury|Keeper
+Fury Externalization|MetaPhysicist
+Gallant Hero: The Aggravated Servant|Bureaucrat
+Gallant Hero: The Angry Servitor|Bureaucrat
+Gallant Hero: The Bitter Clerk|Bureaucrat
+Gallant Hero: The Enraged Drone|Bureaucrat
+Gallant Hero: The Incensed Retainer|Bureaucrat
+Gallant Hero: The Indignant Flunky|Bureaucrat
+Gallant Hero: The Infuriated Minion|Bureaucrat
+Gallant Hero: The Irate Attache|Bureaucrat
+Gallant Hero: The Vengeful Butler|Bureaucrat
+Gallant Slave: The Aggravated Serf|Bureaucrat
+Gallant Slave: The Angry Drudge|Bureaucrat
+Gallant Slave: The Bitter Vassal|Bureaucrat
+Gallant Slave: The Enraged Slave|Bureaucrat
+Gallant Slave: The Incensed Subordinate|Bureaucrat
+Gallant Slave: The Indignant Peon|Bureaucrat
+Gallant Slave: The Infuriated Thrall|Bureaucrat
+Gallant Slave: The Irate Chattel|Bureaucrat
+Gallant Slave: The Vengeful Toiler|Bureaucrat
+Gaping Puncture|NanoTechnician
+Gargantuan Health|Doctor
+Gaze of the Hunter|Adventurer
+Gazump fight (Team)|Soldier
+Gift of Assurance|Engineer
+Gift of the Travelling Salesman|Trader
+Gird For Punishment|Enforcer
+Give Energy: 10|MartialArtist
+Give Energy: 100|MartialArtist
+Give Energy: 25|MartialArtist
+Give Energy: 50|MartialArtist
+Give Life: 10|MartialArtist
+Give Life: 100|MartialArtist
+Give Life: 25|MartialArtist
+Give Life: 50|MartialArtist
+Glacial Advance|NanoTechnician
+Glacial Cloak|Enforcer
+Glacial Finality|NanoTechnician
+Glacial Lance|MetaPhysicist
+Gladiatorbot|Engineer
+Glib Health Haggler|Trader
+Glittering Plaything|Trader
+Glorious Healing|Adventurer
+Glorious Sanctifier|Keeper
+Glowing Retribution|Enforcer
+Gnat's Wing|Agent
+Gouge Eyes|NanoTechnician
+Gouge Flesh|Doctor
+Grace of the Emperor Crane|MartialArtist
+Grace of the Samurai|Keeper
+Grand Theft Humidity|Trader
+Gravitational Anomaly|NanoTechnician
+Gravity Bindings|Fixer
+Gravity Pull|NanoTechnician
+Great Weight of the Guilty|Bureaucrat
+Greater Anatomy Lesson|Agent
+Greater Anger Manifestation|MetaPhysicist
+Greater Armor Megaboost|Engineer
+Greater Blade Chaos|NanoTechnician
+Greater Bloom of Health|Doctor
+Greater Cellular Grafting|Doctor
+Greater Chilling Stream|NanoTechnician
+Greater Conductive Spike|Engineer
+Greater Corporate Insurance Policy|Bureaucrat
+Greater Crystalizing Ray|NanoTechnician
+Greater Death's Knocking|Agent
+Greater Deflection Shield|Soldier
+Greater Deflection Shield (Extended)|Soldier
+Greater Delay Pursuers|Agent
+Greater Delay Retreat|Fixer
+Greater Delay the Inevitable|Agent
+Greater Delayed Health Payment|Trader
+Greater Deranged Mindreaver|MetaPhysicist
+Greater Detain Customer|Trader
+Greater Detain Suspect|Agent
+Greater Distracting Sphere|MetaPhysicist
+Greater Embrace of Greed|Trader
+Greater Encourage Regrowth|Adventurer
+Greater Energize Shell|Engineer
+Greater Enforced Sloth|Bureaucrat
+Greater Enmity Personification|MetaPhysicist
+Greater Exoskeleton Pulse|Bureaucrat
+Greater Fear of Attention|Bureaucrat
+Greater Field Dressings|Doctor
+Greater Fortify|Enforcer
+Greater Frenzy Embodiment|MetaPhysicist
+Greater Fury Externalization|MetaPhysicist
+Greater Gunslinger|Bureaucrat
+Greater Halt Flight|Fixer
+Greater Harmonic Cocoon|Engineer
+Greater Healing Touch|MartialArtist
+Greater Health Freeloader|Trader
+Greater Health Funnel|Trader
+Greater Health Plunder|Trader
+Greater Hold Victim|Agent
+Greater Illusory Paralysis|Bureaucrat
+Greater Instinctive Control|Doctor
+Greater Kyudo|MartialArtist
+Greater Lasting heal|Doctor
+Greater Lick Wounds|Adventurer
+Greater Mass Illusory Paralysis|Bureaucrat
+Greater Musculature Command|Bureaucrat
+Greater Mysterious Causes|Agent
+Greater Nano Boost|Fixer
+Greater Nano Net|Fixer
+Greater Nanobot Shelter|NanoTechnician
+Greater Net Cast Wide|Fixer
+Greater Paralyze with Indecision|Agent
+Greater Periodic Checkup|Doctor
+Greater Polarized Screening|Engineer
+Greater Policy Payout|Doctor
+Greater Predator|Agent
+Greater Prolong Encounter|Fixer
+Greater Quick Heal|Adventurer
+Greater RNA Reaper|NanoTechnician
+Greater Rage Materialization|MetaPhysicist
+Greater Reflective Field|Soldier
+Greater Reflective Field (Extended)|Soldier
+Greater Restore Essence|MartialArtist
+Greater Restore Health|Adventurer
+Greater Restrict Movement|Bureaucrat
+Greater Retaliatory Barrier|Engineer
+Greater Searing Stream|NanoTechnician
+Greater Shen Protection|MartialArtist
+Greater Shower With Sludge|NanoTechnician
+Greater Slobber Wounds|Adventurer
+Greater Steel Skin|MartialArtist
+Greater Strip Assets|Trader
+Greater Stumbling Steps|Bureaucrat
+Greater Suspicious Death|Agent
+Greater Team Healing|Doctor
+Greater Team Healing Touch|MartialArtist
+Greater Team Quick Heal|Adventurer
+Greater Team Restore Essence|MartialArtist
+Greater Titanium Skin|MartialArtist
+Greater Toxic Field|NanoTechnician
+Greater Viral Assault|NanoTechnician
+Greater Wilderness Protection|Adventurer
+Greater Wooden Skin|MartialArtist
+Greater Wrath Incarnation|MetaPhysicist
+Grid Excursion|Fixer
+Grid Gateway|Trader
+Grid Phase Accelerator|Fixer
+Grid Phase Accelerator (Team)|Fixer
+Grid Phreak|Fixer
+Grid Runner|Fixer
+Grid Runner (Team)|Fixer
+Grid Surfer|Fixer
+Grid Surfer (Team)|Fixer
+Gridspace Disruptor|NanoTechnician
+Gridspace Freedom|Fixer
+Gridspace Freedom (Team)|Fixer
+Gridspace Maelstrom|NanoTechnician
+Grim Circumstance|Agent
+Grinning Hunter|Adventurer
+Grinning Hunter (Other)|Adventurer
+Grinning Hunter (Team)|Adventurer
+Grove Curator|Adventurer
+Grove Custodian|Adventurer
+Grove Guardian|Adventurer
+Grove Warden|Adventurer
+Guard Convoy|Trader
+Guard of the Grizzly|Adventurer
+Guardbot|Engineer
+Guardian Ward|Keeper
+Guardian of Might|Keeper
+Guardian's Balance|Keeper
+Guidance of The Executioner|Agent
+Guile of the Snake Oil Seller|Bureaucrat
+Gun Enhancement|Engineer
+Gunslinger|Bureaucrat
+Hack Grid Data Stream|Fixer
+Hack Grid Data Stream (Team)|Fixer
+Hack Grid Vector|Fixer
+Hack Grid Vector (Team)|Fixer
+Hacked Diagnosis|Fixer
+Hail of Metal|Soldier
+Hale and Hearty|Doctor
+Halo of Health|Doctor
+Halon Cloud|NanoTechnician
+Halt Flight|Fixer
+Hand of the Shadow|Shade
+Harden Skin|MartialArtist
+Harm Shock|Agent
+Harmonic Cocoon|Engineer
+Harmonizing Resonance Field|Soldier
+Harnessed Lightning|Enforcer
+Hasty Augmentation Cloud|Fixer
+Hatebringer|Enforcer
+Havoc Reaper|Keeper
+Headcracker|Enforcer
+Healer's Hands|Doctor
+Healing Aura|MartialArtist
+Healing Light|Doctor
+Healing Rays of Sunrise|Adventurer
+Healing Touch|MartialArtist
+Health Assembler|Doctor
+Health Augmentation|Doctor
+Health Cartel|Doctor
+Health Freeloader|Trader
+Health Funnel|Trader
+Health Graft|Doctor
+Health Plunder|Trader
+Health Pump|Doctor
+Health Surge|Doctor
+Healthy Manifestation|MetaPhysicist
+Hearty Constitution|Doctor
+Heavy Assault Absorption Shield|Soldier
+Heavy Assault Combat Barrier|Soldier
+Heavy Assault Force Field|Engineer
+Heighten fight (Team)|Soldier
+Helepolis of the Besieger|Soldier
+Hidden Killer|Agent
+High Chant of Effortless Strikes|MetaPhysicist
+High Chant of Frenzied Blows|MetaPhysicist
+Hired Hands|Trader
+Hoary Seep|NanoTechnician
+Hold Victim|Agent
+Honored Sanctifier|Keeper
+Horde|MartialArtist
+Horror From The Darkest Pit|Bureaucrat
+Hostile Takeover|Trader
+Hostility Scourge|MetaPhysicist
+Hot Feet|NanoTechnician
+Howl of the Wolf|Adventurer
+Humidity Extractor|NanoTechnician
+Ice Burn|Enforcer
+Id Assault|Soldier
+Ignore External Events|MetaPhysicist
+Ignore Past Actions|Agent
+Illusory Paralysis|Bureaucrat
+Imaginary Distractions|Trader
+Imminence of Battle|Keeper
+Imminence of Bloodshed|Keeper
+Imminence of Carnage|Keeper
+Imminence of Conflict|Keeper
+Imminence of Havoc|Keeper
+Imminence of Scrimmage|Keeper
+Imminence of Slaughter|Keeper
+Imminence of Warfare|Keeper
+Imminent Storm|Enforcer
+Immolation Shield|Enforcer
+Impactor Missile|NanoTechnician
+Impaling Tracer|NanoTechnician
+Impart Resentment|Enforcer
+Impartiality of the Blade|Keeper
+Impel Shadowland Recall|Engineer
+Implacability of Life|Adventurer
+Implacability of the Second Law|NanoTechnician
+Impose Will|Bureaucrat
+Impoverish Accounts|Trader
+Improved Ambient Invigoration|Keeper
+Improved Automatic Targeting|Soldier
+Improved Complete Healing|Doctor
+Improved Dark Movement|NanoTechnician
+Improved Dead Cold|Agent
+Improved Element of Malice|Enforcer
+Improved Enervate Imprisonment|Keeper
+Improved Essence of Behemoth|Enforcer
+Improved Frenzy of Shells|Fixer
+Improved Gnat's Wing|Agent
+Improved Guardian of Might|Keeper
+Improved Health Haggler|Trader
+Improved Health Plunder|Trader
+Improved Instill With Malign Intent|MetaPhysicist
+Improved Isochronal Sloughing Combat Field|Engineer
+Improved Mongo Crush!|Enforcer
+Improved Prodigious Strength|Enforcer
+Improved Prowler|Shade
+Improved Puncture of the Tarasque|Shade
+Improved Quantum Uncertainty|Trader
+Improved Rule of One|Bureaucrat
+Improved Seed Life|Adventurer
+Improved Shield of the Obedient Servant|Engineer
+Improved Soldier Clip Junkie|Soldier
+Improved Team Health Plan|Doctor
+Improved Total Focus|Soldier
+Improved Vengeance of Nature|Adventurer
+Improved Vengeance of the Immaculate|Keeper
+Incandescent Rage|Enforcer
+Incandescent Venom|Doctor
+Incessant Flurry|NanoTechnician
+Incinerate|Adventurer
+Induce Muscle Spasms|Doctor
+Induce Stupor|MartialArtist
+Industrial Sabotage|Trader
+Infected Wounds|Doctor
+Inferior Android|Engineer
+Inferior Anger Manifestation|MetaPhysicist
+Inferior Automaton|Engineer
+Inferior Cleanse Wounds|Doctor
+Inferior Enmity Personification|MetaPhysicist
+Inferior Frenzy Embodiment|MetaPhysicist
+Inferior Fury Externalization|MetaPhysicist
+Inferior Gladiatorbot|Engineer
+Inferior Guardbot|Engineer
+Inferior Rage Materialization|MetaPhysicist
+Inferior Warbot|Engineer
+Inferior Warmachine|Engineer
+Inferior Wound Bindings|Doctor
+Inferior Wrath Incarnation|MetaPhysicist
+Infernal Rage|Enforcer
+Inflict Harm|Doctor
+Infuse With Knowledge: Biological Metamorphose|MetaPhysicist
+Infuse With Knowledge: Material Creation|MetaPhysicist
+Infuse With Knowledge: Material Metamorphose|MetaPhysicist
+Infuse With Knowledge: Psychological Modification|MetaPhysicist
+Infuse With Knowledge: Sensory Improvement|MetaPhysicist
+Infuse With Knowledge: Time and Space|MetaPhysicist
+Infuse With Life|Doctor
+Inhibit Motion|Bureaucrat
+Initiate Shadowland Recall|Engineer
+Inject Poison|Agent
+Inject Venom|Agent
+Inner Peace, Outward Rage|MartialArtist
+Insidious Beguilement|Bureaucrat
+Insolvency|Trader
+Instantaneous Encoding|Fixer
+Instill With Enduring Wrath|MetaPhysicist
+Instill With Ferocious Purpose|MetaPhysicist
+Instill With Fury|MetaPhysicist
+Instill With Malign Intent|MetaPhysicist
+Instill With Rage|MetaPhysicist
+Instill With Righteous Frenzy|MetaPhysicist
+Instill With Terrible Anger|MetaPhysicist
+Instinctive Control|Doctor
+Insurance Hack|Fixer
+Intense Agglutinative Nanoweb|Fixer
+Intense Gravity Bindings|Fixer
+Intense Micro Entanglement|Fixer
+Intense Nano Bindings|Fixer
+Intense Nano Net|Fixer
+Intense Personal Entanglement|Fixer
+Intense Targetted Nanoweb|Fixer
+Intensify fight (Team)|Soldier
+Interlocking Barbs|Adventurer
+Internal Combustion|NanoTechnician
+Internal Decomposition|Doctor
+Internal Focus|MetaPhysicist
+Internal Renewal|Doctor
+Intricate Repairs|Engineer
+Intrinsic Dissipation|Shade
+Introspective Engagement|Bureaucrat
+Intrusive Aura Cancellation|Engineer
+Intrusive Aura of Binding|Engineer
+Intrusive Aura of Entanglement|Engineer
+Intrusive Aura of Malaise|Engineer
+Intrusive Aura of Sloth|Engineer
+Intrusive Aura of the Humble Servant|Engineer
+Intrusive Insult|Soldier
+Invasive Distributed Entanglement|Fixer
+Invasive Micro Entanglement|Fixer
+Invasive Presence|NanoTechnician
+Inveigle Support|Bureaucrat
+Invigorate Outfit (Team)|Trader
+Invocation of the Phoenix|Adventurer
+Ion Stream|NanoTechnician
+Irebringer|Enforcer
+Iron Circle|Doctor
+Iron Fist|MartialArtist
+Irresistible Health Haggler|Trader
+Isochronal Sloughing Assault Shield|Engineer
+Isochronal Sloughing Combat Field|Engineer
+Isochronal Sloughing Defensive Shield|Engineer
+Isochronal Sloughing Protective Barrier|Engineer
+Isotope Deluge|NanoTechnician
+Isotope Waves|NanoTechnician
+Izgimmer's Celestial Fury|NanoTechnician
+Izgimmer's Celestial Implosion|NanoTechnician
+Izgimmer's Contagion|NanoTechnician
+Izgimmer's Corrosive Tear|NanoTechnician
+Izgimmer's Defilement of Being|NanoTechnician
+Izgimmer's Double|NanoTechnician
+Izgimmer's Enveloping Flame|NanoTechnician
+Izgimmer's Frosty Welcome|NanoTechnician
+Izgimmer's Gelid Caress|NanoTechnician
+Izgimmer's Hippocampal Augmentor|NanoTechnician
+Izgimmer's Inferno|NanoTechnician
+Izgimmer's Infinite Slicer|NanoTechnician
+Izgimmer's Interstellar Chill|NanoTechnician
+Izgimmer's Last Word|NanoTechnician
+Izgimmer's Little Nuke|NanoTechnician
+Izgimmer's Malignant Declaration|NanoTechnician
+Izgimmer's Mockery|NanoTechnician
+Izgimmer's Obfuscated Recompiler|NanoTechnician
+Izgimmer's Positronic Annihilation|NanoTechnician
+Izgimmer's Quasar Flicker|NanoTechnician
+Izgimmer's Transposed Restraints|NanoTechnician
+Izgimmer's Triple|NanoTechnician
+Izgimmer's Ultimatum|NanoTechnician
+Izgimmer's Wealth|NanoTechnician
+Jacket of Blades|Adventurer
+Jail Break|Agent
+Jamming Tower|Engineer
+Jarring Shock|Agent
+Jobe Cataclysm|NanoTechnician
+Jobe Double|NanoTechnician
+Jobe Nano Libraries|NanoTechnician
+Jobe Triple|NanoTechnician
+Journeyman: Electrical Engineering|Trader
+Journeyman: Field Quantum Physics|Trader
+Journeyman: Mechanical Engineer|Trader
+Journeyman: Pharmaceutical|Trader
+Journeyman: Weapon Smithing|Trader
+Judgement Bringer|Keeper
+Junior Last Minute Negotiations|Bureaucrat
+Jury-rigged NCU Analyzer|Fixer
+Kamikaze Robot I|Engineer
+Kamikaze Robot II|Engineer
+Karma Harvest|Fixer
+Keep clear of me|Soldier
+Keeper's Edge|Keeper
+Kel's Neutronium Plaything|NanoTechnician
+Kick of the Phantom|Shade
+Kicker of Kell|NanoTechnician
+Kin of Tarasque|Adventurer
+Kiss of the Vampire|Shade
+Kitchen-sink Surgery|Fixer
+Knock of the Poltergeist|Shade
+Knowledge of Inferno|Adventurer
+Knowledge of The End|Adventurer
+Kyudo|MartialArtist
+LR Energy Weapon Mastery|Soldier
+Laser Surgery|Soldier
+Last Minute Adjustments|MartialArtist
+Last Minute Negotiations|Bureaucrat
+Lasting Heal|Doctor
+Lasting Life|Fixer
+Lasting Ultimatum|Fixer
+Layered Protection|NanoTechnician
+Leader of the Pack|Adventurer
+Leech Grid Vector|Fixer
+Leech Grid Vector (Team)|Fixer
+Leet Friend|Adventurer
+Leetas Friend|Adventurer
+Legions of the Eyeblighter|NanoTechnician
+Leisurely Interrogation|Agent
+Lend Nano: 100|Trader
+Lend Nano: 1000|Trader
+Lend Nano: 250|Trader
+Lend Nano: 50|Trader
+Lend Nano: 500|Trader
+Lesser Absorption Shield|Soldier
+Lesser Anatomy Lesson|Agent
+Lesser Android|Engineer
+Lesser Automaton|Engineer
+Lesser Bane of the Living|NanoTechnician
+Lesser Beneficial Scourge|MetaPhysicist
+Lesser Blizzard of Red Tape|Bureaucrat
+Lesser Bloom of Health|Doctor
+Lesser Cellular Grafting|Doctor
+Lesser Charismatic Rapture|Bureaucrat
+Lesser Circle of Renewal|Doctor
+Lesser Combat Barrier|Soldier
+Lesser Conductive Spike|Engineer
+Lesser Coronet of Frost|NanoTechnician
+Lesser Corporate Insurance Policy|Bureaucrat
+Lesser Corporate Protection|Trader
+Lesser Death's Knocking|Agent
+Lesser Defensive Screen|Engineer
+Lesser Deflection Shield|Soldier
+Lesser Deflection Shield (Extended)|Soldier
+Lesser Delay Pursuers|Agent
+Lesser Delay the Inevitable|Agent
+Lesser Delayed Health Payment|Trader
+Lesser Deranged Mindreaver|MetaPhysicist
+Lesser Detain Customer|Trader
+Lesser Distracting Sphere|MetaPhysicist
+Lesser Embrace of Greed|Trader
+Lesser Encircle With Blades|NanoTechnician
+Lesser Energize Shell|Engineer
+Lesser Enforced Sloth|Bureaucrat
+Lesser Enmity Personification|MetaPhysicist
+Lesser Exoskeleton Pulse|Bureaucrat
+Lesser Eyeblighter|NanoTechnician
+Lesser Fear of Attention|Bureaucrat
+Lesser Force Field|Engineer
+Lesser Frenzy Embodiment|MetaPhysicist
+Lesser Fury Externalization|MetaPhysicist
+Lesser Gladiatorbot|Engineer
+Lesser Guardbot|Engineer
+Lesser Harmonic Cocoon|Engineer
+Lesser Healing Touch|MartialArtist
+Lesser Health Freeloader|Trader
+Lesser Health Funnel|Trader
+Lesser Health Plunder|Trader
+Lesser Hold Victim|Agent
+Lesser Hostility Scourge|MetaPhysicist
+Lesser Illusory Paralysis|Bureaucrat
+Lesser Industrial Sabotage|Trader
+Lesser Insult|Soldier
+Lesser Lick Wounds|Adventurer
+Lesser Miniaturization|Engineer
+Lesser Muscle Atrophy|Doctor
+Lesser Musculature Command|Bureaucrat
+Lesser Mysterious Causes|Agent
+Lesser Nanite Robot Protection|Bureaucrat
+Lesser Nano Bandage|Doctor
+Lesser Nano Boost|Fixer
+Lesser Nano Net|Fixer
+Lesser Nano Surgery|Doctor
+Lesser Nanobot Defense|Trader
+Lesser Net Cast Wide|Fixer
+Lesser Paralyze with Indecision|Agent
+Lesser Pheromone Control|Bureaucrat
+Lesser Polarized Screening|Engineer
+Lesser Policy Payout|Doctor
+Lesser Predator|Agent
+Lesser Prolong Encounter|Fixer
+Lesser Protective Field|Engineer
+Lesser RNA Reaper|NanoTechnician
+Lesser Rage Materialization|MetaPhysicist
+Lesser Reflective Field|Soldier
+Lesser Reflective Field (Extended)|Soldier
+Lesser Restore to Health|Adventurer
+Lesser Retaliatory Barrier|Engineer
+Lesser Shen Protection|MartialArtist
+Lesser Shielding Barrier|Engineer
+Lesser Slobber Wounds|Adventurer
+Lesser Software Hacking Shielding|Engineer
+Lesser Stumbling Steps|Bureaucrat
+Lesser Suppressor|Fixer
+Lesser Suspicious Death|Agent
+Lesser Warbot|Engineer
+Lesser Warmachine|Engineer
+Lesser Weighty Announcement|Bureaucrat
+Lesser Wilderness Protection|Adventurer
+Lesser Wrath Incarnation|MetaPhysicist
+Lick Wounds|Adventurer
+Lick of Fire|Enforcer
+Lick of the Pest|NanoTechnician
+Lien's Crystalizer|MetaPhysicist
+Life Balm|Doctor
+Life Bond|Fixer
+Life Channeler|Doctor
+Life Reinforcement|Doctor
+Lifebane Modification|Fixer
+Lifecure|Adventurer
+Lifegiving Elixir|Doctor
+Light of Life|Adventurer
+Lightning Shield|Enforcer
+Lightning Strike|NanoTechnician
+Lightning's Child|Adventurer
+Limbo Mastery|MartialArtist
+Limited Administrator-Droid|Bureaucrat
+Limited Aide-Droid|Bureaucrat
+Limited Assistant-Droid|Bureaucrat
+Limited Attendant-Droid|Bureaucrat
+Limited Bodyguard|Bureaucrat
+Limited Grid Jump|Fixer
+Limited Grid Jump (Team)|Fixer
+Limited Helper-bot|Bureaucrat
+Limited Minion|Bureaucrat
+Limited Nano Reaper|Doctor
+Limited Secretary-Droid|Bureaucrat
+Limited Shrapnel Spray|NanoTechnician
+Limited Worker-Droid|Bureaucrat
+Line of Credit|Trader
+Linear Acceleration|NanoTechnician
+Link Nano Master|Trader
+Liquefying Sphere|NanoTechnician
+Liquidation|Trader
+Living Codex of Izgimmer|NanoTechnician
+Living Embalming|Bureaucrat
+Localized Dimensional Inversion|NanoTechnician
+Lossy Health Freeloader|Trader
+Lossy Health Funnel|Trader
+Lossy Health Plunder|Trader
+Lotus on Water|MartialArtist
+Luck's Capricious Consequence|Fixer
+Luck's Fickle Fate|Fixer
+Luck's Improved Capricious Consequence|Fixer
+Luck's Lost Twin|Fixer
+Lull Wrath|MetaPhysicist
+Lupus Oculus|Adventurer
+Lure of the Pincushion|Adventurer
+Maestro: Electrical Engineering|Trader
+Maestro: Field Quantum Physics|Trader
+Maestro: Mechanical Engineering|Trader
+Maestro: Pharmaceutical|Trader
+Maestro: Weapon Smithing|Trader
+Magma Coating|Adventurer
+Major Armor Distributor|Trader
+Major Chemical Burn|NanoTechnician
+Major Deflection Shield|Soldier
+Major Deflection Shield (Extended)|Soldier
+Major Delayed Health Payment|Trader
+Major Health Freeloader|Trader
+Major Health Funnel|Trader
+Major Health Graft|Doctor
+Major Health Plunder|Trader
+Major Nano Augmentation|Agent
+Major Reflective Field|Soldier
+Major Reflective Field (Extended)|Soldier
+Major Shen Protection|MartialArtist
+Major Suppressor|Fixer
+Major Wilderness Protection|Adventurer
+Make Off|Agent
+Makeshift Bandaging|Adventurer
+Malaise of Desire|Bureaucrat
+Malaise of Emotion|Bureaucrat
+Malaise of Fervor|Bureaucrat
+Malaise of Motivation|Bureaucrat
+Malaise of Passion|Bureaucrat
+Malign Devourer|NanoTechnician
+Mar Defense|Trader
+Marauder M-45|Engineer
+Margin Call|Trader
+Mark of Danger|MartialArtist
+Mark of Peril|MartialArtist
+Mark of Risk|MartialArtist
+Martial Arts Mastery|MartialArtist
+Mass Claw Eyes|NanoTechnician
+Mass Cornea Attack|NanoTechnician
+Mass Daze|Bureaucrat
+Mass Gravity Bindings|Fixer
+Mass Illusory Paralysis|Bureaucrat
+Mass Layoffs|Bureaucrat
+Mass Pronounce Blindness|NanoTechnician
+Mastablasta's Cataclysm|NanoTechnician
+Master Escapologist|Fixer
+Master Piercer|Shade
+Master's Repairs|Engineer
+Masterly Health Haggler|Trader
+MatCrea Mastery|MetaPhysicist
+MatMet Mastery|MetaPhysicist
+Meatshield|Enforcer
+Mechanical Engineering Knowledge|Engineer
+Mechanical Engineering Mastery|Engineer
+Mechanized Reflect Shield|Engineer
+Medic's Call|Doctor
+Medic's Respite|Doctor
+Medical Claim|Fixer
+Medical Response|Doctor
+Medical Sequencer|Doctor
+Meditate on an Autumn Leaf|MartialArtist
+Meld With Background|Agent
+Meld With Grid Stream|Fixer
+Mental Switcheroo|Trader
+Mephitic Ichor|NanoTechnician
+Mesmerization Construct Empowerment|MetaPhysicist
+Meson Blast|NanoTechnician
+Meta-Dioxin Spray|NanoTechnician
+Metabolic Disassembly|Doctor
+Metabolism Booster|Doctor
+Metaing's Improved Glacial Lance|MetaPhysicist
+Metaing's Improved Mind Quake|MetaPhysicist
+Metal Barrage|Soldier
+Metal Rain|Soldier
+Metal Storm|Soldier
+Metal Stream|Soldier
+Metal Strike|Soldier
+Micro Flechette|NanoTechnician
+Micro Flechette Swarm|NanoTechnician
+Microblade Whirlwind|NanoTechnician
+Mighty Challenger to Behemoth|Enforcer
+Mighty Challenger to Colossus|Enforcer
+Mighty Challenger to Cyclops|Enforcer
+Mighty Challenger to Gargantua|Enforcer
+Mighty Challenger to Leviathan|Enforcer
+Mighty Challenger to Titan|Enforcer
+Mild Toxic Spill|NanoTechnician
+Military-Grade Marauder M-45|Engineer
+Military-Grade Predator M-30|Engineer
+Military-Grade Warbot|Engineer
+Military-Grade Warmachine|Engineer
+Mimic Profession: Adventurer|Agent
+Mimic Profession: Bureaucrat|Agent
+Mimic Profession: Doctor|Agent
+Mimic Profession: Enforcer|Agent
+Mimic Profession: Engineer|Agent
+Mimic Profession: Fixer|Agent
+Mimic Profession: Martial Artist|Agent
+Mimic Profession: Meta-Physicist|Agent
+Mimic Profession: Nanotechnician|Agent
+Mimic Profession: Soldier|Agent
+Mimic Profession: Trader|Agent
+Mind Banshee|MetaPhysicist
+Mind Howl|MetaPhysicist
+Mind Quake|MetaPhysicist
+Mind Scream|MetaPhysicist
+Miniaturization|Engineer
+Minor Absorption Shield|Soldier
+Minor Balm|Doctor
+Minor Bane|NanoTechnician
+Minor Combat Barrier|Soldier
+Minor Consuming Toxin|Doctor
+Minor Deflection Shield|Soldier
+Minor Deflection Shield (Extended)|Soldier
+Minor Delayed Health Payment|Trader
+Minor Exoskeleton Pulse|Bureaucrat
+Minor Harmonic Cocoon|Engineer
+Minor Health Freeloader|Trader
+Minor Health Funnel|Trader
+Minor Health Plunder|Trader
+Minor Insult|Soldier
+Minor Lick Wounds|Adventurer
+Minor NCU Crash|Fixer
+Minor Nanobot Defense|Trader
+Minor Reflective Field|Soldier
+Minor Reflective Field (Extended)|Soldier
+Minor Shen Protection|MartialArtist
+Minor Team Healing|Doctor
+Minor Team Purification|Doctor
+Minor Toxic Barb|NanoTechnician
+Minor Toxic Field|NanoTechnician
+Minor Wilderness Protection|Adventurer
+Misdiagnosis|Adventurer
+Misleading conduct|MartialArtist
+Mocham's Gift: BioMet|MetaPhysicist
+Mocham's Gift: MatCrea|MetaPhysicist
+Mocham's Gift: MatMet|MetaPhysicist
+Mocham's Gift: PsyMod|MetaPhysicist
+Mocham's Gift: SenseImp|MetaPhysicist
+Mocham's Gift: SpaceTime|MetaPhysicist
+Mocham's Neural Interface-Web|MetaPhysicist
+Modulate Manifestation|MetaPhysicist
+Molecular Deconstruction|NanoTechnician
+Molecular Flechettes|NanoTechnician
+Molecular Rejuvenation|Doctor
+Molecule Lance|NanoTechnician
+Momentum Impaler|NanoTechnician
+Mongo Bash!|Enforcer
+Mongo Crush!|Enforcer
+Mongo DeCrush|Enforcer
+Mongo Slam!|Enforcer
+Mongo Smash!|Enforcer
+Mongo's Gargantua|Enforcer
+Mongo's Mega Leviathan|Enforcer
+Mongo's Mighty Colossus|Enforcer
+Mongo's Ultra Behemoth|Enforcer
+Mongo's Ultra Improved Behemoth|Enforcer
+Monitor Aggression Subsystem|Engineer
+Monitor Combat Array|Engineer
+Monofilament Cat-O'Nine-Tails|Bureaucrat
+Monofilament Scourger|Bureaucrat
+Monofilament Whip|Bureaucrat
+Monomolecular Skin|MartialArtist
+Moonbeam|Adventurer
+Morgue Longings|Doctor
+Motivational Speech: Assassin's Focus|Bureaucrat
+Motivational Speech: Bravery Overcomes|Bureaucrat
+Motivational Speech: Glorious Leader|Bureaucrat
+Motivational Speech: Heroic Measures|Bureaucrat
+Motivational Speech: Implement Through Iteration|Bureaucrat
+Motivational Speech: Improved Heroic Measures|Bureaucrat
+Motivational Speech: Improvise and Adapt|Bureaucrat
+Motivational Speech: Lead From The Front|Bureaucrat
+Motivational Speech: Only the Paranoid Will Survive!|Bureaucrat
+Motivational Speech: Opportunity Knocks|Bureaucrat
+Motivational Speech: Organizational Opportunitites|Bureaucrat
+Motivational Speech: Triumphant Pose|Bureaucrat
+Mud Slinger|Bureaucrat
+Muddled Psyche|Bureaucrat
+Mugger|Shade
+Muscle Atrophy|Doctor
+Muscle Booster|MartialArtist
+Muscle Stim|MartialArtist
+Musculature Command|Bureaucrat
+Mutagenic Catalyser|Doctor
+Mutagenic Contagion|Doctor
+Mutagenic Contamination|Doctor
+Mutagenic Pestilence|Doctor
+Mutagenic Venom|Doctor
+My Brain For Your Brain|Trader
+My Way|Bureaucrat
+Mysterious Causes|Agent
+NCU Compressor|Fixer
+NCU Crash|Fixer
+Nanite Advanced Red Tape|Bureaucrat
+Nanite Enhanced Mutagenic Compound|Doctor
+Nanite Enhanced Mutagenic Plague|Doctor
+Nanite Enhanced Nano Shutdown|MetaPhysicist
+Nanite Robot Protection|Bureaucrat
+Nano Augmentation|Agent
+Nano Bandage|Doctor
+Nano Boost|Fixer
+Nano Cauterization|Fixer
+Nano Cloud Supplement|NanoTechnician
+Nano Contagion|NanoTechnician
+Nano Division|MetaPhysicist
+Nano Net|Fixer
+Nano Reaper|Doctor
+Nano Repulsor|Doctor
+Nano Shutdown|MetaPhysicist
+Nano Surgery|Doctor
+Nanoblade Cloud|NanoTechnician
+Nanobot Defense|Trader
+Nanobot Shelter|NanoTechnician
+Nanobot Shielding|NanoTechnician
+Natural Cure|Adventurer
+Natural Remedy|Adventurer
+Nature's Blessing|Adventurer
+Negotiate for Freedom|Bureaucrat
+Nest of Vipers|Adventurer
+Net Cast Wide|Fixer
+Neural Interfaced Augmentation Cloud|Fixer
+Neural Stunner|NanoTechnician
+Neuron-Notum Interface|MetaPhysicist
+Neuronal Stimulator|NanoTechnician
+Neutron Spiral|NanoTechnician
+No Escape Possible|Fixer
+Normalised Improved Red Tape|Bureaucrat
+Notum Attunement|MetaPhysicist
+Notum Cataclysm|NanoTechnician
+Notum Double|NanoTechnician
+Notum Overload|NanoTechnician
+Notum Rejection|MetaPhysicist
+Notum Triple|NanoTechnician
+Novice Health Haggler|Trader
+Null Space Disruptor|Engineer
+Nullity Sphere|NanoTechnician
+Nullity Sphere MK II|NanoTechnician
+Numbing Shock|Agent
+Obvious Victim|Soldier
+Odin's Missing Eye|MetaPhysicist
+Odin's Other Eye|MetaPhysicist
+Offensive Insult|Soldier
+Offensive Steamroller|Soldier
+Ol' Faithful|NanoTechnician
+Omni-Med Incursion|Fixer
+Omni-Pol Pacification Logic System|Engineer
+On-The-Fly Compression|NanoTechnician
+One Foot in the Grave|Soldier
+One Mind, One Purpose|MetaPhysicist
+One With Nature|Adventurer
+One-More-Hit Healing|Soldier
+Only You, Only Me|Soldier
+Open Wound|NanoTechnician
+Oppressive Weight of the Guilty|Bureaucrat
+Optimized Perceiver|NanoTechnician
+Overdraught|Trader
+Overdrive Aggression Subsystem|Engineer
+Overdrive Combat Array|Engineer
+Overwhelming Storm|NanoTechnician
+Pack Hunter|Adventurer
+Paralyze with Indecision|Agent
+Parasitic Affliction|Doctor
+Parasitic Horde|Doctor
+Partial Deflection Shield|Soldier
+Partial Deflection Shield (Extended)|Soldier
+Partial Diamond Skin|MartialArtist
+Partial Grid Jump|Fixer
+Partial Grid Jump (Team)|Fixer
+Partial Gridspace Inversion|NanoTechnician
+Partial Harmonic Cocoon|Engineer
+Partial Reflective Field|Soldier
+Partial Reflective Field (Extended)|Soldier
+Particle Accelerator|NanoTechnician
+Particle Flare|NanoTechnician
+Particle Shower|NanoTechnician
+Passage for One|Trader
+Passive Distributed Entanglement|Fixer
+Passive Micro Entanglement|Fixer
+Patch Wounds|Adventurer
+Patchwork Android|Engineer
+Patchwork Automaton|Engineer
+Patchwork Gladiatorbot|Engineer
+Patchwork Guardbot|Engineer
+Patchwork Warbot|Engineer
+Patchwork Warmachine|Engineer
+Patchy Delayed Health Payment|Trader
+Patchy Health Freeloader|Trader
+Patchy Health Funnel|Trader
+Patchy Health Plunder|Trader
+Patchy Repairs|Engineer
+Path of Shadow|Fixer
+Path of The Executioner|Agent
+Pawnbroker's Armor|Trader
+Pay Bail|Bureaucrat
+Pay the Pauper|Trader
+Peaceful Intentions|NanoTechnician
+Peaceful Midnight Sky|MartialArtist
+Peer Pressure|Bureaucrat
+Peerless Lick Wounds|Adventurer
+Pellet of Fire|NanoTechnician
+Perfect Android|Engineer
+Perfected Absorption Shield|Soldier
+Perfected Automaton|Engineer
+Perfected Combat Barrier|Soldier
+Perfected Defensive Screen|Engineer
+Perfected Gladiatorbot|Engineer
+Perfected Guardbot|Engineer
+Perfected Protective Field|Engineer
+Perfected Shielding Barrier|Engineer
+Perfected Warbot|Engineer
+Perfected Warmachine|Engineer
+Performance Review|Bureaucrat
+Periodic Checkup|Doctor
+Perpetuating Nano Reaper|Doctor
+Persistent Damage Amplifier|Soldier
+Persistent Damage Multiplier|Soldier
+Personal Blizzard|Adventurer
+Personal Grid Beacon|Trader
+Personal Healing|MartialArtist
+Personal Magnetism|Bureaucrat
+Personal Notum Harvester|NanoTechnician
+Perversion of Resolve|MetaPhysicist
+Perversion of Will|MetaPhysicist
+Pestilential Stream|NanoTechnician
+Petals on Water|MartialArtist
+Petition Freedom|Bureaucrat
+Phalanx|Soldier
+Phantom Weight|Doctor
+Pharmaceuticals Knowledge|Engineer
+Pharmaceuticals Mastery|Engineer
+Pheromone Control|Bureaucrat
+Philosopher's Stone|Engineer
+Phoenix Swarm|NanoTechnician
+Phosphor Torch|NanoTechnician
+Photon Deflector|NanoTechnician
+Physical Dominance|Enforcer
+Physician's Skill|Doctor
+Pierce Nerves|Soldier
+Piercing Gash|Shade
+Piercing Tooth|Shade
+Pillar of Spikes|Engineer
+Pink Slip|Bureaucrat
+Pious Sanctifier|Keeper
+Pistol Mastery|Soldier
+Plagiarize Notum|Trader
+Plasma Lights|NanoTechnician
+Plasma Shield|Engineer
+Plasma Swirl|NanoTechnician
+Playful Cub|Adventurer
+Playful Cub (Other)|Adventurer
+Playful Cub (Team)|Adventurer
+Plunder Skills|Trader
+Plunder Skills (Advanced)|Trader
+Plunder Skills (Average)|Trader
+Plunder Skills (Lesser)|Trader
+Plunder Skills (Major)|Trader
+Plunder Skills (Minor)|Trader
+Plunder Skills (Nanite Enhanced)|Trader
+Plunder Skills (Weak)|Trader
+Plunder/Divest Skills (Nanite Improved)|Trader
+Poison Missile|NanoTechnician
+Poison Modification|Fixer
+Poison Stingers|Enforcer
+Poisonous bite|Adventurer
+Poke Eyes|NanoTechnician
+Polarized Screening|Engineer
+Policy Skim|Fixer
+Porcupine Barrier|Adventurer
+Positive Life Reinforcement|Doctor
+Positron Stream|NanoTechnician
+Positronic Fluctuation|NanoTechnician
+Postpone Encounter|Agent
+Power Burst|Soldier
+Power Surge|NanoTechnician
+Power Volley|Soldier
+Power of the Thunderhead|Enforcer
+Powerful Blizzard of Red Tape|Bureaucrat
+Practiced Health Haggler|Trader
+Practiced Stitching|Adventurer
+Pre-Combat Conditioning|Doctor
+Pre-Nullity Sphere|Soldier
+Precognition|Soldier
+Predator M-30|Engineer
+Preeminent Health Haggler|Trader
+Premium Cover|Doctor
+Premium Delayed Health Payment|Trader
+Presence of the Dominator|MartialArtist
+Presence of the Master|MartialArtist
+Presence of the Overlord|MartialArtist
+Prey On Fear|Bureaucrat
+Primal Dissipation|Shade
+Primal Fear|Bureaucrat
+Primal Hatred|Enforcer
+Primitive Dissipation|Shade
+Primitive Nano Gorger|Doctor
+Primitive Viral Agent|Doctor
+Primordial Dissipation|Shade
+Probe of Death|Shade
+Prodigious Strength|Enforcer
+Professional Care|Doctor
+Professional Health Haggler|Trader
+Proficient Health Haggler|Trader
+Profit Preoccupation|Trader
+Profiteer's Grip|Trader
+Program Override|Fixer
+Project Calm|NanoTechnician
+Project Thought Patterns|Trader
+Projectile Magnet|Agent
+Prolong Encounter|Fixer
+Prolonged Interrogation|Agent
+Pronounce Blindness|NanoTechnician
+Pronouncement of Greatness|Adventurer
+Pronouncement of Greatness (Other)|Adventurer
+Protection of the Storm|Adventurer
+Protective Field|Engineer
+Protein Breakdown|Doctor
+Prowler|Shade
+PsyMod Mastery|MetaPhysicist
+Puissant Captivating Speech|Bureaucrat
+Puissant Illusionary Paralysis|Bureaucrat
+Puissant Inhibit Motion|Bureaucrat
+Puissant Momentary Daze|Bureaucrat
+Puissant Musculature Command|Bureaucrat
+Puissant Restrict Movement|Bureaucrat
+Puissant Total Muscular Command|Bureaucrat
+Puissant Void Inertia|Bureaucrat
+Puncture of the Tarasque|Shade
+Punishing Blade|Bureaucrat
+Purify Outfit (Team)|Trader
+Pursuade for Freedom|Bureaucrat
+Put up or Shut Up|Enforcer
+Pyramid Marketing|Trader
+Quality Delayed Health Payment|Trader
+Quantum Uncertainty|Trader
+Quantum Wings|MetaPhysicist
+Quark Collapse|NanoTechnician
+QuarkStor NCU Core|Fixer
+Quell Anger|MetaPhysicist
+Quench Anger|MetaPhysicist
+Quick Fix|Engineer
+Quick Weapon|Engineer
+Quicken Reflexes|Keeper
+Quickshot|Soldier
+Quintessence of Incapacitation|Shade
+Quintessence of Paralyzation|Shade
+Quintessence of Petrification|Shade
+Quintessence of Stupefication|Shade
+Quintessence of Transfixion|Shade
+Quivering Wreck|Enforcer
+RNA Reaper|NanoTechnician
+Rabies|Bureaucrat
+Radiant Heal|Doctor
+Radiation Pulse|NanoTechnician
+Radiation Scour|NanoTechnician
+Radioactive Cloud|NanoTechnician
+Rage Abolishment|MetaPhysicist
+Rage Eradication|MetaPhysicist
+Rage Materialization|MetaPhysicist
+Rage Suppression|MetaPhysicist
+Ragebringer|Enforcer
+Rampage of Juggernaut|Enforcer
+Rampage of the Berserker|Enforcer
+Rampant Decay|Doctor
+Rancorous Enmity|Enforcer
+Ransack Skills|Trader
+Ransack Skills (Advanced)|Trader
+Ransack Skills (Average)|Trader
+Ransack Skills (Lesser)|Trader
+Ransack Skills (Major)|Trader
+Ransack Skills (Minor)|Trader
+Ransack Skills (Weak)|Trader
+Rapid Palsy|Doctor
+Rapid Weapon|Engineer
+Razor Barrier|Adventurer
+Re-Matrix Grid Vector|Fixer
+Reactivated Wardroid|Engineer
+Reactive Deflection Shield|Soldier
+Reactive Deflection Shield (Extended)|Soldier
+Reactive Harmonic Cocoon|Engineer
+Reactive Reflective Field|Soldier
+Reactive Reflective Field (Extended)|Soldier
+Reactive Resonance Field|Soldier
+Reaper|Keeper
+Rebinding Sutures|Fixer
+Rebuild Casing|Engineer
+Reckless Digitization|Fixer
+Recompiling Memory Analyzer|Fixer
+Recondition Parts|Engineer
+Recuperative Respite|Doctor
+Recurrent Remedy|Doctor
+Red Tape|Bureaucrat
+Redeem AC|Trader
+Redeem AC (Advanced)|Trader
+Redeem AC (Greater)|Trader
+Redeem AC (Lesser)|Trader
+Redeem AC (Major)|Trader
+Redeem AC (Minor)|Trader
+Redeem AC (Weak)|Trader
+Redirect Neural Signals|Trader
+Reduce Inertia|MartialArtist
+Refined Nano Contagion|Doctor
+Reflective Field|Soldier
+Reflective Field (Extended)|Soldier
+Refresh Outfit (Team)|Trader
+Reinforce fight (Team)|Soldier
+Relation to Cerberus|Adventurer
+Relation to Cerberus (Other)|Adventurer
+Relation to Cerberus (Team)|Adventurer
+Relentless Slayer|Trader
+Relief From Pain|Doctor
+Relieve Stress|Agent
+Relieving Salve|Fixer
+Remedy Dissemination|Doctor
+Remedy Inhibitor|Soldier
+Remembered Pain|Bureaucrat
+Rend Bonds|Fixer
+Rend Bonds (Other)|Fixer
+Rend Constraints|NanoTechnician
+Rend Flesh|NanoTechnician
+Renewal of Being|Doctor
+Renounce Anger|Agent
+Repeated Cellular Trauma|Doctor
+Request Freedom|Bureaucrat
+Reroute Impediments|Trader
+Resonance Blast|NanoTechnician
+Restock Ammo (Level OP-C)|Fixer
+Restock Ammo (Level OP-CC)|Fixer
+Restock Ammo (Level OP-I)|Fixer
+Restock Ammo (Level OP-II)|Fixer
+Restock Ammo (Level OP-X)|Fixer
+Restock Ammo (Level OP-XX)|Fixer
+Restorative Boost|Doctor
+Restorative Influx|Doctor
+Restore Essence|MartialArtist
+Restore Outfit (Team)|Trader
+Restore Vitality|Adventurer
+Restore to Health|Adventurer
+Restrain Enthusiasm|NanoTechnician
+Restrict Movement|Bureaucrat
+Retaliatory Barrier|Engineer
+Retaliatory Venom Spit|Adventurer
+Retool NCU|Fixer
+Retribution of the Aesir|Adventurer
+Return Attack|MartialArtist
+Revenge of the Valkyrie|Adventurer
+Reverential Sanctifier|Keeper
+Revivification|Doctor
+Revoke Movement License|Bureaucrat
+Ride The Grid|Fixer
+Riding Shotgun|Trader
+Rifle Mastery|Soldier
+Rigid Stance|Bureaucrat
+Riot Control|Soldier
+Ripples on the Calm Pond|MartialArtist
+Ritualistic Blow|Shade
+Ritualistic Caress|Shade
+Ritualistic Embrace|Shade
+Ritualistic Grasp|Shade
+Ritualistic Touch|Shade
+Roar of Aggression|Enforcer
+Robust Treatment|Adventurer
+Rough Stitching|Adventurer
+Rouse Outfit (Team)|Trader
+Rubber Skin|MartialArtist
+Rudimentary Dissipation|Shade
+Rudimentary Humidity Extractor|NanoTechnician
+Ruinous Grid Jump|Fixer
+Rule of One|Bureaucrat
+Rumble of Distant Thunder|MartialArtist
+Run-Time Recompiler|NanoTechnician
+Ruse of Taren - Phase 2|Agent
+Ruse of Taren - Phase 3|Agent
+Ruse of Taren - Phase 4|Agent
+Ruse of Taren: Phase 1|Agent
+Sacrifical Shielding|MetaPhysicist
+Sacrifical power|MetaPhysicist
+Sacrifice Combat pet|MetaPhysicist
+Sacrificial Blow|Shade
+Sacrificial Caress|Shade
+Sacrificial Embrace|Shade
+Sacrificial Grasp|Shade
+Sacrificial Touch|Shade
+Sadness of the Willow|MartialArtist
+Saemus' Crystalizer|MetaPhysicist
+Sainted Sanctifier|Keeper
+Sanctifier|Keeper
+Sawed-Off Kiss|Trader
+Scale Regeneration|Adventurer
+Scale Regrowth|Adventurer
+Scale Renewal|Adventurer
+Scale Repair|Adventurer
+Scatter Bonds|Fixer
+Scatter Bonds (Other)|Fixer
+Screen of Blades|Enforcer
+Scrounger|Shade
+Scythe A Virus|Doctor
+Scythe B Virus|Doctor
+Scythe Omega Virus|Doctor
+Scythe gaute test Virus|Doctor
+Searing Agony|NanoTechnician
+Searing Bolt|Bureaucrat
+Searing Circle|NanoTechnician
+Searing Dioxin Shower|NanoTechnician
+Searing Stream|NanoTechnician
+Seed Life|Adventurer
+Seethe With Germs|Doctor
+Seething Resentment|MartialArtist
+Semi-Sentient Android|Engineer
+Semi-Sentient Augmentation Cloud|Fixer
+Semi-Sentient Automaton|Engineer
+Semi-Sentient Gladiatorbot|Engineer
+Semi-Sentient Guardbot|Engineer
+Semi-Sentient Predator M-30|Engineer
+Semi-Sentient Warbot|Engineer
+Semi-Sentient Wardroid|Engineer
+Semi-Sentient Warmachine|Engineer
+Sense Imp Mastery|MetaPhysicist
+Sentient Nano Gorger|Doctor
+Sentient Viral Recoder|Fixer
+Sentinel Ward|Keeper
+Serene Sky|Adventurer
+Shackles of Obediance|Bureaucrat
+Shadow Crown|Agent
+Shadow Filter|Agent
+Shadow Step|Fixer
+Shadow Trail|Fixer
+Shadow in the Night|Shade
+Shadowland Anchor|Engineer
+Shadowland Safeguard|Engineer
+Shadowland Soul Fetter|MetaPhysicist
+Shady Acquisition|Trader
+Shake off me|Soldier
+Sharpen Claws|Adventurer
+Sharpen Dagger|Shade
+Sharpen Instincts|Keeper
+Shatter Bonds|Fixer
+Shatter Bonds (Other)|Fixer
+Shatter Bone|Doctor
+Shatter Chains|Agent
+Shed Anger|MetaPhysicist
+Shen Protection|MartialArtist
+Shield of the Obedient Servant|Engineer
+Shielding Barrier|Engineer
+Shock Absorber|Enforcer
+Shockball|NanoTechnician
+Shockwave Slash|NanoTechnician
+Shower With Lead|Fixer
+Shower With Sludge|NanoTechnician
+Shrapnel Burst|NanoTechnician
+Shroud of Darkness|NanoTechnician
+Shroud of the Grave|NanoTechnician
+Shrug Off Blows|Enforcer
+Shuffle Step|MartialArtist
+Shuffle of the Rogue|Shade
+Shutdown Skills|Trader
+Sickening Shock|Agent
+Sidestep|Keeper
+Sidestep the Blame|Bureaucrat
+Silent Dagger|Shade
+Simple Mind, Simple Pleasures|Trader
+Siphon AC|Trader
+Siphon AC (Advanced)|Trader
+Siphon AC (Greater)|Trader
+Siphon AC (Invasive)|Trader
+Siphon AC (Major)|Trader
+Siphon AC (Minor)|Trader
+Siphon AC (Weak)|Trader
+Siren Call|Bureaucrat
+Skill Wrangler|Trader
+Skill Wrangler (Advanced)|Trader
+Skill Wrangler (Commonplace)|Trader
+Skill Wrangler (Exceptional)|Trader
+Skill Wrangler (Greater)|Trader
+Skill Wrangler (Inferior)|Trader
+Skill Wrangler (Lossy)|Trader
+Skill Wrangler (Major)|Trader
+Skill Wrangler (Minor)|Trader
+Skill Wrangler (Patchy)|Trader
+Skill Wrangler (Premium)|Trader
+Skill Wrangler (Sophisticated)|Trader
+Skill Wrangler (Superb)|Trader
+Skill Wrangler (Superior)|Trader
+Skill Wrangler (Weak)|Trader
+Skill Wrangler Lesser|Trader
+Skill of the Butcher|Enforcer
+Skill of the Guardian|Enforcer
+Skill of the Guillotine|Enforcer
+Skill of the Highlander|Enforcer
+Skill of the Reaper|Enforcer
+Skill of the Savage|Enforcer
+Skill of the Viking|Enforcer
+Skilled Gunslinger|Bureaucrat
+Skilled Health Haggler|Trader
+Skin of the Toad|Adventurer
+Slap of the Zombie|Shade
+Slayerdroid Annihilator|Engineer
+Slayerdroid Guardian|Engineer
+Slayerdroid Protector|Engineer
+Slayerdroid Sentinel|Engineer
+Slayerdroid Transference|Engineer
+Slayerdroid Warden|Engineer
+Sleep|Bureaucrat
+Slime Cascade|NanoTechnician
+Slip Away|Agent
+Slip of Accident|Fixer
+Slip of Idea|Fixer
+Slip of Intent|Fixer
+Slip of Mind|Fixer
+Slip of Will|Fixer
+Slipshod Bandaging|Adventurer
+Slithering Flames|NanoTechnician
+Slobber Wounds|Adventurer
+Sloughing Assault Shield|Engineer
+Sloughing Combat Field|Engineer
+Sloughing Defensive Shield|Engineer
+Sloughing Protective Barrier|Engineer
+Sloughing Protective Field|Engineer
+Sloughing Shielding Field|Engineer
+Slowdown|Enforcer
+Smell of Approaching Rain|MartialArtist
+Smiting Missile|NanoTechnician
+Smiting Missile Mk II|NanoTechnician
+Smuggler Shipment (OP-C)|Fixer
+Smuggler Shipment (OP-CC)|Fixer
+Smuggler Shipment (OP-CLX)|Fixer
+Smuggler Shipment (OP-CLXXX)|Fixer
+Smuggler Shipment (OP-CXL)|Fixer
+Smuggler Shipment (OP-CXX)|Fixer
+Smuggler Shipment (OP-LX)|Fixer
+Smuggler Shipment (OP-LXXX)|Fixer
+Smuggler Shipment (OP-XL)|Fixer
+Smuggler Shipment (OP-XX)|Fixer
+Sneak|Shade
+Sneaking Health Drain|Shade
+Sneaking Terror|Bureaucrat
+Sniper's Bliss|Agent
+Snitch Notum|Trader
+Soft Siren Call|Bureaucrat
+Software Hacking Shielding|Engineer
+Solar Wind|NanoTechnician
+Soldier Clip Junkie|Soldier
+Soleet Friend|Adventurer
+Solicit Freedom|Bureaucrat
+Solicit Support|Bureaucrat
+Soothing Breeze|Adventurer
+Soothing Calm|Bureaucrat
+Sophisticated Delayed Health Payment|Trader
+Sophisticated Health Freeloader|Trader
+Sophisticated Health Funnel|Trader
+Sophisticated Health Plunder|Trader
+Soul of Rubi|MartialArtist
+SpaceTime Mastery|MetaPhysicist
+Spark Shower|NanoTechnician
+Sparking Touch|Adventurer
+Sparkling Field Array|Engineer
+Sparrow Flight|Adventurer
+Sparrow Flight (Other)|Adventurer
+Sparrow Flight (Team)|Adventurer
+Specialist Treatment|Doctor
+Spike Armor|Engineer
+Spike Shield|Engineer
+Spin Nanoweb|Fixer
+Spin Weak Nanoweb|Fixer
+Spine of Jelly|Enforcer
+Spirit Siphon|Shade
+Spite|Enforcer
+Splinter Missile|Bureaucrat
+Spray With Lead|Fixer
+Spreading Health|Doctor
+Stack the Odds|Fixer
+Stare of Cerberus|Adventurer
+Stargasp|NanoTechnician
+Steel Skin|MartialArtist
+Steps of The Executioner|Agent
+Sticky Ground|Trader
+Stifle Rage|MetaPhysicist
+Stinging Missile|NanoTechnician
+Stinging Missile Swarm|NanoTechnician
+Stinging Reminder|Bureaucrat
+Stormedge|Adventurer
+Strength of the Hummingbird|Adventurer
+Strengthen Resolve|Doctor
+Strip Assets|Trader
+Strip Notum|Trader
+Stumbling Steps|Bureaucrat
+Stutter Step|MartialArtist
+Subconscious Guidance|MartialArtist
+Subpoena for Freedom|Bureaucrat
+Subsonic Blast|Bureaucrat
+Successful Health Haggler|Trader
+Succor of Expediuum|MetaPhysicist
+Sudden Affliction|NanoTechnician
+Sudden Chill|NanoTechnician
+Sudden Scare|Bureaucrat
+Summer Rain|MartialArtist
+Summon Biazu the Vile|MetaPhysicist
+Summon Cacodemon|MetaPhysicist
+Summon Demon|MetaPhysicist
+Summon Ettu the Cursed|MetaPhysicist
+Summon Fiend|MetaPhysicist
+Summon Grid Armor Mk I|Fixer
+Summon Grid Armor Mk II|Fixer
+Summon Grid Armor Mk III|Fixer
+Summon Grid Armor Mk IV|Fixer
+Summon Grid Armor Mk V|Fixer
+Summon Lemur|MetaPhysicist
+Summon Shadowweb Spinner MK I|Fixer
+Summon Shadowweb Spinner MK II|Fixer
+Summon Shadowweb Spinner MK III|Fixer
+Summon Shadowweb Spinner MK IV|Fixer
+Summon Shadowweb Spinner MK IX|Fixer
+Summon Shadowweb Spinner MK V|Fixer
+Summon Shadowweb Spinner MK VI|Fixer
+Summon Shadowweb Spinner MK VII|Fixer
+Summon Shadowweb Spinner MK VIII|Fixer
+Summon Shadowweb Spinner MK X|Fixer
+Summon Shadowweb Spinner MK XI|Fixer
+Summon Urolok the Rotten|MetaPhysicist
+Summon Zhok the Abomination|MetaPhysicist
+Summoning of Absuum|MetaPhysicist
+Summoning of Balbuto the Gibberer|MetaPhysicist
+Summoning of Confane|MetaPhysicist
+Summoning of Demenus|MetaPhysicist
+Summoning of Distral|MetaPhysicist
+Summoning of Duoco|MetaPhysicist
+Summoning of Ignatus Mind-Clouder|MetaPhysicist
+Summoning of Tumulten|MetaPhysicist
+Summoning of Yidira|MetaPhysicist
+Sunder Constraints|NanoTechnician
+Sunrise over Pond|MartialArtist
+Superior Absorption Shield|Soldier
+Superior Anger Manifestation|MetaPhysicist
+Superior Bodily Reinforcement|Doctor
+Superior Combat Barrier|Soldier
+Superior Defensive Screen|Engineer
+Superior Delayed Health Payment|Trader
+Superior Dress Wounds|Doctor
+Superior Enmity Personification|MetaPhysicist
+Superior Exoskeleton Pulse|Bureaucrat
+Superior First Aid|Doctor
+Superior Fleeting Immunity|NanoTechnician
+Superior Force Field|Engineer
+Superior Fortify|Enforcer
+Superior Frenzy Embodiment|MetaPhysicist
+Superior Fury Externalization|MetaPhysicist
+Superior Healing|Doctor
+Superior Health Augmentation|Doctor
+Superior Health Pump|Doctor
+Superior Hold Victim|Agent
+Superior Humidity Extractor|NanoTechnician
+Superior Insurance Hack|Fixer
+Superior Lick Wounds|Adventurer
+Superior Life Reinforcement|Doctor
+Superior Malign Devourer|NanoTechnician
+Superior Metabolism Booster|Doctor
+Superior Nano Bandage|Doctor
+Superior Nano Command|NanoTechnician
+Superior Nanobot Shelter|NanoTechnician
+Superior Omni-Med Enhancement|Doctor
+Superior Polarized Screening|Engineer
+Superior Protective Field|Engineer
+Superior Rage Materialization|MetaPhysicist
+Superior Seed Life|Adventurer
+Superior Shielding Barrier|Engineer
+Superior Slobber Wounds|Adventurer
+Superior Team Health Plan|Doctor
+Superior Team Restore Essence|MartialArtist
+Superior Wound Bindings|Doctor
+Superior Wrath Incarnation|MetaPhysicist
+Supervisor-Grade Administrator-Droid|Bureaucrat
+Supervisor-Grade Aide-Droid|Bureaucrat
+Supervisor-Grade Assistant-Droid|Bureaucrat
+Supervisor-Grade Attendant-Droid|Bureaucrat
+Supervisor-Grade Bodyguard|Bureaucrat
+Supervisor-Grade Helper-Droid|Bureaucrat
+Supervisor-Grade Minion|Bureaucrat
+Supervisor-Grade Secretary-Droid|Bureaucrat
+Supervisor-Grade Worker-Droid|Bureaucrat
+Suppressor|Fixer
+Supreme Anger Manifestation|MetaPhysicist
+Supreme Deranged Mindreaver|MetaPhysicist
+Supreme Distracting Sphere|MetaPhysicist
+Supreme Enmity Personification|MetaPhysicist
+Supreme Frenzy Embodiment|MetaPhysicist
+Supreme Fury Externalization|MetaPhysicist
+Supreme Health Haggler|Trader
+Supreme Kyudo|MartialArtist
+Supreme Lick Wounds|Adventurer
+Supreme Rage Materialization|MetaPhysicist
+Supreme Shen Protection|MartialArtist
+Supreme Suppressor|Fixer
+Supreme Wilderness Protection|Adventurer
+Supreme Wrath Incarnation|MetaPhysicist
+Sureshot|Agent
+Surgeon's Touch|Doctor
+Survivability Booster|Doctor
+Survival Aid|Adventurer
+Survival Technique|Adventurer
+Survival of the Fittest|Adventurer
+Survivor's Resilience|Soldier
+Suspicious Death|Agent
+Swap Psyche|Trader
+Sway of Bamboo|MartialArtist
+Swindle Notum|Trader
+Swiss Cheese|Soldier
+Symbol Helper|MetaPhysicist
+Sympathetic Armor Boost|Engineer
+Sympathetic Arms Enhancement|Engineer
+Sympathetic Defensive Screen|Engineer
+Sympathetic Energy Cocoon|Engineer
+Sympathetic Entropy Infusion|Engineer
+Sympathetic Force Field|Engineer
+Sympathetic Fortress Screen|Engineer
+Sympathetic Harmonic Cocoon|Engineer
+Sympathetic Harmonic Field|Engineer
+Sympathetic Plasma Shielding|Engineer
+Sympathetic Protective Field|Engineer
+Sympathetic Reactive Cocoon|Engineer
+Sympathetic Reactive Field|Engineer
+Sympathetic Retaliatory Barrier|Engineer
+Sympathetic Shielding Barrier|Engineer
+Sync Compressor|Fixer
+Synchronized Capacitor Overload|Engineer
+Synchronized Energy Spike|Engineer
+Syndicated Healing|Doctor
+Systolic Equalizer|Fixer
+TESTLIVEITEM: CoT|Agent
+Tailored Cure|Doctor
+Taint of Resolve|MetaPhysicist
+Taint of Will|MetaPhysicist
+Take The Shot|Agent
+Take the Bullet|Bureaucrat
+Talon of the Anun|Enforcer
+Talon of the Dragon|Enforcer
+Talon of the Eagle|Enforcer
+Talon of the Gryphon|Enforcer
+Talon of the Hawk|Enforcer
+Talon of the Roc|Enforcer
+Tap Notum Vein: Adonis|Fixer
+Tap Notum Vein: Elysium|Fixer
+Tap Notum Vein: Inferno|Fixer
+Tap Notum Vein: Nascence|Fixer
+Tap Notum Vein: Penumbra|Fixer
+Tap Notum Vein: Scheol|Fixer
+Targeted Augmentation Cloud|Fixer
+Taunting Glare|Enforcer
+Teachings of Biological Metamorphose|MetaPhysicist
+Teachings of Material Creation|MetaPhysicist
+Teachings of Material Metamorphose|MetaPhysicist
+Teachings of Psychological Modification|MetaPhysicist
+Teachings of Sensory Improvement|MetaPhysicist
+Teachings of Time and Space|MetaPhysicist
+Team Beacon Warp|Engineer
+Team Cellular Rebuild|Doctor
+Team Checkup|Doctor
+Team Compress Wounds|Doctor
+Team Eagle Eye|Adventurer
+Team Empowered Allure of Servitude|Bureaucrat
+Team Empowered Bend Will|Bureaucrat
+Team Empowered Captivated Thoughts|Bureaucrat
+Team Empowered Dominate Psyche|Bureaucrat
+Team Empowered Impose Will|Bureaucrat
+Team Empowered Insidious Beguilement|Bureaucrat
+Team Empowered Inveigle Support|Bureaucrat
+Team Empowered Solicit Support|Bureaucrat
+Team Empowered Temporary Glamor|Bureaucrat
+Team Empowered Total Mental Domination|Bureaucrat
+Team Empowered Voice of Truth|Bureaucrat
+Team Field Dressings|Doctor
+Team Fold Time and Space: Borealis|NanoTechnician
+Team Fold Time and Space: Newland|NanoTechnician
+Team Fold Time and Space: Omni-1|NanoTechnician
+Team Fold Time and Space: Rome|NanoTechnician
+Team Fold Time and Space: Tir|NanoTechnician
+Team Fold Time and Space: West Athen|NanoTechnician
+Team Free Movement|Adventurer
+Team Grid Phreak|Fixer
+Team Healing|Doctor
+Team Healing Aura|MartialArtist
+Team Healing Touch|MartialArtist
+Team Health Plan|Doctor
+Team Improved Life Channeler|Doctor
+Team Nano Bandage|Doctor
+Team Practiced Stitching|Adventurer
+Team Purification|Doctor
+Team Quick Heal|Adventurer
+Team Restore Essence|MartialArtist
+Team Rough Stitching|Adventurer
+Team Skill Wrangler|Trader
+Team Skill Wrangler (Advanced)|Trader
+Team Skill Wrangler (Commonplace)|Trader
+Team Skill Wrangler (Exceptional)|Trader
+Team Skill Wrangler (Greater)|Trader
+Team Skill Wrangler (Lesser)|Trader
+Team Skill Wrangler (Lossy)|Trader
+Team Skill Wrangler (Major)|Trader
+Team Skill Wrangler (Minor)|Trader
+Team Skill Wrangler (Patchy)|Trader
+Team Skill Wrangler (Premium)|Trader
+Team Skill Wrangler (Sophisticated)|Trader
+Team Skill Wrangler (Superior)|Trader
+Team Skill Wrangler (Weak)|Trader
+Team Survival Technique|Adventurer
+Team Terrain Knowledge|Adventurer
+Team Tissue Repair|Doctor
+Team Warp Time and Space: Borealis|NanoTechnician
+Team Warp Time and Space: Newland|NanoTechnician
+Team Warp Time and Space: Omni-1|NanoTechnician
+Team Warp Time and Space: Rome|NanoTechnician
+Team Warp Time and Space: Tir|NanoTechnician
+Team Warp Time and Space: West Athen|NanoTechnician
+Team-Enhanced Deathless Blessing|Doctor
+Tear Constraints|NanoTechnician
+Tear Flesh|NanoTechnician
+Technical Incompetence|Agent
+Temper Wrath|MetaPhysicist
+Temporary Allegiance|Bureaucrat
+Temporary Cellular Enhancement|Doctor
+Temporary Glamor|Bureaucrat
+Terrain Knowledge|Adventurer
+Terror Blast|Bureaucrat
+The Adjudicator's Blade|Keeper
+The Choir Fantastic|Bureaucrat
+The Claim to Freedom|Bureaucrat
+The Great Explorer|Adventurer
+The Power of Three|Soldier
+The Prerogative of Mobility|Bureaucrat
+The Privilege of Speed|Bureaucrat
+The Right to Movement|Bureaucrat
+The Spider's Secret|NanoTechnician
+The Voice of God|Bureaucrat
+The Voice of One|Bureaucrat
+The Voice of Truth|Bureaucrat
+Thicken Skin|Enforcer
+Thorn of the Rose|Adventurer
+Thorough Examination|Doctor
+Thorough Overhaul|Bureaucrat
+Thought Controller|Trader
+Thought Juggler|Trader
+Threat of the Bully|Enforcer
+Thugs Glory|Enforcer
+Thugs Joy|Enforcer
+Thugs Jubilation|Enforcer
+Thunderclap|NanoTechnician
+Thunderous Blow|NanoTechnician
+Tight Embrace|Bureaucrat
+Tired Limbs|Doctor
+Tissue Repair|Doctor
+Titan Physique|Soldier
+Titanium Skin|MartialArtist
+Tjernberg Soothing Adrenaline|Doctor
+Tone of Accord|Keeper
+Tone of Benevolence|Keeper
+Tone of Bliss|Keeper
+Tone of Clarity|Keeper
+Tone of Harmony|Keeper
+Tone of Purity|Keeper
+Tone of Rapport|Keeper
+Tone of Serenity|Keeper
+Tone of Tranquility|Keeper
+Tone of Unity|Keeper
+Toothy Grin|Adventurer
+Total Combat Survival|Soldier
+Total Concentration|Agent
+Total Focus|Soldier
+Total Mental Domination|Bureaucrat
+Total Mirror Shield Mk I|Soldier
+Total Mirror Shield Mk II|Soldier
+Total Mirror Shield Mk III|Soldier
+Total Mirror Shield Mk IV|Soldier
+Total Mirror Shield Mk IX|Soldier
+Total Mirror Shield Mk V|Soldier
+Total Mirror Shield Mk VI|Soldier
+Total Mirror Shield Mk VII|Soldier
+Total Mirror Shield Mk VIII|Soldier
+Total Mirror Shield Mk X|Soldier
+Total Musculature Command|Bureaucrat
+Touch of Kindness|Doctor
+Touch of the Pyre|NanoTechnician
+Touch of the Specter|Shade
+Touched With Shadow|Fixer
+Tough as Nails|Soldier
+Toughen Skin|MartialArtist
+Toxic Barrier|Enforcer
+Toxic Field|NanoTechnician
+Toxic Sphere|NanoTechnician
+Toxic Spill|NanoTechnician
+Trader Composite Specialist Tradeskills (8 hours)|Trader
+Trading Mogul|Trader
+Traffic AC|Trader
+Traffic AC (Advanced)|Trader
+Traffic AC (Greater)|Trader
+Traffic AC (Lesser)|Trader
+Traffic AC (Major)|Trader
+Traffic AC (Minor)|Trader
+Traffic AC (Weak)|Trader
+Training of The Executioner|Agent
+Tranquility of the Vale|Adventurer
+Transcendent Anger Manifestation|MetaPhysicist
+Transcendent Enmity Personification|MetaPhysicist
+Transcendent Frenzy Embodiment|MetaPhysicist
+Transcendent Fury Externalization|MetaPhysicist
+Transcendent Rage Materialization|MetaPhysicist
+Transcendent Shen Protection|MartialArtist
+Transcendent Wrath Incarnation|MetaPhysicist
+Transfuse Vigor|Keeper
+Trap Artifice|Engineer
+Tremor|NanoTechnician
+Tri-Ion Stream|NanoTechnician
+Trinkets and Toys|Trader
+True Profession|Agent
+Trueshot|Agent
+Twice the Shield|Shade
+Ultimate Force Field|Engineer
+Umbral Wrangler|Trader
+Umbral Wrangler (Advanced)|Trader
+Umbral Wrangler (Commonplace)|Trader
+Umbral Wrangler (Exceptional)|Trader
+Umbral Wrangler (Greater)|Trader
+Umbral Wrangler (Lesser)|Trader
+Umbral Wrangler (Major)|Trader
+Umbral Wrangler (Minor)|Trader
+Umbral Wrangler (Patchy)|Trader
+Umbral Wrangler (Premium)|Trader
+Umbral Wrangler (Superior)|Trader
+Uncontrollable Body Tremors|Doctor
+Undeniable Victim|Soldier
+Undermine Defense|Trader
+Unexpected Attack|Agent
+Unfriendly Merger|Trader
+Universal Vulnerability Compendium|MartialArtist
+Unmake: BioMet|MetaPhysicist
+Unmake: MatCrea|MetaPhysicist
+Unmake: MatMet|MetaPhysicist
+Unmake: PsyMod|MetaPhysicist
+Unmake: SenseImp|MetaPhysicist
+Unmake: SpaceTime|MetaPhysicist
+Unmistakable Victim|Soldier
+Unnoticed Strike|MartialArtist
+Unsettling Shock|Agent
+Unstable Hadron String|NanoTechnician
+Unsteady Hands|Engineer
+Upgraded Android|Engineer
+Upgraded Automaton|Engineer
+Upgraded Gladiatorbot|Engineer
+Upgraded Guardbot|Engineer
+Upgraded Predator M-30|Engineer
+Upgraded Warbot|Engineer
+Upgraded Warmachine|Engineer
+Utter Concentration|Agent
+Vaccine of Deprivation|Doctor
+Vaccine of Divestiture|Doctor
+Vaccine of Plundering|Doctor
+Vaccine of Ransacking|Doctor
+Velocity|MartialArtist
+Venerated Sanctifier|Keeper
+Vengeance of Nature|Adventurer
+Vengeance of the Blessed|Keeper
+Vengeance of the Holy|Keeper
+Vengeance of the Immaculate|Keeper
+Vengeance of the Loyal|Keeper
+Vengeance of the Pure|Keeper
+Vengeance of the Resolute|Keeper
+Vengeance of the Steadfast|Keeper
+Vengeance of the Virtuous|Keeper
+Venom Modification|Fixer
+Viral Assault|NanoTechnician
+Viral Neurotoxin|Doctor
+Vision of the Wolf|Adventurer
+Visions of a Doomed Future|Bureaucrat
+Visions of the Void|NanoTechnician
+Vital Corruptor|NanoTechnician
+Vlads Revenge|Enforcer
+Voice of the Banshee|Shade
+Void Inertia|Bureaucrat
+Void Warmth|NanoTechnician
+Volcanic Eruption|NanoTechnician
+Vulcan Flechette|NanoTechnician
+Vulnerability Seeker|MartialArtist
+Waiting Panda|MartialArtist
+Wake Up Call|Fixer
+Walk The Grid|Trader
+Wandering Mind|Bureaucrat
+Warbot|Engineer
+Ward|Keeper
+Ward Blow|MartialArtist
+Ward from Harm|Enforcer
+Warden Ward|Keeper
+Warden's Resolve|Keeper
+Warmachine|Engineer
+Warmth of the Grave|NanoTechnician
+Warp Time and Space: Borealis|NanoTechnician
+Warp Time and Space: Newland|NanoTechnician
+Warp Time and Space: Omni-1|NanoTechnician
+Warp Time and Space: Rome|NanoTechnician
+Warp Time and Space: Tir|NanoTechnician
+Warp Time and Space: West Athen|NanoTechnician
+Wasted Limbs|Doctor
+Watch Ward|Keeper
+Waves of Anger|Agent
+Waves of Harm|Agent
+Waves of Illness|Agent
+Waves of Jarring|Agent
+Waves of Numbing|Agent
+Waves of Sickening|Agent
+Waves of Trauma|Agent
+Waves of Unsettling|Agent
+Weak Chemical Liquefaction|NanoTechnician
+Weak Gravity Collapse|NanoTechnician
+Weak Gravity Pull|NanoTechnician
+Weak Health Freeloader|Trader
+Weak Health Plunder|Trader
+Weak Mutagenic Plague|Doctor
+Weak Smiting Missile|NanoTechnician
+Weak Team Heal|Doctor
+Weaken Defense|Trader
+Weapon Smithing Knowledge|Engineer
+Weapon Smithing Mastery|Engineer
+Weekend Volunteer|Bureaucrat
+Weight of the Guilty|Bureaucrat
+Weighty Announcement|Bureaucrat
+Whetstone Effect|Shade
+Widowmaker Battle Drone|Engineer
+Wild Eye Gouger|NanoTechnician
+Wilderness Protection|Adventurer
+Wind Blade|NanoTechnician
+Wind Slicer|Adventurer
+Wind-blown Blossom|MartialArtist
+Wings of the Phoenix|Adventurer
+Wooden Skin|MartialArtist
+Workplace Depression|Bureaucrat
+Wrack and Ruin|Doctor
+Wrath|Keeper
+Wrath Abatement|MetaPhysicist
+Wrath Ebb|MetaPhysicist
+Wrath Incarnation|MetaPhysicist
+Wrathbringer|Enforcer
+Wrecking Ball|Enforcer
+Writ of Mobility|Trader
+Writ of Passage|Trader
+Writ of the Errant Salesman|Trader
+You are Next|Enforcer
+Your Enemy's Enemy is your Friend|Trader
+Zephyr from the Grove|Adventurer
+Ziana's Energy Wave|NanoTechnician
