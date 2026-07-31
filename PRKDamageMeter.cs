@@ -371,17 +371,19 @@ namespace PRKDamageMeter
         }
         void Poll()
         {
-            // self-heal: if the watched log has been silent for 15s, re-scan for the
-            // most recently written Log.txt and switch to it (handles the meter
-            // latching onto a stale/empty log from another chat window or character)
-            if (Environment.TickCount - lastGrowthTick > 15000)
+            // self-heal: while we've never parsed a single event, keep re-scanning for
+            // the right Log.txt (handles latching onto a stale/empty log at startup).
+            // Once real events are flowing we LOCK ON and never auto-switch - a combat
+            // log is naturally silent between fights, and jumping to a chattier log
+            // (e.g. a general chat window) would wipe the meter's data.
+            if (events.Count == 0 && casts.Count == 0 && xpEvents.Count == 0
+                && Environment.TickCount - lastGrowthTick > 15000)
             {
                 lastGrowthTick = Environment.TickCount;
                 string best = FindLog();
                 if (best != null && !best.Equals(logPath, StringComparison.OrdinalIgnoreCase))
                 {
                     logPath = best; lastPos = 0; carry = "";
-                    events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear();
                 }
             }
             if (logPath == null || !File.Exists(logPath)) return;

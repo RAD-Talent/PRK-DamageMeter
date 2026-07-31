@@ -36,7 +36,7 @@ A tiny always-on-top damage meter overlay for **Project Rubi-Ka** (Anarchy Onlin
   - `/prkdmg` — damage rankings (follows your fight/all toggle)
   - `/prkheal` — healing rankings
   - `/prkcast` — your nano cast counts
-- **Self-healing log detection** — if the watched log goes quiet, the meter automatically re-finds the right `Log.txt` (handy with multiple characters). Manual override via right-click → *Choose log file*
+- **Smart log detection** — at startup the meter keeps searching until it finds the log that's actually producing combat events, then locks on (so it never jumps away and wipes your data mid-session). Switching characters? Right-click → *Auto-detect log* or *Choose log file*
 - **Overlay-friendly** — always on top, opacity control, pause, minimal footprint
 - Click **?** in the header for full help; all settings and tags are remembered between sessions
 
