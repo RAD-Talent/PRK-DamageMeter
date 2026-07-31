@@ -263,7 +263,7 @@ namespace PRKDamageMeter
         }
 
         // ---- in-game chat dump scripts (/prkdmg /prkheal /prkcast) ----
-        static string HELP_FOOTER = "<br><font color='#7e9094'>Commands: /prkdmg damage | /prkheal healing | /prkcast nano casts<br>~ PRK Damage Meter by Everkill (.everkill on Discord)</font>";
+        static string HELP_FOOTER = "<br><font color='#7e9094'>Commands: /prkdmg damage | /prkheal healing | /prkcast nano casts<br>~ PRK Damage Meter by Everkill (.everkill on Discord)<br>Get it: <font color='#5fd7e2'>github.com/RAD-Talent/PRK-DamageMeter</font></font>";
         void WriteScript(string scriptsDir, string name, string label, string content)
         {
             string all = "<a href=\"text://<font color='#5fd7e2'>PRK Damage Meter</font><br>" + content + HELP_FOOTER + "\">" + label + "</a>";
