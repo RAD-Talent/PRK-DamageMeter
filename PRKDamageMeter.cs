@@ -85,6 +85,9 @@ namespace PRKDamageMeter
         bool showDpm = true;
         int scroll = 0;
         long lastGrowthTick = 0;
+        List<Ev> xpEvents = new List<Ev>();
+        List<string[]> xpLines = new List<string[]>();
+        long appStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
         // ---- parser ----
         class Rule { public Regex Re; public Func<Match, Ev> Make; }
@@ -127,7 +130,14 @@ namespace PRKDamageMeter
             rules.Add(new Rule { Re = new Regex("^Nano program executed successfully\\.$"), Make = m => Cast("land", null) });
             rules.Add(new Rule { Re = new Regex("^Target resisted\\.$"), Make = m => Cast("resist", null) });
             AddRule("%s executes %s within your NCU...", m => NcuBuff(m.Groups[1].Value, m.Groups[2].Value));
+            AddRule("You received %u xp.", m => Xp("xp", m.Groups[1].Value));
+            AddRule("You lost %u xp.", m => Xp("xploss", m.Groups[1].Value));
+            AddRule("You gained %d points of Shadowknowledge.", m => Xp("sk", m.Groups[1].Value));
+            AddRule("You gained %d points of Shadowknowledge as a side bonus.", m => Xp("sk", m.Groups[1].Value));
+            AddRule("You lost %d points of Shadowknowledge.", m => Xp("skloss", m.Groups[1].Value));
+            AddRule("You gained %d new Alien Experience Points.", m => Xp("axp", m.Groups[1].Value));
         }
+        Ev Xp(string kind, string amt) { return new Ev { Kind = kind, Src = myName, Dst = myName, Amt = long.Parse(amt), Via = "xp" }; }
         Ev Cast(string what, string nano)
         {
             if (what == "cast" && nano != null)
@@ -174,6 +184,12 @@ namespace PRKDamageMeter
         void AddEvent(Ev ev)
         {
             if (ev == null || paused) return;
+            if (ev.Kind == "xp" || ev.Kind == "xploss" || ev.Kind == "sk" || ev.Kind == "skloss" || ev.Kind == "axp")
+            {
+                // xp session starts at app launch — ignore old lines replayed from the log
+                if (ev.T >= appStart - 5000) xpEvents.Add(ev);
+                return;
+            }
             events.Add(ev);
             Fight f = fights.Count > 0 ? fights[fights.Count - 1] : null;
             if (f == null || (ev.T - f.End) > GAP_MS) { f = new Fight { Start = ev.T, End = ev.T }; fights.Add(f); }
@@ -188,8 +204,87 @@ namespace PRKDamageMeter
             return false;
         }
 
+        void AggregateXp()
+        {
+            lastRows = new List<Row>(); lastGrand = 0; lastDurMs = 1000;
+            xpLines = new List<string[]>();
+            long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            long xpG = 0, xpL = 0, skG = 0, skL = 0, axpG = 0, bestXp = 0;
+            int kills = 0, deaths = 0, skTicks = 0, axpTicks = 0;
+            long firstT = 0, lastXpT = 0, xp5 = 0;
+            long win = now - 300000;
+            foreach (Ev e in xpEvents)
+            {
+                if (firstT == 0 || e.T < firstT) firstT = e.T;
+                if (e.T > lastXpT && e.Kind != "xploss" && e.Kind != "skloss") lastXpT = e.T;
+                if (e.Kind == "xp")
+                {
+                    xpG += e.Amt; kills++;
+                    if (e.Amt > bestXp) bestXp = e.Amt;
+                    if (e.T >= win) xp5 += e.Amt;
+                }
+                else if (e.Kind == "xploss") { xpL += e.Amt; deaths++; }
+                else if (e.Kind == "sk") { skG += e.Amt; skTicks++; }
+                else if (e.Kind == "skloss") skL += e.Amt;
+                else if (e.Kind == "axp") { axpG += e.Amt; axpTicks++; }
+            }
+            if (xpEvents.Count == 0)
+            {
+                xpLines.Add(new string[] { "XP", "" });
+                xpLines.Add(new string[] { "waiting for your first xp tick...", " " });
+                return;
+            }
+            long elapsed = Math.Max(1000, now - firstT);
+            double hours = elapsed / 3600000.0;
+            long winMs = Math.Min(300000, elapsed);
+            double paceH = xp5 / (winMs / 3600000.0);
+            if (kills > 0 || xpL > 0)
+            {
+                xpLines.Add(new string[] { "XP", "" });
+                xpLines.Add(new string[] { "gained", FmtN(xpG) });
+                xpLines.Add(new string[] { "per hour", FmtN(xpG / hours) + "/h" });
+                xpLines.Add(new string[] { "pace (last 5 min)", FmtN(paceH) + "/h" });
+                xpLines.Add(new string[] { "xp ticks (kills)", kills + "  (" + FmtN(kills / hours) + "/h)" });
+                xpLines.Add(new string[] { "avg per tick", FmtN(kills > 0 ? xpG / (double)kills : 0) });
+                xpLines.Add(new string[] { "best single tick", FmtN(bestXp) });
+                if (lastXpT > 0) xpLines.Add(new string[] { "last tick", FmtDur(Math.Max(0, now - lastXpT)) + " ago" });
+                if (deaths > 0)
+                {
+                    xpLines.Add(new string[] { "lost (deaths)", "-" + FmtN(xpL) + "  (" + deaths + "x)" });
+                    xpLines.Add(new string[] { "net xp", FmtN(xpG - xpL) });
+                }
+            }
+            if (skTicks > 0 || skL > 0)
+            {
+                xpLines.Add(new string[] { "SHADOWKNOWLEDGE", "" });
+                xpLines.Add(new string[] { "gained", FmtN(skG) });
+                xpLines.Add(new string[] { "per hour", FmtN(skG / hours) + "/h" });
+                xpLines.Add(new string[] { "ticks / avg", skTicks + " / " + FmtN(skTicks > 0 ? skG / (double)skTicks : 0) });
+                if (skL > 0) xpLines.Add(new string[] { "lost", "-" + FmtN(skL) });
+            }
+            if (axpTicks > 0)
+            {
+                xpLines.Add(new string[] { "ALIEN XP", "" });
+                xpLines.Add(new string[] { "gained", FmtN(axpG) });
+                xpLines.Add(new string[] { "per hour", FmtN(axpG / hours) + "/h" });
+                xpLines.Add(new string[] { "ticks / avg", axpTicks + " / " + FmtN(axpG / (double)axpTicks) });
+            }
+            xpLines.Add(new string[] { "SESSION", "" });
+            xpLines.Add(new string[] { "tracking for", FmtDur(elapsed) });
+            xpLines.Add(new string[] { "started", DateTimeOffset.FromUnixTimeMilliseconds(firstT).ToLocalTime().ToString("HH:mm") });
+            lastDurMs = elapsed;
+        }
+        static string FmtDur(long ms)
+        {
+            long t = ms / 1000;
+            if (t >= 3600) return (t / 3600) + "h " + ((t % 3600) / 60) + "m";
+            if (t >= 60) return (t / 60) + "m " + (t % 60) + "s";
+            return t + "s";
+        }
+
         void Aggregate()
         {
+            if (tab == "xp") { AggregateXp(); return; }
             if (tab == "casts")
             {
                 lastRows = casts.Select(kv => new Row { Name = kv.Key, Total = kv.Value[0], Hits = kv.Value[1], Crits = kv.Value[2] })
@@ -252,7 +347,7 @@ namespace PRKDamageMeter
                 if (best != null && !best.Equals(logPath, StringComparison.OrdinalIgnoreCase))
                 {
                     logPath = best; lastPos = 0; carry = "";
-                    events.Clear(); fights.Clear(); casts.Clear();
+                    events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear();
                 }
             }
             if (logPath == null || !File.Exists(logPath)) return;
@@ -558,7 +653,13 @@ namespace PRKDamageMeter
                     if (!HasDamageWindow(Path.Combine(Path.Combine(cd, "Chat"), "Windows"))) { anyMissing = true; break; }
                 if (anyMissing) SetupGameWindows(true);
             };
-            timer = new Timer(); timer.Interval = 1000; timer.Tick += delegate { Poll(); }; timer.Start();
+            timer = new Timer(); timer.Interval = 1000;
+            timer.Tick += delegate
+            {
+                Poll();
+                if (tab == "xp") { Aggregate(); RecalcHeight(); Invalidate(); } // live rates/timers tick every second
+            };
+            timer.Start();
             MouseDown += OnDown; MouseMove += OnMove; MouseUp += delegate { dragging = false; };
             Resize += delegate { RecalcHeight(); Invalidate(); };
         }
@@ -568,10 +669,13 @@ namespace PRKDamageMeter
             int avail = Height - HeaderH - FooterH;
             return Math.Max(1, avail / Math.Max(1, RowH));
         }
+        int XpRowH { get { return (int)(18 * S); } }
         void RecalcHeight()
         {
             int maxH = Screen.FromControl(this).WorkingArea.Height * 8 / 10;
-            int desired = HeaderH + Math.Max(1, lastRows.Count) * RowH + FooterH;
+            int desired = tab == "xp"
+                ? HeaderH + Math.Max(1, xpLines.Count) * XpRowH + FooterH
+                : HeaderH + Math.Max(1, lastRows.Count) * RowH + FooterH;
             Height = Math.Min(desired, maxH);
             int maxScroll = Math.Max(0, lastRows.Count - VisibleRows());
             if (scroll > maxScroll) scroll = maxScroll;
@@ -579,6 +683,7 @@ namespace PRKDamageMeter
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             base.OnMouseWheel(e);
+            if (tab == "xp") return;
             int maxScroll = Math.Max(0, lastRows.Count - VisibleRows());
             scroll = Math.Max(0, Math.Min(maxScroll, scroll - e.Delta / 120));
             Invalidate();
@@ -603,9 +708,9 @@ namespace PRKDamageMeter
         Rectangle PauseRect { get { return new Rectangle(Width - (int)(42 * S), (int)(3 * S), (int)(18 * S), (int)(20 * S)); } }
         Rectangle ResetRect { get { return new Rectangle(Width - (int)(62 * S), (int)(3 * S), (int)(18 * S), (int)(20 * S)); } }
         Rectangle HelpRect { get { return new Rectangle(Width - (int)(82 * S), (int)(3 * S), (int)(18 * S), (int)(20 * S)); } }
-        static string[] TABKEYS = { "dmg", "heal", "taken", "casts" };
-        static string[] TABLABELS = { "DMG", "HEAL", "TAKE", "CAST" };
-        Rectangle[] tabRects = new Rectangle[4];
+        static string[] TABKEYS = { "dmg", "heal", "taken", "casts", "xp" };
+        static string[] TABLABELS = { "DMG", "HEAL", "TAKE", "CAST", "XP" };
+        Rectangle[] tabRects = new Rectangle[5];
         Rectangle viewRect;
 
         void OnDown(object s, MouseEventArgs e)
@@ -615,8 +720,8 @@ namespace PRKDamageMeter
                 if (PauseRect.Contains(e.Location)) { paused = !paused; Invalidate(); return; }
                 if (CloseRect.Contains(e.Location)) { try { Close(); } catch { } Application.Exit(); return; }
                 if (HelpRect.Contains(e.Location)) { ShowHelp(); return; }
-                if (ResetRect.Contains(e.Location)) { events.Clear(); fights.Clear(); casts.Clear(); Aggregate(); RecalcHeight(); Invalidate(); return; }
-                for (int i = 0; i < 4; i++)
+                if (ResetRect.Contains(e.Location)) { events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear(); Aggregate(); RecalcHeight(); Invalidate(); return; }
+                for (int i = 0; i < 5; i++)
                     if (tabRects[i].Contains(e.Location)) { tab = TABKEYS[i]; Aggregate(); RecalcHeight(); Invalidate(); return; }
                 if (viewRect.Contains(e.Location)) { overallView = !overallView; Aggregate(); RecalcHeight(); Invalidate(); return; }
                 dragging = true; dragOff = e.Location;
@@ -676,11 +781,19 @@ namespace PRKDamageMeter
 "THE WINDOW\r\n" +
 "  DMG   damage done      HEAL  healing done\r\n" +
 "  TAKE  damage taken     CAST  your nano casts\r\n" +
-"  fight / all  - toggle: last fight vs everything since reset\r\n" +
+"  XP    xp per hour session tracker\r\n" +
+"  fight / all  - bottom-left toggle: last fight vs everything\r\n" +
 "  ? help   R reset   || pause   X quit\r\n" +
 "  Drag anywhere to move. Drag left/right edge to resize.\r\n" +
 "  Hover a bar for details (hits, crits, max hit, damage split).\r\n" +
 "  Green dot = watching your log live.\r\n\r\n" +
+"XP TAB\r\n" +
+"  Tracks xp, Shadowknowledge and Alien XP from your first xp tick\r\n" +
+"  after the meter starts. Shows totals, per-hour rates, a rolling\r\n" +
+"  5-minute pace (your current speed vs session average), kill\r\n" +
+"  counts, avg + best tick, deaths and net xp. SK / AXP sections\r\n" +
+"  appear once you earn some. R resets the session (and all data).\r\n" +
+"  Right-click > 'Copy summary' copies the whole XP report as text.\r\n\r\n" +
 "FIGHTS\r\n" +
 "  A fight ends after 6 seconds without combat, but stays on screen\r\n" +
 "  until the NEXT fight starts (or you hit R). 'all' keeps everything\r\n" +
@@ -713,6 +826,7 @@ namespace PRKDamageMeter
 
         string RowAt(Point p)
         {
+            if (tab == "xp") return null;
             int idx = scroll + (p.Y - HeaderH) / RowH;
             if (p.Y >= HeaderH && idx >= scroll && idx < lastRows.Count) return lastRows[idx].Name;
             return null;
@@ -737,6 +851,17 @@ namespace PRKDamageMeter
 
         string BuildReport()
         {
+            if (tab == "xp")
+            {
+                List<string> xs = new List<string>();
+                string sect = "";
+                foreach (string[] ln in xpLines)
+                {
+                    if (ln[1] == "") sect = ln[0] + " ";
+                    else if (ln[1] != " ") xs.Add(sect + ln[0] + ": " + ln[1]);
+                }
+                return "PRK XP session — " + string.Join(", ", xs.ToArray());
+            }
             StringBuilder sb = new StringBuilder();
             string what = tab == "dmg" ? "Damage" : tab == "heal" ? "Healing" : "Damage taken";
             sb.Append(what + " (" + (overallView ? "overall" : "last fight") + ", " + (lastDurMs / 1000) + "s): ");
@@ -791,7 +916,9 @@ namespace PRKDamageMeter
             tTaken.Click += delegate { tab = "taken"; Aggregate(); RecalcHeight(); Invalidate(); };
             ToolStripMenuItem tCasts = new ToolStripMenuItem("My nano casts"); tCasts.Checked = tab == "casts";
             tCasts.Click += delegate { tab = "casts"; Aggregate(); RecalcHeight(); Invalidate(); };
-            m.Items.Add(tDmg); m.Items.Add(tHeal); m.Items.Add(tTaken); m.Items.Add(tCasts);
+            ToolStripMenuItem tXp = new ToolStripMenuItem("XP / hour"); tXp.Checked = tab == "xp";
+            tXp.Click += delegate { tab = "xp"; Aggregate(); RecalcHeight(); Invalidate(); };
+            m.Items.Add(tDmg); m.Items.Add(tHeal); m.Items.Add(tTaken); m.Items.Add(tCasts); m.Items.Add(tXp);
             m.Items.Add(new ToolStripSeparator());
             ToolStripMenuItem vCur = new ToolStripMenuItem("Current fight"); vCur.Checked = !overallView;
             vCur.Click += delegate { overallView = false; Aggregate(); RecalcHeight(); Invalidate(); };
@@ -834,11 +961,11 @@ namespace PRKDamageMeter
             {
                 OpenFileDialog d = new OpenFileDialog();
                 d.Filter = "AO chat log|*.txt";
-                if (d.ShowDialog() == DialogResult.OK) { logPath = d.FileName; lastPos = 0; carry = ""; events.Clear(); fights.Clear(); Aggregate(); Invalidate(); }
+                if (d.ShowDialog() == DialogResult.OK) { logPath = d.FileName; lastPos = 0; carry = ""; events.Clear(); fights.Clear(); xpEvents.Clear(); Aggregate(); Invalidate(); }
             };
             m.Items.Add(pick);
             ToolStripMenuItem rescan = new ToolStripMenuItem("Auto-detect log");
-            rescan.Click += delegate { logPath = FindLog(); lastPos = 0; carry = ""; events.Clear(); fights.Clear(); Aggregate(); Invalidate(); };
+            rescan.Click += delegate { logPath = FindLog(); lastPos = 0; carry = ""; events.Clear(); fights.Clear(); xpEvents.Clear(); Aggregate(); Invalidate(); };
             m.Items.Add(rescan);
             ToolStripMenuItem loginfo = new ToolStripMenuItem("Log file info...");
             loginfo.Click += delegate
@@ -853,7 +980,7 @@ namespace PRKDamageMeter
             };
             m.Items.Add(loginfo);
             ToolStripMenuItem reset = new ToolStripMenuItem("Reset data");
-            reset.Click += delegate { events.Clear(); fights.Clear(); Aggregate(); RecalcHeight(); Invalidate(); };
+            reset.Click += delegate { events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear(); Aggregate(); RecalcHeight(); Invalidate(); };
             m.Items.Add(reset);
             m.Items.Add(new ToolStripSeparator());
             ToolStripMenuItem exit = new ToolStripMenuItem("Exit");
@@ -887,7 +1014,7 @@ namespace PRKDamageMeter
             using (Pen pen = new Pen(ColorTranslator.FromHtml("#1d3540"))) g.DrawLine(pen, 0, HeaderH - 1, Width, HeaderH - 1);
             g.DrawString("PRK", fName, cyan, 5 * s, 4 * s);
             float tx = 36 * s;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 bool on = tab == TABKEYS[i];
                 SizeF tsz = g.MeasureString(TABLABELS[i], fSmall);
@@ -897,10 +1024,6 @@ namespace PRKDamageMeter
                     g.DrawLine(up, tx + 2 * s, HeaderH - 4 * s, tx + tsz.Width + 4 * s, HeaderH - 4 * s);
                 tx += tsz.Width + 9 * s;
             }
-            string view = overallView ? "all" : "fight";
-            SizeF vsz = g.MeasureString(view, fSmall);
-            viewRect = new Rectangle((int)tx, (int)(3 * s), (int)(vsz.Width + 6 * s), (int)(20 * s));
-            g.DrawString(view, fSmall, gold, tx + 3 * s, 5 * s);
             // ? / reset / pause / close buttons
             g.DrawString("?", fName, dim, HelpRect.X + 4 * s, HelpRect.Y + 2 * s);
             g.DrawString("R", fName, dim, ResetRect.X + 4 * s, ResetRect.Y + 2 * s);
@@ -909,10 +1032,32 @@ namespace PRKDamageMeter
             else { g.FillRectangle(pb, PauseRect.X + 4 * s, PauseRect.Y + 5 * s, 4 * s, 11 * s); g.FillRectangle(pb, PauseRect.X + 11 * s, PauseRect.Y + 5 * s, 4 * s, 11 * s); }
             g.DrawString("X", fName, dim, CloseRect.X + 4 * s, CloseRect.Y + 2 * s);
             bool live = logPath != null && File.Exists(logPath) && !paused;
-            using (Brush b = new SolidBrush(live ? Color.FromArgb(84, 224, 106) : (paused ? Color.FromArgb(242, 204, 121) : Color.Gray)))
-                g.FillEllipse(b, Width - 96 * s, 9 * s, 8 * s, 8 * s);
-            // rows
             int y = HeaderH;
+            if (tab == "xp")
+            {
+                Font fSect = new Font("Segoe UI", 8.2f * s, FontStyle.Bold);
+                foreach (string[] ln in xpLines)
+                {
+                    if (ln[1] == "")
+                    {
+                        g.DrawString(ln[0], fSect, gold, 8 * s, y + 4 * s);
+                        using (Pen pen = new Pen(ColorTranslator.FromHtml("#1d3540")))
+                            g.DrawLine(pen, 8 * s, y + XpRowH - 2 * s, Width - 8 * s, y + XpRowH - 2 * s);
+                    }
+                    else
+                    {
+                        g.DrawString(ln[0], fSmall, dim, 14 * s, y + 3 * s);
+                        bool rate = ln[1].EndsWith("/h");
+                        SizeF vz = g.MeasureString(ln[1], fSmall);
+                        g.DrawString(ln[1], fSmall, rate ? cyan : txt, Width - 8 * s - vz.Width, y + 3 * s);
+                    }
+                    y += XpRowH;
+                }
+                fSect.Dispose();
+                DrawFooter(g, s, y, live, fSmall, gold, "xp session  •  R resets");
+                fName.Dispose(); fSmall.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
+                return;
+            }
             if (lastRows.Count == 0)
                 g.DrawString(live ? "waiting for combat..." : (paused ? "paused" : "no log found — right-click"), fSmall, dim, 8 * s, y + 5 * s);
             long top = lastRows.Count > 0 ? lastRows[0].Total : 1;
@@ -962,9 +1107,21 @@ namespace PRKDamageMeter
             // total line
             int below = lastRows.Count - last;
             string tot = (below > 0 ? "v +" + below + " more (scroll)   " : (scroll > 0 ? "^ scroll up   " : "")) + "total " + FmtN(lastGrand) + "  •  " + (lastDurMs / 1000) + "s";
-            SizeF ts = g.MeasureString(tot, fSmall);
-            g.DrawString(tot, fSmall, gold, Width - 8 * s - ts.Width, y + 2 * s);
+            DrawFooter(g, s, y, live, fSmall, gold, tot);
             fName.Dispose(); fSmall.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
+        }
+
+        // footer: live dot + fight/all toggle on the left, totals on the right
+        void DrawFooter(Graphics g, float s, int y, bool live, Font fSmall, Brush gold, string rightText)
+        {
+            using (Brush b = new SolidBrush(live ? Color.FromArgb(84, 224, 106) : (paused ? Color.FromArgb(242, 204, 121) : Color.Gray)))
+                g.FillEllipse(b, 7 * s, y + 6 * s, 7 * s, 7 * s);
+            string view = overallView ? "all" : "fight";
+            SizeF vsz = g.MeasureString(view, fSmall);
+            viewRect = new Rectangle((int)(17 * s), y, (int)(vsz.Width + 8 * s), FooterH);
+            g.DrawString(view, fSmall, gold, 20 * s, y + 2 * s);
+            SizeF ts = g.MeasureString(rightText, fSmall);
+            g.DrawString(rightText, fSmall, gold, Width - 8 * s - ts.Width, y + 2 * s);
         }
 
         [STAThread]
