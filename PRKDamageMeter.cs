@@ -82,6 +82,7 @@ namespace PRKDamageMeter
         Dictionary<string, string> nanoProfs = new Dictionary<string, string>();
         long lastDumpTick = 0;
         bool autoHideMobs = true;
+        bool showDpm = true;
         int scroll = 0;
         long lastGrowthTick = 0;
 
@@ -353,7 +354,7 @@ namespace PRKDamageMeter
                 double dps = r.Total / (dur / 1000.0);
                 double pct = grand > 0 ? 100.0 * r.Total / grand : 0;
                 d.Append(rank + ". <font color='#5fd7e2'>" + r.Name + "</font>" + (showProf && prof != null ? " <font color='#e05f8a'>(" + prof + ")</font>" : ""));
-                d.Append(" - " + FmtN(r.Total) + " (" + FmtN(dps) + "/s, " + pct.ToString("0.0") + "%), " + r.Hits + " hits, " + r.Crits + " crits, max " + FmtN(r.Max) + "<br>");
+                d.Append(" - " + FmtN(r.Total) + " (" + FmtRate(dps) + ", " + pct.ToString("0.0") + "%), " + r.Hits + " hits, " + r.Crits + " crits, max " + FmtN(r.Max) + "<br>");
                 rank++;
             }
             return d.ToString();
@@ -374,6 +375,7 @@ namespace PRKDamageMeter
                     if (p.Length >= 2 && p[0] == "hide") hidden.Add(p[1]);
                     if (p.Length >= 2 && p[0] == "me") myName = p[1];
                     if (p.Length >= 2 && p[0] == "automob") autoHideMobs = p[1] == "1";
+                    if (p.Length >= 2 && p[0] == "dpm") showDpm = p[1] == "1";
                     if (p.Length >= 2 && p[0] == "width") { int w; if (int.TryParse(p[1], out w) && w >= 280 && w <= 700) Width = w; }
                     if (p.Length >= 3 && p[0] == "prof") tags[p[1]] = p[2];
                     if (p.Length >= 3 && p[0] == "pet") petOwner[p[1]] = p[2];
@@ -388,6 +390,7 @@ namespace PRKDamageMeter
                 List<string> outl = new List<string>();
                 outl.Add("me|" + myName);
                 outl.Add("automob|" + (autoHideMobs ? "1" : "0"));
+                outl.Add("dpm|" + (showDpm ? "1" : "0"));
                 outl.Add("width|" + Width);
                 foreach (KeyValuePair<string, string> kv in tags) outl.Add("prof|" + kv.Key + "|" + kv.Value);
                 foreach (KeyValuePair<string, string> kv in petOwner) outl.Add("pet|" + kv.Key + "|" + kv.Value);
@@ -812,6 +815,10 @@ namespace PRKDamageMeter
             ToolStripMenuItem cpy = new ToolStripMenuItem("Copy summary to clipboard");
             cpy.Click += delegate { try { Clipboard.SetText(BuildReport()); } catch { } };
             m.Items.Add(cpy);
+            ToolStripMenuItem dpmT = new ToolStripMenuItem("Show damage per minute (DPM)");
+            dpmT.Checked = showDpm;
+            dpmT.Click += delegate { showDpm = !showDpm; SaveTags(); Aggregate(); Invalidate(); };
+            m.Items.Add(dpmT);
             ToolStripMenuItem amob = new ToolStripMenuItem("Auto-hide mobs (multi-word names)");
             amob.Checked = autoHideMobs;
             amob.Click += delegate { autoHideMobs = !autoHideMobs; SaveTags(); Aggregate(); RecalcHeight(); Invalidate(); };
@@ -855,6 +862,7 @@ namespace PRKDamageMeter
             m.Show(this, at);
         }
 
+        string FmtRate(double perSec) { return showDpm ? FmtN(perSec * 60) + "/m" : FmtN(perSec) + "/s"; }
         static string FmtN(double n)
         {
             if (n >= 1000000) return (n / 1000000.0).ToString("0.00", CultureInfo.InvariantCulture) + "M";
@@ -937,7 +945,7 @@ namespace PRKDamageMeter
                 double pct = lastGrand > 0 ? 100.0 * r.Total / lastGrand : 0;
                 string val = tab == "casts"
                     ? r.Total + "x  " + r.Hits + " landed  " + r.Crits + " res"
-                    : FmtN(r.Total) + "  " + FmtN(dps) + "/s " + pct.ToString("0") + "%";
+                    : FmtN(r.Total) + "  " + FmtRate(dps) + " " + pct.ToString("0") + "%";
                 SizeF sz = g.MeasureString(val, fSmall);
                 g.DrawString(val, fSmall, txt, Width - 8 * s - sz.Width, y + 5 * s);
                 // name, ellipsized to the space left of the value
