@@ -17,7 +17,7 @@ namespace PRKDamageMeter
 {
     public class Ev
     {
-        public string Kind; public string Src; public string Dst; public long Amt; public long T; public bool Crit; public bool Glance; public string Via;
+        public string Kind; public string Src; public string Dst; public long Amt; public long T; public bool Crit; public bool Glance; public string Via; public string DType; public string Special;
     }
 
     public class Fight
@@ -30,6 +30,7 @@ namespace PRKDamageMeter
         public string Name; public long Total; public bool HasPets;
         public int Hits; public int Crits; public int Glances; public long Max;
         public long Weapon; public long Nano; public long Shield;
+        public Dictionary<string, long> Types; public Dictionary<string, long[]> Specials;
     }
 
     public class MeterForm : Form
@@ -88,6 +89,8 @@ namespace PRKDamageMeter
         List<Ev> xpEvents = new List<Ev>();
         List<string[]> xpLines = new List<string[]>();
         long appStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        HashSet<string> knownActors = new HashSet<string>();
+        static Regex PETNAME = new Regex("^(.+?)'s (.+)$");
 
         // ---- parser ----
         class Rule { public Regex Re; public Func<Match, Ev> Make; }
@@ -103,25 +106,25 @@ namespace PRKDamageMeter
 
         void BuildRules()
         {
-            AddRule("You hit %s with nanobots for %u points of %s damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "nano"));
-            AddRule("You hit %s with %s for %u points of %s damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[3].Value, "weapon"));
-            AddRule("You hit %s for %u points of %s damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "weapon"));
+            AddRule("You hit %s with nanobots for %u points of %s damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "nano", m.Groups[3].Value, null));
+            AddRule("You hit %s with %s for %u points of %s damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[3].Value, "weapon", m.Groups[4].Value, m.Groups[2].Value));
+            AddRule("You hit %s for %u points of %s damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "weapon", m.Groups[3].Value, null));
             AddRule("You hit %s for %u points of damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "weapon"));
             AddRule("Your damage shield hit %s for %u points of damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "shield"));
             AddRule("Your reflect shield hit %s for %u points of damage.", m => Dmg(myName, m.Groups[1].Value, m.Groups[2].Value, "shield"));
-            AddRule("Player %s hit you for %u points of %s damage.", m => Dmg(m.Groups[1].Value, myName, m.Groups[2].Value, "weapon"));
-            AddRule("%s hit you for %u points of %s damage.", m => Dmg(m.Groups[1].Value, myName, m.Groups[2].Value, "weapon"));
-            AddRule("You were attacked with nanobots from %s for %u points of %s damage.", m => Dmg(m.Groups[1].Value, myName, m.Groups[2].Value, "nano"));
-            AddRule("You were attacked with nanobots for %u points of %s damage.", m => Dmg("Unknown", myName, m.Groups[1].Value, "nano"));
-            AddRule("You were attacked with %s for %u points of %s damage.", m => Dmg("Unknown", myName, m.Groups[2].Value, "weapon"));
-            AddRule("%s was attacked with nanobots from %s for %u points of %s damage.", m => Dmg(m.Groups[2].Value, m.Groups[1].Value, m.Groups[3].Value, "nano"));
-            AddRule("%s was attacked with nanobots for %u points of %s damage.", m => Dmg("Unknown", m.Groups[1].Value, m.Groups[2].Value, "nano"));
-            AddRule("%s was attacked with %s from %s for %u points of %s damage.", m => Dmg(m.Groups[3].Value, m.Groups[1].Value, m.Groups[4].Value, "weapon"));
+            AddRule("Player %s hit you for %u points of %s damage.", m => Dmg(m.Groups[1].Value, myName, m.Groups[2].Value, "weapon", m.Groups[3].Value, null));
+            AddRule("%s hit you for %u points of %s damage.", m => Dmg(m.Groups[1].Value, myName, m.Groups[2].Value, "weapon", m.Groups[3].Value, null));
+            AddRule("You were attacked with nanobots from %s for %u points of %s damage.", m => Dmg(m.Groups[1].Value, myName, m.Groups[2].Value, "nano", m.Groups[3].Value, null));
+            AddRule("You were attacked with nanobots for %u points of %s damage.", m => Dmg("Unknown", myName, m.Groups[1].Value, "nano", m.Groups[2].Value, null));
+            AddRule("You were attacked with %s for %u points of %s damage.", m => Dmg("Unknown", myName, m.Groups[2].Value, "weapon", m.Groups[3].Value, null));
+            AddRule("%s was attacked with nanobots from %s for %u points of %s damage.", m => Dmg(m.Groups[2].Value, m.Groups[1].Value, m.Groups[3].Value, "nano", m.Groups[4].Value, null));
+            AddRule("%s was attacked with nanobots for %u points of %s damage.", m => Dmg("Unknown", m.Groups[1].Value, m.Groups[2].Value, "nano", m.Groups[3].Value, null));
+            AddRule("%s was attacked with %s from %s for %u points of %s damage.", m => Dmg(m.Groups[3].Value, m.Groups[1].Value, m.Groups[4].Value, "weapon", m.Groups[5].Value, m.Groups[2].Value));
             AddRule("%s's damage shield hit %s for %u points of damage.", m => Dmg(m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value, "shield"));
             AddRule("%s's reflect shield hit %s for %u points of damage.", m => Dmg(m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value, "shield"));
             AddRule("You were hit for %u points of damage by %s's damage shield.", m => Dmg(m.Groups[2].Value, myName, m.Groups[1].Value, "shield"));
             AddRule("You were hit for %u points of damage by %s's reflect shield.", m => Dmg(m.Groups[2].Value, myName, m.Groups[1].Value, "shield"));
-            AddRule("%s hit %s for %u points of %s damage.", m => Dmg(m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value, "weapon"));
+            AddRule("%s hit %s for %u points of %s damage.", m => Dmg(m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value, "weapon", m.Groups[4].Value, null));
             AddRule("You healed %s for %d points of health.", m => Heal(myName, m.Groups[1].Value, m.Groups[2].Value));
             AddRule("You got healed by %s for %d points of health.", m => Heal(m.Groups[1].Value, myName, m.Groups[2].Value));
             AddRule("You were healed for %u points.", m => Heal("Unknown", myName, m.Groups[1].Value));
@@ -129,6 +132,12 @@ namespace PRKDamageMeter
             AddRule("Executing Nano Program: %s.", m => Cast("cast", m.Groups[1].Value));
             rules.Add(new Rule { Re = new Regex("^Nano program executed successfully\\.$"), Make = m => Cast("land", null) });
             rules.Add(new Rule { Re = new Regex("^Target resisted\\.$"), Make = m => Cast("resist", null) });
+            rules.Add(new Rule { Re = new Regex("^Nano program aborted\\.$"), Make = m => Cast("int", null) });
+            rules.Add(new Rule { Re = new Regex("^Nano execution aborted\\.$"), Make = m => Cast("int", null) });
+            rules.Add(new Rule { Re = new Regex("^Nano execution aborted because either you or your target is teleporting\\.$"), Make = m => Cast("int", null) });
+            rules.Add(new Rule { Re = new Regex("^You fumbled\\.$"), Make = m => Cast("int", null) });
+            rules.Add(new Rule { Re = new Regex("^Your target countered the nano program\\.$"), Make = m => Cast("int", null) });
+            AddRule("Your nano execution got interrupted by %s.", m => Cast("int", null));
             AddRule("%s executes %s within your NCU...", m => NcuBuff(m.Groups[1].Value, m.Groups[2].Value));
             AddRule("You received %u xp.", m => Xp("xp", m.Groups[1].Value));
             AddRule("You lost %u xp.", m => Xp("xploss", m.Groups[1].Value));
@@ -143,7 +152,7 @@ namespace PRKDamageMeter
             if (what == "cast" && nano != null)
             {
                 lastCast = nano;
-                if (!casts.ContainsKey(nano)) casts[nano] = new int[3];
+                if (!casts.ContainsKey(nano)) casts[nano] = new int[4];
                 casts[nano][0]++;
                 AutoProf(myName, nano);
             }
@@ -151,6 +160,7 @@ namespace PRKDamageMeter
             {
                 if (what == "land") casts[lastCast][1]++;
                 if (what == "resist") casts[lastCast][2]++;
+                if (what == "int") casts[lastCast][3]++;
             }
             return null;
         }
@@ -160,7 +170,8 @@ namespace PRKDamageMeter
             string p;
             if (who != null && !tags.ContainsKey(who) && nanoProfs.TryGetValue(nano, out p)) { tags[who] = p; SaveTags(); }
         }
-        Ev Dmg(string src, string dst, string amt, string via) { return new Ev { Kind = "dmg", Src = src, Dst = dst, Amt = long.Parse(amt), Via = via }; }
+        Ev Dmg(string src, string dst, string amt, string via) { return Dmg(src, dst, amt, via, null, null); }
+        Ev Dmg(string src, string dst, string amt, string via, string dtype, string special) { return new Ev { Kind = "dmg", Src = src, Dst = dst, Amt = long.Parse(amt), Via = via, DType = dtype, Special = special }; }
         Ev Heal(string src, string dst, string amt) { return new Ev { Kind = "heal", Src = src, Dst = dst, Amt = long.Parse(amt), Via = "heal" }; }
 
         Ev ParseLine(string line)
@@ -189,6 +200,17 @@ namespace PRKDamageMeter
                 // xp session starts at app launch — ignore old lines replayed from the log
                 if (ev.T >= appStart - 5000) xpEvents.Add(ev);
                 return;
+            }
+            // auto pet detection: "Dylan's robot" -> pet of Dylan (only if the owner is a known player)
+            if (ev.Src != null)
+            {
+                if (!ev.Src.Contains(" ") && !ev.Src.Contains("'")) knownActors.Add(ev.Src);
+                if (!petOwner.ContainsKey(ev.Src))
+                {
+                    Match pm = PETNAME.Match(ev.Src);
+                    if (pm.Success && (pm.Groups[1].Value == myName || knownActors.Contains(pm.Groups[1].Value)))
+                    { petOwner[ev.Src] = pm.Groups[1].Value; SaveTags(); }
+                }
             }
             events.Add(ev);
             Fight f = fights.Count > 0 ? fights[fights.Count - 1] : null;
@@ -287,7 +309,7 @@ namespace PRKDamageMeter
             if (tab == "xp") { AggregateXp(); return; }
             if (tab == "casts")
             {
-                lastRows = casts.Select(kv => new Row { Name = kv.Key, Total = kv.Value[0], Hits = kv.Value[1], Crits = kv.Value[2] })
+                lastRows = casts.Select(kv => new Row { Name = kv.Key, Total = kv.Value[0], Hits = kv.Value[1], Crits = kv.Value[2], Glances = kv.Value[3] })
                     .OrderByDescending(r => r.Total).ToList();
                 lastGrand = 0; foreach (Row r in lastRows) lastGrand += r.Total;
                 lastDurMs = 1000;
@@ -316,6 +338,17 @@ namespace PRKDamageMeter
                 if (e.Glance) r.Glances++;
                 if (e.Amt > r.Max) r.Max = e.Amt;
                 if (e.Via == "nano") r.Nano += e.Amt; else if (e.Via == "shield") r.Shield += e.Amt; else if (e.Via == "weapon") r.Weapon += e.Amt;
+                if (e.DType != null)
+                {
+                    if (r.Types == null) r.Types = new Dictionary<string, long>();
+                    long tv; r.Types.TryGetValue(e.DType, out tv); r.Types[e.DType] = tv + e.Amt;
+                }
+                if (e.Special != null)
+                {
+                    if (r.Specials == null) r.Specials = new Dictionary<string, long[]>();
+                    long[] sp; if (!r.Specials.TryGetValue(e.Special, out sp)) { sp = new long[2]; r.Specials[e.Special] = sp; }
+                    sp[0]++; sp[1] += e.Amt;
+                }
                 if (tab != "taken" && petOwner.ContainsKey(e.Src)) withPets.Add(who);
             }
             lastRows = agg.Values.OrderByDescending(r => r.Total).ToList();
@@ -432,7 +465,7 @@ namespace PRKDamageMeter
                 c.Append("<font color='#f2cc79'>" + myName + "'s nano casts (session)</font><br><br>");
                 if (casts.Count == 0) c.Append("no casts recorded<br>");
                 foreach (KeyValuePair<string, int[]> kv in casts.OrderByDescending(k => k.Value[0]).Take(20))
-                    c.Append("<font color='#5fd7e2'>" + kv.Key + "</font> x" + kv.Value[0] + "  (" + kv.Value[1] + " landed, " + kv.Value[2] + " resisted)<br>");
+                    c.Append("<font color='#5fd7e2'>" + kv.Key + "</font> x" + kv.Value[0] + "  (" + kv.Value[1] + " landed, " + kv.Value[2] + " resisted" + (kv.Value[3] > 0 ? ", " + kv.Value[3] + " interrupted" : "") + ")<br>");
                 WriteScript(scripts, "prkcast", "PRK Nano Casts - " + myName, c.ToString());
             }
             catch { }
@@ -741,7 +774,8 @@ namespace PRKDamageMeter
                 if (row == null) return;
                 string txt;
                 if (tab == "casts")
-                    txt = row.Name + "  —  " + row.Total + " casts, " + row.Hits + " landed, " + row.Crits + " resisted";
+                    txt = row.Name + "  —  " + row.Total + " casts, " + row.Hits + " landed, " + row.Crits + " resisted"
+                        + (row.Glances > 0 ? ", " + row.Glances + " interrupted" : "");
                 else
                 {
                     double durMin = Math.Max(1.0 / 60.0, lastDurMs / 60000.0);
@@ -757,6 +791,12 @@ namespace PRKDamageMeter
                         txt += "\nweapon " + FmtN(row.Weapon) + " (" + FmtRate(row.Weapon / (lastDurMs / 1000.0)) + ")"
                             + "  •  nano " + FmtN(row.Nano) + " (" + FmtRate(row.Nano / (lastDurMs / 1000.0)) + ")"
                             + (row.Shield > 0 ? "  •  shields " + FmtN(row.Shield) : "");
+                    if (row.Types != null && row.Types.Count > 0)
+                        txt += "\ndmg types: " + string.Join("  •  ", row.Types.OrderByDescending(kv => kv.Value).Take(5)
+                            .Select(kv => kv.Key + " " + (100.0 * kv.Value / Math.Max(1, row.Total)).ToString("0") + "%").ToArray());
+                    if (row.Specials != null && row.Specials.Count > 0)
+                        txt += "\nspecials: " + string.Join("  •  ", row.Specials.OrderByDescending(kv => kv.Value[1]).Take(5)
+                            .Select(kv => kv.Key + " " + kv.Value[0] + "x " + FmtN(kv.Value[1])).ToArray());
                     if (row.Name == "Unknown")
                         txt += "\n\n'Unknown' collects log lines where the game names nobody:\nactions by characters OUTSIDE your team (followers, outsiders)\nand some heal-over-time ticks. Right-click this row to hide it\nfor good, or 'Mark as pet of' a player to credit them instead.";
                 }
@@ -801,8 +841,10 @@ namespace PRKDamageMeter
 "  fight / all  - bottom-left toggle: last fight vs everything\r\n" +
 "  ? help   R reset   || pause   X quit\r\n" +
 "  Drag anywhere to move. Drag left/right edge to resize.\r\n" +
-"  Hover a bar for details (hits, crits, max hit, damage split).\r\n" +
-"  Green dot = watching your log live.\r\n\r\n" +
+"  Hover a bar for full details: hits/min, avg + max hit, crit and\r\n" +
+"  glance %, weapon/nano/shield split, damage types (melee, cold,\r\n" +
+"  poison...) and specials (Burst, Fling Shot...).\r\n" +
+"  Green dot (bottom-left) = watching your log live.\r\n\r\n" +
 "THE 'UNKNOWN' ROW\r\n" +
 "  Some log lines name nobody: actions by characters OUTSIDE your\r\n" +
 "  team (an unteamed follower, a passer-by) and some heal-over-time\r\n" +
@@ -836,6 +878,9 @@ namespace PRKDamageMeter
 "    nano database): your casts tag you; teammates' buffs landing in\r\n" +
 "    your NCU tag them. Generic buffs (Composites etc.) carry no\r\n" +
 "    profession info, so those never trigger a tag.\r\n" +
+"  - Pets named like \"Dylan's robot\" auto-credit their owner\r\n" +
+"    (when the owner is a known player). Others: mark manually.\r\n" +
+"  - CAST tab counts interrupted/countered/fumbled casts too.\r\n" +
 "  - Mob-like names (with spaces) are auto-hidden from rankings\r\n" +
 "    (toggle in right-click menu). Player names never contain spaces.\r\n" +
 "  - All tags and settings are remembered between sessions.\r\n\r\n" +
@@ -1026,6 +1071,7 @@ namespace PRKDamageMeter
             float s = S;
             Font fName = new Font("Segoe UI", 9.5f * s, FontStyle.Bold);
             Font fSmall = new Font("Segoe UI", 8.2f * s);
+            Font fSmallB = new Font("Segoe UI", 8.2f * s, FontStyle.Bold);
             Font fChip = new Font("Segoe UI", 7.0f * s, FontStyle.Bold);
             Brush dim = new SolidBrush(ColorTranslator.FromHtml("#7e9094"));
             Brush txt = new SolidBrush(ColorTranslator.FromHtml("#dee8ea"));
@@ -1077,7 +1123,7 @@ namespace PRKDamageMeter
                 }
                 fSect.Dispose();
                 DrawFooter(g, s, y, live, fSmall, gold, "xp session  •  R resets");
-                fName.Dispose(); fSmall.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
+                fName.Dispose(); fSmall.Dispose(); fSmallB.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
                 return;
             }
             if (lastRows.Count == 0)
@@ -1107,14 +1153,32 @@ namespace PRKDamageMeter
                     g.DrawString(PROF_ABBR[prof], fChip, Brushes.Black, chip.X + 2 * s, chip.Y + 1.5f * s);
                     nameX = 48 * s;
                 }
-                // value first (so the name can be clipped against it)
+                // value first (so the name can be clipped against it) — rate drawn bold for visibility
                 double dps = r.Total / (lastDurMs / 1000.0);
                 double pct = lastGrand > 0 ? 100.0 * r.Total / lastGrand : 0;
-                string val = tab == "casts"
-                    ? r.Total + "x  " + r.Hits + " landed  " + r.Crits + " res"
-                    : FmtN(r.Total) + "  " + FmtRate(dps) + " " + pct.ToString("0") + "%";
-                SizeF sz = g.MeasureString(val, fSmall);
-                g.DrawString(val, fSmall, txt, Width - 8 * s - sz.Width, y + 5 * s);
+                SizeF sz;
+                if (tab == "casts")
+                {
+                    string val = r.Total + "x  " + r.Hits + " landed  " + r.Crits + " res" + (r.Glances > 0 ? "  " + r.Glances + " int" : "");
+                    sz = g.MeasureString(val, fSmall);
+                    g.DrawString(val, fSmall, txt, Width - 8 * s - sz.Width, y + 5 * s);
+                }
+                else
+                {
+                    string vTot = FmtN(r.Total) + " ";
+                    string vRate = FmtRate(dps);
+                    string vPct = " " + pct.ToString("0") + "%";
+                    SizeF szT = g.MeasureString(vTot, fSmall);
+                    SizeF szR = g.MeasureString(vRate, fSmallB);
+                    SizeF szP = g.MeasureString(vPct, fSmall);
+                    float xP = Width - 8 * s - szP.Width;
+                    float xRt = xP - szR.Width;
+                    float xT = xRt - szT.Width;
+                    g.DrawString(vTot, fSmall, txt, xT, y + 5 * s);
+                    g.DrawString(vRate, fSmallB, txt, xRt, y + 5 * s);
+                    g.DrawString(vPct, fSmall, dim, xP, y + 5 * s);
+                    sz = new SizeF(szT.Width + szR.Width + szP.Width, szT.Height);
+                }
                 // name, ellipsized to the space left of the value
                 string nm = r.Name + (r.HasPets ? " +pet" : "");
                 RectangleF nameRect = new RectangleF(nameX, y + 3 * s, Width - 8 * s - sz.Width - nameX - 4 * s, RowH);
@@ -1130,7 +1194,7 @@ namespace PRKDamageMeter
             int below = lastRows.Count - last;
             string tot = (below > 0 ? "v +" + below + " more (scroll)   " : (scroll > 0 ? "^ scroll up   " : "")) + "total " + FmtN(lastGrand) + "  •  " + (lastDurMs / 1000) + "s";
             DrawFooter(g, s, y, live, fSmall, gold, tot);
-            fName.Dispose(); fSmall.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
+            fName.Dispose(); fSmall.Dispose(); fSmallB.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
         }
 
         // footer: live dot + fight/all toggle on the left, totals on the right
