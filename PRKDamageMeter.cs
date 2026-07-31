@@ -1127,7 +1127,10 @@ namespace PRKDamageMeter
                 return;
             }
             if (lastRows.Count == 0)
+            {
                 g.DrawString(live ? "waiting for combat..." : (paused ? "paused" : "no log found — right-click"), fSmall, dim, 8 * s, y + 5 * s);
+                y += RowH; // keep the footer on its own line below the message
+            }
             long top = lastRows.Count > 0 ? lastRows[0].Total : 1;
             int vis = VisibleRows();
             int last = Math.Min(lastRows.Count, scroll + vis);
