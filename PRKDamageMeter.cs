@@ -82,6 +82,7 @@ namespace PRKDamageMeter
         Dictionary<string, string> nanoProfs = new Dictionary<string, string>();
         long lastDumpTick = 0;
         bool autoHideMobs = true;
+        int scroll = 0;
 
         // ---- parser ----
         class Rule { public Regex Re; public Func<Match, Ev> Make; }
@@ -190,7 +191,7 @@ namespace PRKDamageMeter
             if (tab == "casts")
             {
                 lastRows = casts.Select(kv => new Row { Name = kv.Key, Total = kv.Value[0], Hits = kv.Value[1], Crits = kv.Value[2] })
-                    .OrderByDescending(r => r.Total).Take(MAX_ROWS).ToList();
+                    .OrderByDescending(r => r.Total).ToList();
                 lastGrand = 0; foreach (Row r in lastRows) lastGrand += r.Total;
                 lastDurMs = 1000;
                 return;
@@ -219,7 +220,7 @@ namespace PRKDamageMeter
                 if (e.Via == "nano") r.Nano += e.Amt; else if (e.Via == "shield") r.Shield += e.Amt; else if (e.Via == "weapon") r.Weapon += e.Amt;
                 if (tab != "taken" && petOwner.ContainsKey(e.Src)) withPets.Add(who);
             }
-            lastRows = agg.Values.OrderByDescending(r => r.Total).Take(MAX_ROWS).ToList();
+            lastRows = agg.Values.OrderByDescending(r => r.Total).ToList();
             foreach (Row r in lastRows) r.HasPets = withPets.Contains(r.Name);
             lastGrand = agg.Values.Sum(r => r.Total);
             lastDurMs = dur;
@@ -543,7 +544,27 @@ namespace PRKDamageMeter
             MouseDown += OnDown; MouseMove += OnMove; MouseUp += delegate { dragging = false; };
             Resize += delegate { RecalcHeight(); Invalidate(); };
         }
-        void RecalcHeight() { Height = HeaderH + Math.Max(1, lastRows.Count) * RowH + (int)(18 * S); }
+        int FooterH { get { return (int)(18 * S); } }
+        int VisibleRows()
+        {
+            int avail = Height - HeaderH - FooterH;
+            return Math.Max(1, avail / Math.Max(1, RowH));
+        }
+        void RecalcHeight()
+        {
+            int maxH = Screen.FromControl(this).WorkingArea.Height * 8 / 10;
+            int desired = HeaderH + Math.Max(1, lastRows.Count) * RowH + FooterH;
+            Height = Math.Min(desired, maxH);
+            int maxScroll = Math.Max(0, lastRows.Count - VisibleRows());
+            if (scroll > maxScroll) scroll = maxScroll;
+        }
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            base.OnMouseWheel(e);
+            int maxScroll = Math.Max(0, lastRows.Count - VisibleRows());
+            scroll = Math.Max(0, Math.Min(maxScroll, scroll - e.Delta / 120));
+            Invalidate();
+        }
 
         // borderless edge-resize (left/right edges)
         protected override void WndProc(ref Message m)
@@ -674,8 +695,8 @@ namespace PRKDamageMeter
 
         string RowAt(Point p)
         {
-            int idx = (p.Y - HeaderH) / RowH;
-            if (p.Y >= HeaderH && idx >= 0 && idx < lastRows.Count) return lastRows[idx].Name;
+            int idx = scroll + (p.Y - HeaderH) / RowH;
+            if (p.Y >= HeaderH && idx >= scroll && idx < lastRows.Count) return lastRows[idx].Name;
             return null;
         }
 
@@ -860,7 +881,9 @@ namespace PRKDamageMeter
             if (lastRows.Count == 0)
                 g.DrawString(live ? "waiting for combat..." : (paused ? "paused" : "no log found — right-click"), fSmall, dim, 8 * s, y + 5 * s);
             long top = lastRows.Count > 0 ? lastRows[0].Total : 1;
-            for (int i = 0; i < lastRows.Count; i++)
+            int vis = VisibleRows();
+            int last = Math.Min(lastRows.Count, scroll + vis);
+            for (int i = scroll; i < last; i++)
             {
                 Row r = lastRows[i];
                 Rectangle rowRect = new Rectangle((int)(4 * s), y + (int)(1 * s), Width - (int)(8 * s), RowH - (int)(3 * s));
@@ -902,7 +925,8 @@ namespace PRKDamageMeter
                 y += RowH;
             }
             // total line
-            string tot = "total " + FmtN(lastGrand) + "  •  " + (lastDurMs / 1000) + "s";
+            int below = lastRows.Count - last;
+            string tot = (below > 0 ? "v +" + below + " more (scroll)   " : (scroll > 0 ? "^ scroll up   " : "")) + "total " + FmtN(lastGrand) + "  •  " + (lastDurMs / 1000) + "s";
             SizeF ts = g.MeasureString(tot, fSmall);
             g.DrawString(tot, fSmall, gold, Width - 8 * s - ts.Width, y + 2 * s);
             fName.Dispose(); fSmall.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
