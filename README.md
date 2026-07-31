@@ -2,31 +2,47 @@
 
 <img src="icon.png" width="64" align="right">
 
-A tiny always-on-top damage meter overlay for **Project Rubi-Ka** (Anarchy Online 18.4) — WoW-style meter bars with class colors, pet rollup, healing tracking, nano cast stats, and clickable in-game chat dumps.
+A tiny always-on-top damage meter overlay for **Project Rubi-Ka** (Anarchy Online 18.4) — WoW-style meter bars with class colors, pet rollup, healing tracking, XP/hour tracking, nano cast stats, detailed per-player breakdowns, and clickable in-game chat dumps.
 
 **No injection. No hooks. No automation.** It reads the chat log file the game itself writes, and you build the exe on your own machine from the source in this repo — there are no binaries to trust.
 
 ## Install (one time, ~2 minutes)
 
 1. Download this repo (green **Code** button → Download ZIP) and extract it anywhere
-2. Double-click **install.bat** — it builds `PRK-DamageMeter.exe` using the C# compiler included with Windows
-3. Double-click **PRK-DamageMeter.exe**
-4. First run offers to **auto-create the logged "Damage" chat window for all your characters** (say yes while logged out). Log in — done.
+2. Double-click **install.bat** — it builds `PRK-DamageMeter.exe` using the C# compiler included with Windows, then starts the meter for you
+3. First run offers to **auto-create the logged "Damage" chat window for all your characters** (say yes while logged out). Log in — done.
+4. Right-click the meter → **Set my character name** so the meter shows your name instead of "You"
+
+**Updating to a new version?** Just replace `PRKDamageMeter.cs` with the newest one from this repo and run **install.bat** again — it closes the running meter, rebuilds, and relaunches it. Your settings and tags are kept.
+
+## The window at a glance
+
+- **Five tabs** — `DMG` damage done · `HEAL` healing done · `TAKE` damage taken · `CAST` your nano casts · `XP` xp per hour
+- **Bottom-left corner** — the green dot means it's watching your log live, and the **fight / all** toggle switches between the last fight and everything since your last reset
+- **Header buttons** — `?` help · `R` reset · `‖` pause · `X` quit
+- Drag anywhere to move, drag the left/right edge to resize, mouse-wheel to scroll long lists (raids), right-click for the full menu
 
 ## Features
 
-- **Four views** — Damage done / Healing done / Damage taken / My nano casts — click the tabs in the header
-- **Fight / all toggle** — last fight (kept on screen until the next fight starts) or everything since your last reset. Boss tip: hit **R** at the pull, leave it on **all**
+- **Detailed hover breakdown** — hover any bar for hits/min, average + max hit, crit % and glance %, weapon/nano/shield split with per-minute rates, **damage types** (melee / cold / poison... — handy for picking defensive gear) and **specials** (Burst, Fling Shot, Aimed Shot... with counts and totals)
+- **DPM or DPS** — damage per minute by default (bold in every row); toggle to per-second in the right-click menu
+- **XP tab** — live xp/hour session tracker: totals, per-hour rates, a rolling 5-minute pace (current speed vs session average), kill counts, avg + best tick, deaths and net xp. Shadowknowledge and Alien XP sections appear automatically once you earn some. Right-click → *Copy summary* copies the whole report as text
 - **Class colors** — professions auto-detect from a database of 2,900+ profession-locked nanos extracted from the PRK client: your casts tag you, teammates' buffs landing in your NCU tag them. Manual tagging via right-click for everyone else
-- **Pet rollup** — mark a pet once and its damage folds into its owner's bar
+- **Pet rollup** — pets named like *"Sefira's robot"* auto-credit their owner; anything else can be marked once via right-click and folds into its owner's bar
+- **Fight / all toggle** — last fight (kept on screen until the next fight starts) or everything since your last reset. Boss tip: hit **R** at the pull, leave it on **all**
 - **Mobs auto-hidden** — names with spaces (mobs) stay out of the rankings; player names never contain spaces
-- **Nano cast stats** — every nano you cast with counts: casts / landed / resisted
+- **Nano cast stats** — every nano you cast with counts: casts / landed / resisted / interrupted (aborts, counters and fumbles all count)
 - **Share to chat** — the meter keeps in-game scripts updated; make a macro once (`/macro dmg /prkdmg`) and click it to post a clickable dump anyone can open:
   - `/prkdmg` — damage rankings (follows your fight/all toggle)
   - `/prkheal` — healing rankings
   - `/prkcast` — your nano cast counts
-- **Overlay-friendly** — always on top, drag to move, drag edges to resize, opacity control, pause, hover any bar for details (hits, crits, max hit, weapon/nano/shield split)
+- **Self-healing log detection** — if the watched log goes quiet, the meter automatically re-finds the right `Log.txt` (handy with multiple characters). Manual override via right-click → *Choose log file*
+- **Overlay-friendly** — always on top, opacity control, pause, minimal footprint
 - Click **?** in the header for full help; all settings and tags are remembered between sessions
+
+## About the "Unknown" row
+
+Some log lines name nobody: actions by characters **outside your team** (an unteamed follower, a passer-by) and some heal-over-time ticks. The game just doesn't say who, so they all pool into one *Unknown* row. Right-click it to **hide it permanently**, or use **Mark as pet of** to credit a specific player (e.g. your box doc).
 
 ## How it works
 
