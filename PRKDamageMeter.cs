@@ -17,7 +17,7 @@ namespace PRKDamageMeter
 {
     public class Ev
     {
-        public string Kind; public string Src; public string Dst; public long Amt; public long T; public bool Crit; public string Via;
+        public string Kind; public string Src; public string Dst; public long Amt; public long T; public bool Crit; public bool Glance; public string Via;
     }
 
     public class Fight
@@ -28,7 +28,7 @@ namespace PRKDamageMeter
     public class Row
     {
         public string Name; public long Total; public bool HasPets;
-        public int Hits; public int Crits; public long Max;
+        public int Hits; public int Crits; public int Glances; public long Max;
         public long Weapon; public long Nano; public long Shield;
     }
 
@@ -169,13 +169,13 @@ namespace PRKDamageMeter
             Match w = WRAP.Match(line);
             if (w.Success) { msg = w.Groups[5].Value; t = long.Parse(w.Groups[4].Value) * 1000L; }
             msg = msg.Trim();
-            bool crit = false;
+            bool crit = false, glance = false;
             if (msg.EndsWith("Critical hit!")) { crit = true; msg = Regex.Replace(msg, "\\s*Critical hit!$", ""); }
-            if (msg.EndsWith("Glancing hit.")) { msg = Regex.Replace(msg, "\\s*Glancing hit\\.$", ""); }
+            if (msg.EndsWith("Glancing hit.")) { glance = true; msg = Regex.Replace(msg, "\\s*Glancing hit\\.$", ""); }
             foreach (Rule r in rules)
             {
                 Match m = r.Re.Match(msg);
-                if (m.Success) { Ev ev = r.Make(m); if (ev != null) { ev.T = t; ev.Crit = crit; } return ev; }
+                if (m.Success) { Ev ev = r.Make(m); if (ev != null) { ev.T = t; ev.Crit = crit; ev.Glance = glance; } return ev; }
             }
             return null;
         }
@@ -313,6 +313,7 @@ namespace PRKDamageMeter
                 Row r; if (!agg.TryGetValue(who, out r)) { r = new Row { Name = who }; agg[who] = r; }
                 r.Total += e.Amt; r.Hits++;
                 if (e.Crit) r.Crits++;
+                if (e.Glance) r.Glances++;
                 if (e.Amt > r.Max) r.Max = e.Amt;
                 if (e.Via == "nano") r.Nano += e.Amt; else if (e.Via == "shield") r.Shield += e.Amt; else if (e.Via == "weapon") r.Weapon += e.Amt;
                 if (tab != "taken" && petOwner.ContainsKey(e.Src)) withPets.Add(who);
@@ -738,13 +739,28 @@ namespace PRKDamageMeter
                 if (r == null) { tip.Hide(this); return; }
                 Row row = lastRows.FirstOrDefault(x => x.Name == r);
                 if (row == null) return;
-                string txt = tab == "casts"
-                    ? row.Name + "  —  " + row.Total + " casts, " + row.Hits + " landed, " + row.Crits + " resisted"
-                    : row.Name + "  —  " + FmtN(row.Total) + " total, " + row.Hits + " hits, max " + FmtN(row.Max);
-                if (row.Crits > 0) txt += ", " + row.Crits + " crits (" + (100.0 * row.Crits / Math.Max(1, row.Hits)).ToString("0") + "%)";
-                if (tab == "dmg" && (row.Nano > 0 || row.Shield > 0))
-                    txt += "\nweapon " + FmtN(row.Weapon) + "  •  nano " + FmtN(row.Nano) + (row.Shield > 0 ? "  •  shields " + FmtN(row.Shield) : "");
-                tip.Show(txt, this, e.X + 14, e.Y + 18, 4000);
+                string txt;
+                if (tab == "casts")
+                    txt = row.Name + "  —  " + row.Total + " casts, " + row.Hits + " landed, " + row.Crits + " resisted";
+                else
+                {
+                    double durMin = Math.Max(1.0 / 60.0, lastDurMs / 60000.0);
+                    double share = lastGrand > 0 ? 100.0 * row.Total / lastGrand : 0;
+                    string prof; tags.TryGetValue(row.Name, out prof);
+                    txt = row.Name + (prof != null ? " (" + prof + ")" : "")
+                        + "  —  " + FmtN(row.Total) + " total  (" + share.ToString("0.0") + "% of shown)"
+                        + "\n" + row.Hits + " hits  •  " + (row.Hits / durMin).ToString("0.0") + " hits/min"
+                        + "\navg hit " + FmtN(row.Hits > 0 ? row.Total / (double)row.Hits : 0) + "  •  max hit " + FmtN(row.Max)
+                        + "\ncrits " + row.Crits + " (" + (100.0 * row.Crits / Math.Max(1, row.Hits)).ToString("0.0") + "%)"
+                        + "  •  glances " + row.Glances + " (" + (100.0 * row.Glances / Math.Max(1, row.Hits)).ToString("0.0") + "%)";
+                    if (tab != "heal" && (row.Weapon > 0 || row.Nano > 0 || row.Shield > 0))
+                        txt += "\nweapon " + FmtN(row.Weapon) + " (" + FmtRate(row.Weapon / (lastDurMs / 1000.0)) + ")"
+                            + "  •  nano " + FmtN(row.Nano) + " (" + FmtRate(row.Nano / (lastDurMs / 1000.0)) + ")"
+                            + (row.Shield > 0 ? "  •  shields " + FmtN(row.Shield) : "");
+                    if (row.Name == "Unknown")
+                        txt += "\n\n'Unknown' collects log lines where the game names nobody:\nactions by characters OUTSIDE your team (followers, outsiders)\nand some heal-over-time ticks. Right-click this row to hide it\nfor good, or 'Mark as pet of' a player to credit them instead.";
+                }
+                tip.Show(txt, this, e.X + 14, e.Y + 18, 8000);
             }
         }
 
@@ -787,6 +803,12 @@ namespace PRKDamageMeter
 "  Drag anywhere to move. Drag left/right edge to resize.\r\n" +
 "  Hover a bar for details (hits, crits, max hit, damage split).\r\n" +
 "  Green dot = watching your log live.\r\n\r\n" +
+"THE 'UNKNOWN' ROW\r\n" +
+"  Some log lines name nobody: actions by characters OUTSIDE your\r\n" +
+"  team (an unteamed follower, a passer-by) and some heal-over-time\r\n" +
+"  ticks. The game just doesn't say who, so they all pool into one\r\n" +
+"  'Unknown' row. Right-click it to hide it permanently, or use\r\n" +
+"  'Mark as pet of' to credit a specific player (e.g. your box doc).\r\n\r\n" +
 "XP TAB\r\n" +
 "  Tracks xp, Shadowknowledge and Alien XP from your first xp tick\r\n" +
 "  after the meter starts. Shows totals, per-hour rates, a rolling\r\n" +
