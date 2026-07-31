@@ -83,6 +83,7 @@ namespace PRKDamageMeter
         long lastDumpTick = 0;
         bool autoHideMobs = true;
         int scroll = 0;
+        long lastGrowthTick = 0;
 
         // ---- parser ----
         class Rule { public Regex Re; public Func<Match, Ev> Make; }
@@ -240,6 +241,19 @@ namespace PRKDamageMeter
         }
         void Poll()
         {
+            // self-heal: if the watched log has been silent for 15s, re-scan for the
+            // most recently written Log.txt and switch to it (handles the meter
+            // latching onto a stale/empty log from another chat window or character)
+            if (Environment.TickCount - lastGrowthTick > 15000)
+            {
+                lastGrowthTick = Environment.TickCount;
+                string best = FindLog();
+                if (best != null && !best.Equals(logPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    logPath = best; lastPos = 0; carry = "";
+                    events.Clear(); fights.Clear(); casts.Clear();
+                }
+            }
             if (logPath == null || !File.Exists(logPath)) return;
             try
             {
@@ -247,6 +261,7 @@ namespace PRKDamageMeter
                 {
                     if (fs.Length < lastPos) { lastPos = 0; carry = ""; events.Clear(); fights.Clear(); }
                     if (fs.Length == lastPos) return;
+                    lastGrowthTick = Environment.TickCount;
                     fs.Seek(lastPos, SeekOrigin.Begin);
                     byte[] buf = new byte[fs.Length - lastPos];
                     fs.Read(buf, 0, buf.Length);
@@ -818,6 +833,18 @@ namespace PRKDamageMeter
             ToolStripMenuItem rescan = new ToolStripMenuItem("Auto-detect log");
             rescan.Click += delegate { logPath = FindLog(); lastPos = 0; carry = ""; events.Clear(); fights.Clear(); Aggregate(); Invalidate(); };
             m.Items.Add(rescan);
+            ToolStripMenuItem loginfo = new ToolStripMenuItem("Log file info...");
+            loginfo.Click += delegate
+            {
+                MessageBox.Show(this,
+                    "Watching:\n" + (logPath ?? "(no log found)") +
+                    "\n\nEvents parsed: " + events.Count + "\nFights: " + fights.Count + "\nNano casts: " + casts.Count +
+                    "\n\nIf events stay at 0 while you fight, the meter is watching the wrong file - " +
+                    "use 'Choose log file...' and pick the Log.txt inside your Damage window's folder " +
+                    "(Chat/Windows/WindowN under your character's prefs).",
+                    "PRK Damage Meter - log info");
+            };
+            m.Items.Add(loginfo);
             ToolStripMenuItem reset = new ToolStripMenuItem("Reset data");
             reset.Click += delegate { events.Clear(); fights.Clear(); Aggregate(); RecalcHeight(); Invalidate(); };
             m.Items.Add(reset);
