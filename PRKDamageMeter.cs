@@ -385,8 +385,8 @@ namespace PRKDamageMeter
         // ---- one-click in-game chat window setup ----
         string ChatWindowXml(string windowName)
         {
-            string[] ids = { "1107296280","1107296276","1107296261","1107296265","1107296267","1107296263","1107296268","1107296275","1107296277","1107296259","1107296260","1107296262","1107296264","1107296266","1107296257","1107296274","1107296278","1107296258","1107296273","1107296279" };
-            string[] names = { "Me Cast Nano","You gave health","You hit other with nano","Your pet hit by other","Me got XP","Me hit by player","Me got SK","Other misses","Me got health","Your pet hit by nano","Other hit by nano","Me hit by monster","You hit other","Other hit by other","Me hit by environment","Your misses","Me got nano","Me hit by nano","Your pet hit by monster","You gave nano" };
+            string[] ids = { "1073741825","1107296280","1107296276","1107296261","1107296265","1107296267","1107296263","1107296268","1107296275","1107296277","1107296259","1107296260","1107296262","1107296264","1107296266","1107296257","1107296274","1107296278","1107296258","1107296273","1107296279" };
+            string[] names = { "System","Me Cast Nano","You gave health","You hit other with nano","Your pet hit by other","Me got XP","Me hit by player","Me got SK","Other misses","Me got health","Your pet hit by nano","Other hit by nano","Me hit by monster","You hit other","Other hit by other","Me hit by environment","Your misses","Me got nano","Me hit by nano","Your pet hit by monster","You gave nano" };
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<Archive code=\"0\">");
             sb.AppendLine("    <Array name=\"selected_group_ids\">");
