@@ -508,6 +508,17 @@ namespace PRKDamageMeter
                     if (p.Length >= 2 && p[0] == "automob") autoHideMobs = p[1] == "1";
                     if (p.Length >= 2 && p[0] == "dpm") showDpm = p[1] == "1";
                     if (p.Length >= 2 && p[0] == "width") { int w; if (int.TryParse(p[1], out w) && w >= 280 && w <= 700) Width = w; }
+                    if (p.Length >= 3 && p[0] == "pos")
+                    {
+                        int px, py;
+                        if (int.TryParse(p[1], out px) && int.TryParse(p[2], out py))
+                        {
+                            // only restore if the point is still on a connected screen
+                            Point pt = new Point(px, py);
+                            foreach (Screen sc in Screen.AllScreens)
+                                if (sc.WorkingArea.Contains(new Rectangle(pt, new Size(50, 50)))) { Location = pt; break; }
+                        }
+                    }
                     if (p.Length >= 3 && p[0] == "prof") tags[p[1]] = p[2];
                     if (p.Length >= 3 && p[0] == "pet") petOwner[p[1]] = p[2];
                 }
@@ -523,6 +534,7 @@ namespace PRKDamageMeter
                 outl.Add("automob|" + (autoHideMobs ? "1" : "0"));
                 outl.Add("dpm|" + (showDpm ? "1" : "0"));
                 outl.Add("width|" + Width);
+                outl.Add("pos|" + Location.X + "|" + Location.Y);
                 foreach (KeyValuePair<string, string> kv in tags) outl.Add("prof|" + kv.Key + "|" + kv.Value);
                 foreach (KeyValuePair<string, string> kv in petOwner) outl.Add("pet|" + kv.Key + "|" + kv.Value);
                 foreach (string h in hidden) outl.Add("hide|" + h);
@@ -696,7 +708,9 @@ namespace PRKDamageMeter
                 if (tab == "xp") { Aggregate(); RecalcHeight(); Invalidate(); } // live rates/timers tick every second
             };
             timer.Start();
-            MouseDown += OnDown; MouseMove += OnMove; MouseUp += delegate { dragging = false; };
+            MouseDown += OnDown; MouseMove += OnMove;
+            MouseUp += delegate { if (dragging) { dragging = false; SaveTags(); } };
+            FormClosing += delegate { SaveTags(); };
             Resize += delegate { RecalcHeight(); Invalidate(); };
         }
         int FooterH { get { return (int)(18 * S); } }
