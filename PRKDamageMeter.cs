@@ -161,6 +161,10 @@ namespace PRKDamageMeter
         TipForm tipForm;
         static HashSet<string> WEAPONSPECIALS = new HashSet<string> {
             "Burst","Fling Shot","Aimed Shot","Full Auto","Brawling","Brawl","Dimach","Fast Attack","Sneak Atck","Sneak Attack","Backstab" };
+        // real elemental damage types; anything else in the "%s damage" slot is a special
+        // attack name (Burst, Fling Shot...) or "unknown" = perk/proc damage
+        static HashSet<string> ELEMENTS = new HashSet<string> {
+            "melee","energy","projectile","fire","cold","poison","chemical","radiation","disease" };
         Dictionary<string, int[]> casts = new Dictionary<string, int[]>(); // nano -> [cast, landed, resisted]
         string lastCast = null;
         Dictionary<string, string> nanoProfs = new Dictionary<string, string>();
@@ -482,8 +486,20 @@ namespace PRKDamageMeter
                 if (e.Via == "nano") r.Nano += e.Amt; else if (e.Via == "shield") r.Shield += e.Amt; else if (e.Via == "weapon") r.Weapon += e.Amt;
                 if (e.DType != null)
                 {
-                    if (r.Types == null) r.Types = new Dictionary<string, long>();
-                    long tv; r.Types.TryGetValue(e.DType, out tv); r.Types[e.DType] = tv + e.Amt;
+                    string dtl = e.DType.ToLowerInvariant();
+                    if (ELEMENTS.Contains(dtl))
+                    {
+                        if (r.Types == null) r.Types = new Dictionary<string, long>();
+                        long tv; r.Types.TryGetValue(e.DType, out tv); r.Types[e.DType] = tv + e.Amt;
+                    }
+                    else if (e.Special == null)
+                    {
+                        // "points of Burst damage" = special; "points of unknown damage" = perk/proc
+                        string key = dtl == "unknown" ? "perk damage" : e.DType;
+                        if (r.Specials == null) r.Specials = new Dictionary<string, long[]>();
+                        long[] sp2; if (!r.Specials.TryGetValue(key, out sp2)) { sp2 = new long[2]; r.Specials[key] = sp2; }
+                        sp2[0]++; sp2[1] += e.Amt;
+                    }
                 }
                 if (e.Special != null)
                 {
@@ -987,7 +1003,7 @@ namespace PRKDamageMeter
                 if (regular > 0) L.Add(new string[] { "regular attacks", FmtN(regular) + Pct(regular, row.Total), "" });
                 if (row.Specials != null)
                     foreach (KeyValuePair<string, long[]> kv in row.Specials.OrderByDescending(k => k.Value[1]))
-                        L.Add(new string[] { kv.Key + (WEAPONSPECIALS.Contains(kv.Key) ? "" : "  (perk)"),
+                        L.Add(new string[] { kv.Key + (WEAPONSPECIALS.Contains(kv.Key) || kv.Key == "perk damage" ? "" : "  (perk)"),
                             kv.Value[0] + "x   " + FmtN(kv.Value[1]) + Pct(kv.Value[1], row.Total), "" });
                 if (row.Nano > 0) L.Add(new string[] { "nano", FmtN(row.Nano) + Pct(row.Nano, row.Total), "" });
                 if (row.Shield > 0) L.Add(new string[] { "damage shields", FmtN(row.Shield) + Pct(row.Shield, row.Total), "" });
