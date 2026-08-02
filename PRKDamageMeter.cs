@@ -33,6 +33,87 @@ namespace PRKDamageMeter
         public Dictionary<string, long> Types; public Dictionary<string, long[]> Specials;
     }
 
+    // PRK-styled hover panel: one stat per line, bold values, section headers
+    public class TipForm : Form
+    {
+        public List<string[]> L = new List<string[]>(); // [label, value, style] style: "h" header, "s" section, "" normal
+        public TipForm()
+        {
+            FormBorderStyle = FormBorderStyle.None; ShowInTaskbar = false; TopMost = true;
+            StartPosition = FormStartPosition.Manual;
+            BackColor = ColorTranslator.FromHtml("#0b1a20");
+            DoubleBuffered = true;
+        }
+        protected override bool ShowWithoutActivation { get { return true; } }
+        protected override CreateParams CreateParams
+        {
+            get { CreateParams cp = base.CreateParams; cp.ExStyle |= 0x08000000 | 0x80; return cp; } // NOACTIVATE + TOOLWINDOW
+        }
+        int LineH(string style) { return style == "h" ? 22 : style == "s" ? 24 : 18; }
+        public void SetLines(List<string[]> lines)
+        {
+            L = lines;
+            using (Graphics g = CreateGraphics())
+            using (Font fH = new Font("Segoe UI", 9.5f, FontStyle.Bold))
+            using (Font fB = new Font("Segoe UI", 9f, FontStyle.Bold))
+            using (Font fN = new Font("Segoe UI", 9f))
+            {
+                float w = 230; int h = 10;
+                foreach (string[] ln in L)
+                {
+                    Font lf = ln[2] == "h" ? fH : fN;
+                    float lw = g.MeasureString(ln[0], lf).Width + g.MeasureString(ln[1], fB).Width + 46;
+                    if (lw > w) w = lw;
+                    h += LineH(ln[2]);
+                }
+                Width = (int)w + 12; Height = h + 8;
+            }
+            Invalidate();
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            using (Pen border = new Pen(ColorTranslator.FromHtml("#2a4a56")))
+                g.DrawRectangle(border, 0, 0, Width - 1, Height - 1);
+            using (Font fH = new Font("Segoe UI", 9.5f, FontStyle.Bold))
+            using (Font fB = new Font("Segoe UI", 9f, FontStyle.Bold))
+            using (Font fN = new Font("Segoe UI", 9f))
+            using (Font fS = new Font("Segoe UI", 7.8f, FontStyle.Bold))
+            using (Brush txt = new SolidBrush(ColorTranslator.FromHtml("#dee8ea")))
+            using (Brush dim = new SolidBrush(ColorTranslator.FromHtml("#7e9094")))
+            using (Brush cyan = new SolidBrush(ColorTranslator.FromHtml("#5fd7e2")))
+            using (Brush gold = new SolidBrush(ColorTranslator.FromHtml("#f2cc79")))
+            {
+                int y = 8;
+                foreach (string[] ln in L)
+                {
+                    if (ln[2] == "h")
+                    {
+                        g.DrawString(ln[0], fH, cyan, 10, y);
+                        SizeF vz = g.MeasureString(ln[1], fN);
+                        g.DrawString(ln[1], fN, dim, Width - 10 - vz.Width, y + 2);
+                    }
+                    else if (ln[2] == "s")
+                    {
+                        g.DrawString(ln[0], fS, gold, 10, y + 8);
+                        using (Pen p2 = new Pen(ColorTranslator.FromHtml("#1d3540")))
+                            g.DrawLine(p2, 10, y + LineH("s") - 2, Width - 10, y + LineH("s") - 2);
+                    }
+                    else
+                    {
+                        g.DrawString(ln[0], fN, dim, 14, y);
+                        if (ln[1].Length > 0)
+                        {
+                            SizeF vz = g.MeasureString(ln[1], fB);
+                            g.DrawString(ln[1], fB, txt, Width - 10 - vz.Width, y);
+                        }
+                    }
+                    y += LineH(ln[2]);
+                }
+            }
+        }
+    }
+
     public class MeterForm : Form
     {
         const int BASE_W = 330;
@@ -77,7 +158,9 @@ namespace PRKDamageMeter
         long lastGrand = 0;
         Point dragOff; bool dragging = false;
         string tipRow = null;
-        ToolTip tip = new ToolTip();
+        TipForm tipForm;
+        static HashSet<string> WEAPONSPECIALS = new HashSet<string> {
+            "Burst","Fling Shot","Aimed Shot","Full Auto","Brawling","Brawl","Dimach","Fast Attack","Sneak Atck","Sneak Attack","Backstab" };
         Dictionary<string, int[]> casts = new Dictionary<string, int[]>(); // nano -> [cast, landed, resisted]
         string lastCast = null;
         Dictionary<string, string> nanoProfs = new Dictionary<string, string>();
@@ -775,7 +858,8 @@ namespace PRKDamageMeter
             timer.Start();
             MouseDown += OnDown; MouseMove += OnMove;
             MouseUp += delegate { if (dragging) { dragging = false; SaveTags(); } };
-            FormClosing += delegate { SaveTags(); };
+            MouseLeave += delegate { tipRow = null; if (tipForm != null) tipForm.Hide(); };
+            FormClosing += delegate { SaveTags(); if (tipForm != null) tipForm.Close(); };
             Resize += delegate { RecalcHeight(); Invalidate(); };
         }
         int FooterH { get { return (int)(18 * S); } }
@@ -832,6 +916,7 @@ namespace PRKDamageMeter
 
         void OnDown(object s, MouseEventArgs e)
         {
+            tipRow = null; if (tipForm != null) tipForm.Hide();
             if (e.Button == MouseButtons.Left)
             {
                 if (PauseRect.Contains(e.Location)) { paused = !paused; Invalidate(); return; }
@@ -852,39 +937,76 @@ namespace PRKDamageMeter
             if (r != tipRow)
             {
                 tipRow = r;
-                if (r == null) { tip.Hide(this); return; }
+                if (r == null) { if (tipForm != null) tipForm.Hide(); return; }
                 Row row = lastRows.FirstOrDefault(x => x.Name == r);
                 if (row == null) return;
-                string txt;
-                if (tab == "casts")
-                    txt = row.Name + "  —  " + row.Total + " casts, " + row.Hits + " landed, " + row.Crits + " resisted"
-                        + (row.Glances > 0 ? ", " + row.Glances + " interrupted" : "");
-                else
-                {
-                    double durMin = Math.Max(1.0 / 60.0, lastDurMs / 60000.0);
-                    double share = lastGrand > 0 ? 100.0 * row.Total / lastGrand : 0;
-                    string prof; tags.TryGetValue(row.Name, out prof);
-                    txt = row.Name + (prof != null ? " (" + prof + ")" : "")
-                        + "  —  " + FmtN(row.Total) + " total  (" + share.ToString("0.0") + "% of shown)"
-                        + "\n" + row.Hits + " hits  •  " + (row.Hits / durMin).ToString("0.0") + " hits/min"
-                        + "\navg hit " + FmtN(row.Hits > 0 ? row.Total / (double)row.Hits : 0) + "  •  max hit " + FmtN(row.Max)
-                        + "\ncrits " + row.Crits + " (" + (100.0 * row.Crits / Math.Max(1, row.Hits)).ToString("0.0") + "%)"
-                        + "  •  glances " + row.Glances + " (" + (100.0 * row.Glances / Math.Max(1, row.Hits)).ToString("0.0") + "%)";
-                    if (tab != "heal" && (row.Weapon > 0 || row.Nano > 0 || row.Shield > 0))
-                        txt += "\nweapon " + FmtN(row.Weapon) + " (" + FmtRate(row.Weapon / (lastDurMs / 1000.0)) + ")"
-                            + "  •  nano " + FmtN(row.Nano) + " (" + FmtRate(row.Nano / (lastDurMs / 1000.0)) + ")"
-                            + (row.Shield > 0 ? "  •  shields " + FmtN(row.Shield) : "");
-                    if (row.Types != null && row.Types.Count > 0)
-                        txt += "\ndmg types: " + string.Join("  •  ", row.Types.OrderByDescending(kv => kv.Value).Take(5)
-                            .Select(kv => kv.Key + " " + (100.0 * kv.Value / Math.Max(1, row.Total)).ToString("0") + "%").ToArray());
-                    if (row.Specials != null && row.Specials.Count > 0)
-                        txt += "\nspecials: " + string.Join("  •  ", row.Specials.OrderByDescending(kv => kv.Value[1]).Take(5)
-                            .Select(kv => kv.Key + " " + kv.Value[0] + "x " + FmtN(kv.Value[1])).ToArray());
-                    if (row.Name == "Unknown")
-                        txt += "\n\n'Unknown' collects log lines where the game names nobody:\nactions by characters OUTSIDE your team (followers, outsiders)\nand some heal-over-time ticks. Right-click this row to hide it\nfor good, or 'Mark as pet of' a player to credit them instead.";
-                }
-                tip.Show(txt, this, e.X + 14, e.Y + 18, 8000);
+                if (tipForm == null) tipForm = new TipForm();
+                tipForm.SetLines(BuildTipLines(row));
             }
+            if (tipRow != null && tipForm != null)
+            {
+                Point sp = PointToScreen(new Point(e.X + 16, e.Y + 20));
+                Rectangle wa = Screen.FromControl(this).WorkingArea;
+                if (sp.X + tipForm.Width > wa.Right) sp.X = wa.Right - tipForm.Width;
+                if (sp.Y + tipForm.Height > wa.Bottom) sp.Y = Math.Max(wa.Top, sp.Y - tipForm.Height - 44);
+                tipForm.Location = sp;
+                if (!tipForm.Visible) tipForm.Show();
+            }
+        }
+
+        string Pct(long part, long whole) { return "  (" + (100.0 * part / Math.Max(1, whole)).ToString("0") + "%)"; }
+        List<string[]> BuildTipLines(Row row)
+        {
+            List<string[]> L = new List<string[]>();
+            if (tab == "casts")
+            {
+                L.Add(new string[] { row.Name, "", "h" });
+                L.Add(new string[] { "casts", row.Total.ToString(), "" });
+                L.Add(new string[] { "landed", row.Hits.ToString(), "" });
+                L.Add(new string[] { "resisted", row.Crits.ToString(), "" });
+                if (row.Glances > 0) L.Add(new string[] { "interrupted", row.Glances.ToString(), "" });
+                return L;
+            }
+            double durMin = Math.Max(1.0 / 60.0, lastDurMs / 60000.0);
+            double durSec = Math.Max(1.0, lastDurMs / 1000.0);
+            double share = lastGrand > 0 ? 100.0 * row.Total / lastGrand : 0;
+            string prof; tags.TryGetValue(row.Name, out prof);
+            L.Add(new string[] { row.Name + (prof != null ? "   (" + prof + ")" : ""), share.ToString("0.0") + "% of shown", "h" });
+            L.Add(new string[] { "total", FmtN(row.Total) + "   " + FmtRate(row.Total / durSec), "" });
+            L.Add(new string[] { "hits", row.Hits + "   (" + (row.Hits / durMin).ToString("0.0") + "/min)", "" });
+            L.Add(new string[] { "avg hit", FmtN(row.Hits > 0 ? row.Total / (double)row.Hits : 0), "" });
+            L.Add(new string[] { "max hit", FmtN(row.Max), "" });
+            L.Add(new string[] { "crits", row.Crits + "  (" + (100.0 * row.Crits / Math.Max(1, row.Hits)).ToString("0.0") + "%)", "" });
+            L.Add(new string[] { "glances", row.Glances + "  (" + (100.0 * row.Glances / Math.Max(1, row.Hits)).ToString("0.0") + "%)", "" });
+            if (tab != "heal" && (row.Weapon > 0 || row.Nano > 0 || row.Shield > 0))
+            {
+                L.Add(new string[] { "DAMAGE BY SOURCE", "", "s" });
+                long specSum = 0;
+                if (row.Specials != null) foreach (long[] v in row.Specials.Values) specSum += v[1];
+                long regular = Math.Max(0, row.Weapon - specSum);
+                if (regular > 0) L.Add(new string[] { "regular attacks", FmtN(regular) + Pct(regular, row.Total), "" });
+                if (row.Specials != null)
+                    foreach (KeyValuePair<string, long[]> kv in row.Specials.OrderByDescending(k => k.Value[1]))
+                        L.Add(new string[] { kv.Key + (WEAPONSPECIALS.Contains(kv.Key) ? "" : "  (perk)"),
+                            kv.Value[0] + "x   " + FmtN(kv.Value[1]) + Pct(kv.Value[1], row.Total), "" });
+                if (row.Nano > 0) L.Add(new string[] { "nano", FmtN(row.Nano) + Pct(row.Nano, row.Total), "" });
+                if (row.Shield > 0) L.Add(new string[] { "damage shields", FmtN(row.Shield) + Pct(row.Shield, row.Total), "" });
+                if (row.Types != null && row.Types.Count > 0)
+                {
+                    L.Add(new string[] { "DAMAGE TYPES", "", "s" });
+                    foreach (KeyValuePair<string, long> kv in row.Types.OrderByDescending(k => k.Value))
+                        L.Add(new string[] { kv.Key, FmtN(kv.Value) + Pct(kv.Value, row.Total), "" });
+                }
+            }
+            if (row.Name == "Unknown")
+            {
+                L.Add(new string[] { "WHAT IS 'UNKNOWN'?", "", "s" });
+                L.Add(new string[] { "Log lines that name nobody: actions by", "", "" });
+                L.Add(new string[] { "characters OUTSIDE your team and some", "", "" });
+                L.Add(new string[] { "heal-over-time ticks. Right-click the row", "", "" });
+                L.Add(new string[] { "to hide it, or mark it as a pet of a player.", "", "" });
+            }
+            return L;
         }
 
         void ShowHelp()
