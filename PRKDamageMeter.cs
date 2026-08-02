@@ -91,6 +91,8 @@ namespace PRKDamageMeter
         long appStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         HashSet<string> knownActors = new HashSet<string>();
         static Regex PETNAME = new Regex("^(.+?)'s (.+)$");
+        class Tmr { public string Name; public long End; public long Total; public bool Ready; }
+        List<Tmr> timers = new List<Tmr>();
 
         // ---- parser ----
         class Rule { public Regex Re; public Func<Match, Ev> Make; }
@@ -145,6 +147,38 @@ namespace PRKDamageMeter
             AddRule("You gained %d points of Shadowknowledge as a side bonus.", m => Xp("sk", m.Groups[1].Value));
             AddRule("You lost %d points of Shadowknowledge.", m => Xp("skloss", m.Groups[1].Value));
             AddRule("You gained %d new Alien Experience Points.", m => Xp("axp", m.Groups[1].Value));
+            // skill lock timers (trimmers, tradeskill debuffs, perk-style locks)
+            rules.Add(new Rule
+            {
+                Re = new Regex("^Cannot use the \\[?(.+?)\\]? skill on this target for another ([0-9.]+) seconds?\\.$"),
+                Make = m => TimerEv(m.Groups[1].Value, (long)(double.Parse(m.Groups[2].Value, CultureInfo.InvariantCulture) * 1000))
+            });
+            rules.Add(new Rule
+            {
+                Re = new Regex("^Unable to perform action, (.+?) skill is locked, able in (\\d+):(\\d+):(\\d+)\\.?$"),
+                Make = m => TimerEv(m.Groups[1].Value,
+                    (long.Parse(m.Groups[2].Value) * 3600 + long.Parse(m.Groups[3].Value) * 60 + long.Parse(m.Groups[4].Value)) * 1000)
+            });
+            rules.Add(new Rule
+            {
+                Re = new Regex("^(.+?) skill available\\.$"),
+                Make = m => new Ev { Kind = "timerdone", Src = m.Groups[1].Value }
+            });
+        }
+        Ev TimerEv(string skill, long ms) { return new Ev { Kind = "timer", Src = skill, Amt = ms }; }
+        static Dictionary<string, string> SKILLPRETTY = new Dictionary<string, string> {
+            {"mechanicalengineering","Mech Engineering"}, {"electricalengineering","Elec Engineering"},
+            {"fieldquantumphysics","Quantum FT"}, {"weaponsmithing","Weapon Smithing"},
+            {"nanoprogramming","Nano Programming"}, {"computerliteracy","Comp Literacy"},
+            {"pharmatech","Pharma Tech"}, {"breakingentry","Breaking & Entry"},
+            {"psychologicalmodification","Psycho Modi"}, {"biologicalmetamorphose","Bio Metamor"},
+            {"materialmetamorphose","Matter Metam"}, {"materialcreation","Matter Crea"},
+            {"sensoryimprovement","Sensory Impr"}, {"timeandspace","Time & Space"} };
+        string PrettySkill(string raw)
+        {
+            string k = raw.Trim().Trim('[', ']');
+            string v; if (SKILLPRETTY.TryGetValue(k.ToLowerInvariant().Replace(" ", ""), out v)) return v;
+            return k.Length > 1 ? char.ToUpper(k[0]) + k.Substring(1) : k;
         }
         Ev Xp(string kind, string amt) { return new Ev { Kind = kind, Src = myName, Dst = myName, Amt = long.Parse(amt), Via = "xp" }; }
         Ev Cast(string what, string nano)
@@ -199,6 +233,21 @@ namespace PRKDamageMeter
             {
                 // xp session starts at app launch — ignore old lines replayed from the log
                 if (ev.T >= appStart - 5000) xpEvents.Add(ev);
+                return;
+            }
+            if (ev.Kind == "timer" || ev.Kind == "timerdone")
+            {
+                if (ev.T < appStart - 5000) return; // ignore old lines replayed from the log
+                string nm = PrettySkill(ev.Src);
+                Tmr tm = timers.FirstOrDefault(x => x.Name == nm);
+                if (ev.Kind == "timer")
+                {
+                    if (tm == null) { tm = new Tmr { Name = nm, Total = ev.Amt }; timers.Add(tm); }
+                    tm.End = ev.T + ev.Amt;
+                    if (ev.Amt > tm.Total) tm.Total = ev.Amt;
+                    tm.Ready = false;
+                }
+                else if (tm != null) { tm.Ready = true; tm.End = ev.T; }
                 return;
             }
             // auto pet detection: "Dylan's robot" -> pet of Dylan (only if the owner is a known player)
@@ -705,6 +754,12 @@ namespace PRKDamageMeter
             timer.Tick += delegate
             {
                 Poll();
+                if (timers.Count > 0)
+                {
+                    long nowMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    timers.RemoveAll(t2 => (t2.Ready || t2.End <= nowMs) && nowMs - t2.End > 8000); // READY shows ~8s then clears
+                    RecalcHeight(); Invalidate();
+                }
                 if (tab == "xp") { Aggregate(); RecalcHeight(); Invalidate(); } // live rates/timers tick every second
             };
             timer.Start();
@@ -720,12 +775,14 @@ namespace PRKDamageMeter
             return Math.Max(1, avail / Math.Max(1, RowH));
         }
         int XpRowH { get { return (int)(18 * S); } }
+        int TmrRowH { get { return (int)(17 * S); } }
         void RecalcHeight()
         {
             int maxH = Screen.FromControl(this).WorkingArea.Height * 8 / 10;
             int desired = tab == "xp"
                 ? HeaderH + Math.Max(1, xpLines.Count) * XpRowH + FooterH
                 : HeaderH + Math.Max(1, lastRows.Count) * RowH + FooterH;
+            desired += timers.Count * TmrRowH;
             Height = Math.Min(desired, maxH);
             int maxScroll = Math.Max(0, lastRows.Count - VisibleRows());
             if (scroll > maxScroll) scroll = maxScroll;
@@ -861,6 +918,12 @@ namespace PRKDamageMeter
 "  glance %, weapon/nano/shield split, damage types (melee, cold,\r\n" +
 "  poison...) and specials (Burst, Fling Shot...).\r\n" +
 "  Green dot (bottom-left) = watching your log live.\r\n\r\n" +
+"SKILL LOCK TIMERS (trimmers etc.)\r\n" +
+"  When the game says 'Cannot use the [skill] on this target for\r\n" +
+"  another X seconds' or 'skill is locked, able in hh:mm:ss', the\r\n" +
+"  meter shows a live countdown bar above the footer on every tab.\r\n" +
+"  It flashes READY (green) when the lock ends, then disappears.\r\n" +
+"  Tip: click the locked hotbar button once to (re)start the timer.\r\n\r\n" +
 "THE 'UNKNOWN' ROW\r\n" +
 "  Some log lines name nobody: actions by characters OUTSIDE your\r\n" +
 "  team (an unteamed follower, a passer-by) and some heal-over-time\r\n" +
@@ -1138,6 +1201,7 @@ namespace PRKDamageMeter
                     y += XpRowH;
                 }
                 fSect.Dispose();
+                y = DrawTimers(g, s, y, fSmall);
                 DrawFooter(g, s, y, live, fSmall, gold, "xp session  •  R resets");
                 fName.Dispose(); fSmall.Dispose(); fSmallB.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
                 return;
@@ -1212,8 +1276,39 @@ namespace PRKDamageMeter
             // total line
             int below = lastRows.Count - last;
             string tot = (below > 0 ? "v +" + below + " more (scroll)   " : (scroll > 0 ? "^ scroll up   " : "")) + "total " + FmtN(lastGrand) + "  •  " + (lastDurMs / 1000) + "s";
+            y = DrawTimers(g, s, y, fSmall);
             DrawFooter(g, s, y, live, fSmall, gold, tot);
             fName.Dispose(); fSmall.Dispose(); fSmallB.Dispose(); fChip.Dispose(); dim.Dispose(); txt.Dispose(); cyan.Dispose(); gold.Dispose();
+        }
+
+        // skill-lock countdown bars (trimmers etc.) — shown on every tab above the footer
+        int DrawTimers(Graphics g, float s, int y, Font fSmall)
+        {
+            if (timers.Count == 0) return y;
+            long nowMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            foreach (Tmr t in timers.OrderBy(x => x.End).ToList())
+            {
+                double remMs = t.End - nowMs;
+                bool ready = t.Ready || remMs <= 0;
+                Rectangle rowRect = new Rectangle((int)(4 * s), y + (int)(1 * s), Width - (int)(8 * s), TmrRowH - (int)(2 * s));
+                using (Brush bg = new SolidBrush(ColorTranslator.FromHtml("#0c181d"))) g.FillRectangle(bg, rowRect);
+                Color c = ready ? Color.FromArgb(84, 224, 106) : Color.FromArgb(242, 204, 121);
+                if (!ready && t.Total > 0)
+                {
+                    int fw = (int)(rowRect.Width * Math.Min(1.0, remMs / (double)t.Total));
+                    using (Brush fill = new SolidBrush(Color.FromArgb(60, c)))
+                        g.FillRectangle(fill, rowRect.X, rowRect.Y, Math.Max((int)(2 * s), fw), rowRect.Height);
+                }
+                using (Brush nb = new SolidBrush(c))
+                {
+                    g.DrawString(t.Name, fSmall, nb, 8 * s, y + 2 * s);
+                    string rem = ready ? "READY" : FmtDur((long)Math.Max(0, remMs));
+                    SizeF rs = g.MeasureString(rem, fSmall);
+                    g.DrawString(rem, fSmall, nb, Width - 8 * s - rs.Width, y + 2 * s);
+                }
+                y += TmrRowH;
+            }
+            return y;
         }
 
         // footer: live dot + fight/all toggle on the left, totals on the right
