@@ -36,7 +36,7 @@ namespace PRKDamageMeter
     public class MeterForm : Form
     {
         const int BASE_W = 330;
-        const long GAP_MS = 6000;
+        const long GAP_MS = 10000;
         const int MAX_ROWS = 10;
 
         float S { get { return Width / (float)BASE_W; } }
@@ -263,7 +263,17 @@ namespace PRKDamageMeter
             }
             events.Add(ev);
             Fight f = fights.Count > 0 ? fights[fights.Count - 1] : null;
-            if (f == null || (ev.T - f.End) > GAP_MS) { f = new Fight { Start = ev.T, End = ev.T }; fights.Add(f); }
+            bool gap = f == null || (ev.T - f.End) > GAP_MS;
+            if (ev.Kind == "heal" && f != null)
+            {
+                // heals NEVER start a new fight - post-fight HoT ticks and top-off heals
+                // attach to the previous fight without restarting the display. Only
+                // in-combat heals (inside the gap) extend the fight's duration.
+                f.Events.Add(ev);
+                if (!gap && ev.T > f.End) f.End = ev.T;
+                return;
+            }
+            if (gap) { f = new Fight { Start = ev.T, End = ev.T }; fights.Add(f); }
             f.Events.Add(ev);
             if (ev.T > f.End) f.End = ev.T;
         }
