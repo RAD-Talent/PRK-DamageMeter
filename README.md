@@ -32,6 +32,7 @@ A tiny always-on-top damage meter overlay for **Project Rubi-Ka** (Anarchy Onlin
 - **Fight / all toggle** — last fight (kept on screen until the next fight starts) or everything since your last reset. Boss tip: hit **R** at the pull, leave it on **all**
 - **Mobs auto-hidden** — names with spaces (mobs) stay out of the rankings; player names never contain spaces
 - **Nano cast stats** — every nano you cast with counts: casts / landed / resisted / interrupted (aborts, counters and fumbles all count)
+- **Skill-lock timers** — when the game says *"Cannot use the [skill] on this target for another X seconds"* (trimmers!) or *"skill is locked, able in hh:mm:ss"*, a live countdown bar appears above the footer on every tab, drains as the lock runs, and flashes a green **READY** when it's up. Click the locked hotbar button once to (re)start a timer
 - **Share to chat** — the meter keeps in-game scripts updated; make a macro once (`/macro dmg /prkdmg`) and click it to post a clickable dump anyone can open:
   - `/prkdmg` — damage rankings (follows your fight/all toggle)
   - `/prkheal` — healing rankings
