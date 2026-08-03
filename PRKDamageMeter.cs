@@ -138,6 +138,24 @@ namespace PRKDamageMeter
             {"Soldier","SOL"},{"MartialArtist","MA"},{"Engineer","ENG"},{"Fixer","FIX"},{"Agent","AGT"},
             {"Adventurer","ADV"},{"Trader","TRA"},{"Bureaucrat","CRT"},{"Enforcer","ENF"},{"Doctor","DOC"},
             {"NanoTechnician","NT"},{"MetaPhysicist","MP"},{"Keeper","KPR"},{"Shade","SHD"},{"Unknown","?"} };
+        // 16x16 profession icons extracted from the PRK client GUI (Graphics.uvga), embedded as PNG base64
+        static Dictionary<string, string> PROF_ICON_B64 = new Dictionary<string, string> {
+            {"Soldier","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABIUlEQVR4nGNg+M9AELEZOSK4BFWzW/lIHv4r1L+TgAa3PUcgqiX2/5A88g+IoPbgUi1VP4vN0lti3zegUqAeDmtfnDa4bN4lP2EtG9DsPZ+BqsX3fQPag9MPGrM3R3z8J1ncKbz9I1C12O7P7BaeKGrQNMgf/+X/+p/vy38Sh/8JrHvB5+Cr0zMLpwb3dRvD3v8N+/Av4ds/z2f/FKp6bOYtVVtyCLsGrZkbgOpivvyL+fwv+vO/uK//Er/9dXvyF92TEIrbxjvsPUg1UGns139Rn/45LFkl6hvBhuxdZA2y+Y2Rn0CqE77+9b7xXD6/HmdUwlm2KzYlfP/nfucjgbhH5pgt3ih++B9XfC2xGoBI9NA/Dlt/EjRwh+aR4CRiEACpyi8vLNiMcQAAAABJRU5ErkJggg=="},
+            {"MartialArtist","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABb0lEQVR4nGNg+M9AGsIqKpRYyZdcL5BQSViDzIQNnnc/Rn36F/7hX8THf2HPP8pP2oBTg/zkTTFf/sV9+wck4Sj6yz/pzFosGmQnboz5/C8WqOHrv4TvYKWfQSj22z/pmpksUd3oGrye/Ir/BlLqduezwe67UZ//Jf4AoZAXn7mSu0Q2vUXRAPRf5Me/8d//OV58yRrXzxjWKVo02WjnNdNDd8UbV3DWbZc6+o89uAKhQbu6GeiG4OefORO7eBc/kzzyj2/eLa68STy5fTxtu8QP/JU8+o83tRnFBqDTNWdu5qzdLHX8H1AaaCRQGxCBGEB08C+TTzmKHwJe/1Ms7xJY/UQSphSOgEaIbPuJ7mmlBfsUW5dyTrkmfRxVNdC2I//YitZjiQf+golcxUskDv+TOvYPYg+QAdTAVooUd2gxzazryJq/SuLQPyCSPPxPeOMHtqJ1hNKSojxb2Vb26j0cVdtYDNyISnwkp1Y8CAAdiFNtNQqg5wAAAABJRU5ErkJggg=="},
+            {"Engineer","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAA+UlEQVR4nGNg+M9AGsIU4rdwJEGDtKdP5Me/CjO2E6UBpPrtj/jv/8Lf/2PTtiCgQdrDN+rdj7hv/6I+/lPa9YVR2w2fBnYjx/AP/4BmR336q7T/j/D+f8JbvjPoeOOzQXHmjvC3v5X3/Qaqljz6T/r4P+7VX2RLJyv2LcfpBx4DS2Y9d8HN34GqRQ7+070MtPBf3Nd/cr0r8AUr0CU8y98CVcd8/pfw/V/Mp38iBVPxavjPIFIwJRao+gcwAP6qHPrLs/oro7oDPg1ANwBdAlStfOiP8L5/Qj1bCdgAREp9y2VKJ3Ot+yXcv41A0kBBavaE0xIBRHMNAI6KJ69bzzBlAAAAAElFTkSuQmCC"},
+            {"Fixer","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAy0lEQVR4nGNg+M9AGiJTg0xGhVFdo1FDs1E9BgIK1jUCFaBoiPn8z/PZP/Nb/6xu/QGhOzDGrT9AQaAUUAGKhvivf9WqOxl+MWBFQCmgAlQbvvyDaBBd91hs5W3JAz+BCMgAciEagAqwa+Avn43sRRCXyhp4c/uQNYC4VLZBcPVjweW3RfaCPA1kALk4NHz+a9yKM1iBUkAFKBrCP/wDoqhP/6I//Yn++AcYTUAShD79AQpCZFE08MVV8Kc28qc3Y0epjUAFlCU+4hEAhg493auGePkAAAAASUVORK5CYII="},
+            {"Agent","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAqElEQVR4nGNg+M9AGiKoQtLJjTQNmrM3k6DBbslqTktPYjUoRifIlbaT4AfjQw9I8LTz1n2CuV3EapAPDHG//5WEYI37+k8st5UoDSKmFq5bdjld/0BsxDltPwg0XquhhygNMllVkZ/+RX/5F/7hn3xBA2ENOqVV0Z//xXz+K5zXwWrkRFiD8fLdpusOa2+8gCdyECy54AjPp3/xKUXTIOMTwGkfSFADAHfCDu7sxuBrAAAAAElFTkSuQmCC"},
+            {"Adventurer","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAsElEQVR4nGNg+M9AGsIqqp6Zh8YgoCHq0z+fM9eAqoEkURoCbj2HqAbqJEqD/Z4zEPdAGIQ1kOxpIHJctUEhMIRYDQ7bD8d8+QdEIgFxhDVAVMeCNQDZxDop7us/rZJqEvwQ/fmfQX0LURp0ympAGj791a2oAzIgJE4N0u7ecjN3Md5hTvj6V6eynl/fRGn+PsJOUpu2Lun7v+AX39n1bYnyA5drJDBR6K05RoKncSEAlWEZ/NrngLsAAAAASUVORK5CYII="},
+            {"Trader","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABL0lEQVR4nGNg+M9AGsIU4rPxkM2rN6yp1yqvF3bwIKBBftKGyI//oj79i/4MQjFf/jlffsFu7YtdA1A1UFHCt39Rn/+FPX0f+elf7Jd/Cd//Od/8iEUDp5VnxMd/8V//eT35IZdXDxQRsnU1Xroj9uu/uK//ZAsa0TXoNbQDHRD68juPvS+ytQZHX5gs38ll6oShoaoe6J7QJ++IDSWIBqDTidWgU9UI1BD85AOaCrm8Oik3TywaBBIqgYET/emv0tSNCEHngOB3oECTya3HEqzA4Ev8DgpKt2uvdCvrzZdtDX3/L+7bP2Docdt4Y9EAjCC3hz+B8ZD0AxT8QDL+27/wD/+A8YMzpjnN3YyXbjc79978/HsgCWQDnUogLQERq4EDm6EDkCQq8REbrEQiAA25OnCEB6VzAAAAAElFTkSuQmCC"},
+            {"Bureaucrat","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAA2ElEQVR4nGNg+M9AGqK7BilXD6POCYYdUARkA0VwapD3D3J/+EuwfDrDLwYIArKBIkBxLBoUAoLcn/5jtw8Gstm0TZRT84AkkA0UAYoDZVE0iPlHe95+z2nnD2RzWnq4P/yZ8P0fkASyQSJ2/kBZoBqEBtmZe+wPX4V6I68x+vO/pB//gCSQDREEygLVoDhJeeFBz31HIU6X7lljcuoVkIRwgeJAWSyeVlp81GPvEbiPIQgoAhTHGawKs3abHXloevCu2YHbIPLIQ6AIgYgDqkBGA540qK8BANIKGechyRTsAAAAAElFTkSuQmCC"},
+            {"Enforcer","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAk0lEQVR4nGNg+M9AGkLmyGRUGFTX61VBEZANFMGpga1CKPLTv+jPKAgoAhTHaUP4s/cxX/4hI6AIPieFf/gHQWHv/8HZ+DTwxVXwJdfzxpTzheeByOR6oAg+DVDPmGoppeYBScKhBEH6jR0xn/8BSWI1AAMUGD5AcmhrAEYZCRqA4QOMLxJCid3IARhlQJJYDfgRAA76IlBO99NqAAAAAElFTkSuQmCC"},
+            {"Doctor","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAA10lEQVR4nGNg+M9AGkLjy2RUhDx5H/H8vdPZB0RpMKhtjP78D4giX30mSoNuRR1EQ9jT90RpMGxqh2p49gGfBqCLge4Gmhrx+htEQ/Snv0Bu+LP3QC/pz9+ErgHoYqg6bMhj10F0DTGvPyd8+5fw/V/sV4S6eKAIGHnuxtBgfOiB+fn3xmfeu93/Fvf1X8yXfxEf/pqde28OROffa87CcBIcqVW1QzQQ8DQc6VdBgxXoXeKCtbYR4m6gr4jSIJ1eAXQ0yD+HiEsabIYOEMSqZ0OUBsKIVA0ATNxN3YPrVWkAAAAASUVORK5CYII="},
+            {"NanoTechnician","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAtklEQVR4nGNg+M9AGsIqyqplQZoGibg80jToLtzO7xxIgoaIj//UGycQq0EwtT7h2z/Hiy+J0iDs4ud881P8t38xn/+pTNuIUwNvUKbBzJUh7/7FfPkX9/Vf9GcQA6gNKGK5aodUYgELPNyQdYuk1pqu2h3+AaQaiPye/pAt7RT1DCbgB83FBxK+g8zmtvMjytNcJg7xX/8ZLN1FQrB63P8qk1ZGggbhjAbSYprd2pc0DfgQqRoAPawZgD7dY7sAAAAASUVORK5CYII="},
+            {"MetaPhysicist","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAq0lEQVR4nGNg+M9AGqKaBp6gTNI0qGcXkaZBadomwhqEjUywamDRssBpg96UpRDVdje+QvRARHBq4LX18r//NubLv9iv/2I//wWycToJGCwaWQUamXlhzz4ANUR//gckgUg7K1cqsQDhKkxvWS9YAVQX9/Vf1Kd/QDbhUJJvng000uPeFyCpUDeZgAYhQ1MIQzm3AksQ4YkH7ew80iJOOqOCNA3oLiGoARcCABRcETEzfhP4AAAAAElFTkSuQmCC"},
+            {"Keeper","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAy0lEQVR4nGNg+M9AGiJeqXJ8CgkalGPi5adtJVaDSv0EhUnriXWSx469BrtvEusHt41bPZ7+YzOwI6xBysPH88arqE//OG39CYeSjKdP9LsfMV/+yU/aQDhYFQvqY97/SPr+T2f5AQLxwO0S7rhxV9Tnf3Ff/7k9+IHidKwaJNMqgt78S/rxL+w90Ol+hGNawsHF9OJX/xe/9Jbvxxl0CKcHBnk+/8dm7CwYX47TeLgGsYAY35f/OOyDCEc8NBwnbORyiyKsmpikgYYAad4UAEopuxYAAAAASUVORK5CYII="},
+            {"Shade","iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAA9UlEQVR4nGNg+M9AGsIlITdxA49jIAkaQt79kyloJlaDiKu/+9N/yrN3EaVBYdL6yI//Yr/+i//2z+3GGw5zNwIaYr78i/v6L/rzv4j3v31f/jNo7MCnQbesRnHRUfvzLxJ//HO6+pYvssCgrhmfBp3qJiCpXN6a9OOf6swtQLbDkev4NGhOWgokecycgl//4YksBrK5vRON2nqxa5Dy8BF3dIWw/W8+hYvLZ1YI2nti0cATlg9hSKeVez7+gSwlYG6PLx7Mt5wQL+jAKoVdg/3lt7hSAHZRDodgiyUbJAKjidUAQWKZDVJJRcrpBTxBmURpwIoAE3cW8BJdvkEAAAAASUVORK5CYII="},
+        };
+        Dictionary<string, Image> profIcons = new Dictionary<string, Image>();
 
         // ---- state ----
         string myName = "You";
@@ -591,10 +609,32 @@ namespace PRKDamageMeter
 
         // ---- in-game chat dump scripts (/prkdmg /prkheal /prkcast) ----
         static string HELP_FOOTER = "<br><font color='#7e9094'>Commands: /prkdmg damage | /prkheal healing | /prkcast nano casts<br>~ PRK Damage Meter by Everkill (.everkill on Discord)<br>Get it: <font color='#5fd7e2'>github.com/RAD-Talent/PRK-DamageMeter</font></font>";
-        void WriteScript(string scriptsDir, string name, string label, string content)
+        // In-game chat messages cap around 1024 chars. Instead of truncating raids,
+        // pack rows into as many clickable links as needed - the script file gets one
+        // line per part, and the game sends each line as its own chat message:
+        // "PRK Damage (1/2)" "PRK Damage (2/2)".
+        void WriteScriptParts(string scriptsDir, string fileName, string label, string title, List<string> rows, string emptyMsg)
         {
-            string all = "<a href=\"text://<font color='#5fd7e2'>PRK Damage Meter</font><br>" + content + HELP_FOOTER + "\">" + label + "</a>";
-            File.WriteAllText(Path.Combine(scriptsDir, name), all, Encoding.GetEncoding(1252));
+            const int LIMIT = 1000; // stay safely under the 1024 message cap
+            string head = "<a href=\"text://<font color='#5fd7e2'>PRK Damage Meter</font><br>" + title + "<br><br>";
+            if (rows.Count == 0) rows = new List<string> { emptyMsg };
+            List<List<string>> parts = new List<List<string>>();
+            List<string> cur = new List<string>(); int curLen = 0;
+            foreach (string r in rows)
+            {
+                if (cur.Count > 0 && head.Length + curLen + r.Length + HELP_FOOTER.Length + label.Length + 48 > LIMIT)
+                { parts.Add(cur); cur = new List<string>(); curLen = 0; }
+                cur.Add(r); curLen += r.Length + 4;
+            }
+            if (cur.Count > 0) parts.Add(cur);
+            StringBuilder f = new StringBuilder();
+            for (int i = 0; i < parts.Count; i++)
+            {
+                string lbl = label + (parts.Count > 1 ? " (" + (i + 1) + "/" + parts.Count + ")" : "");
+                string foot = i == parts.Count - 1 ? HELP_FOOTER : "";
+                f.Append(head + string.Join("<br>", parts[i].ToArray()) + foot + "\">" + lbl + "</a>\n");
+            }
+            File.WriteAllText(Path.Combine(scriptsDir, fileName), f.ToString(), Encoding.GetEncoding(1252));
         }
         void WriteDumpScript()
         {
@@ -640,45 +680,43 @@ namespace PRKDamageMeter
                     Row r; if (!tgt.TryGetValue(who, out r)) { r = new Row { Name = who }; tgt[who] = r; }
                     r.Total += e.Amt; r.Hits++; if (e.Crit) r.Crits++; if (e.Amt > r.Max) r.Max = e.Amt;
                 }
-                // damage window
-                StringBuilder d = new StringBuilder();
-                d.Append("<font color='#f2cc79'>Damage - " + scope + " (" + (dur / 1000) + "s)</font><br><br>");
-                d.Append(RankRows(dmg, dur, true));
-                WriteScript(scripts, "prkdmg", "PRK Damage - " + scope + " " + (dur / 1000) + "s", d.ToString());
+                // damage window (all players, split into parts as needed)
+                WriteScriptParts(scripts, "prkdmg", "PRK Damage - " + scope + " " + (dur / 1000) + "s",
+                    "<font color='#f2cc79'>Damage - " + scope + " (" + (dur / 1000) + "s)</font>",
+                    RankLines(dmg, dur, true), "no damage recorded");
                 // healing window
-                StringBuilder h = new StringBuilder();
-                h.Append("<font color='#f2cc79'>Healing - " + scope + " (" + (dur / 1000) + "s)</font><br><br>");
-                h.Append(heal.Count > 0 ? RankRows(heal, dur, false) : "no healing recorded<br>");
-                WriteScript(scripts, "prkheal", "PRK Healing - " + scope, h.ToString());
+                WriteScriptParts(scripts, "prkheal", "PRK Healing - " + scope,
+                    "<font color='#f2cc79'>Healing - " + scope + " (" + (dur / 1000) + "s)</font>",
+                    RankLines(heal, dur, false), "no healing recorded");
                 // casts window (session totals, aggregated per nano)
-                StringBuilder c = new StringBuilder();
-                c.Append("<font color='#f2cc79'>" + myName + "'s nano casts (session)</font><br><br>");
-                if (casts.Count == 0) c.Append("no casts recorded<br>");
-                foreach (KeyValuePair<string, int[]> kv in casts.OrderByDescending(k => k.Value[0]).Take(20))
-                    c.Append("<font color='#5fd7e2'>" + kv.Key + "</font> x" + kv.Value[0] + "  (" + kv.Value[1] + " landed, " + kv.Value[2] + " resisted" + (kv.Value[3] > 0 ? ", " + kv.Value[3] + " interrupted" : "") + ")<br>");
-                WriteScript(scripts, "prkcast", "PRK Nano Casts - " + myName, c.ToString());
+                List<string> cl = new List<string>();
+                foreach (KeyValuePair<string, int[]> kv in casts.OrderByDescending(k => k.Value[0]))
+                    cl.Add("<font color='#5fd7e2'>" + kv.Key + "</font> x" + kv.Value[0] + "  (" + kv.Value[1] + " landed, " + kv.Value[2] + " resisted" + (kv.Value[3] > 0 ? ", " + kv.Value[3] + " interrupted" : "") + ")");
+                WriteScriptParts(scripts, "prkcast", "PRK Nano Casts - " + myName,
+                    "<font color='#f2cc79'>" + myName + "'s nano casts (session)</font>", cl, "no casts recorded");
             }
             catch { }
         }
-        string RankRows(Dictionary<string, Row> agg, long dur, bool showProf)
+        List<string> RankLines(Dictionary<string, Row> agg, long dur, bool showProf)
         {
             List<Row> rows = agg.Values.OrderByDescending(r => r.Total).ToList();
             long grand = 0; foreach (Row r in rows) grand += r.Total;
-            StringBuilder d = new StringBuilder();
-            d.Append("<font color='#f2cc79'>Total:</font> " + FmtN(grand) + "<br>");
+            List<string> outl = new List<string>();
+            if (rows.Count == 0) return outl;
+            outl.Add("<font color='#f2cc79'>Total:</font> " + FmtN(grand));
             int rank = 1;
-            foreach (Row r in rows.Take(10))
+            foreach (Row r in rows)
             {
                 string prof; if (!tags.TryGetValue(r.Name, out prof)) prof = null;
                 double dps = r.Total / (dur / 1000.0);
                 double pct = grand > 0 ? 100.0 * r.Total / grand : 0;
-                d.Append(rank + ". <font color='#5fd7e2'>" + r.Name + "</font>" + (showProf && prof != null ? " <font color='#e05f8a'>(" + prof + ")</font>" : ""));
-                d.Append(" - " + FmtN(r.Total) + " (" + FmtRate(dps) + ", " + pct.ToString("0.0") + "%), " + r.Hits + " hits, " + r.Crits + " crits"
+                outl.Add(rank + ". <font color='#5fd7e2'>" + r.Name + "</font>" + (showProf && prof != null ? " <font color='#e05f8a'>(" + prof + ")</font>" : "")
+                    + " - " + FmtN(r.Total) + " (" + FmtRate(dps) + ", " + pct.ToString("0.0") + "%), " + r.Hits + " hits, " + r.Crits + " crits"
                     + (r.Misses > 0 ? ", " + r.Misses + " misses (hit " + (100.0 * r.Hits / Math.Max(1, r.Hits + r.Misses)).ToString("0") + "%)" : "")
-                    + ", max " + FmtN(r.Max) + "<br>");
+                    + ", max " + FmtN(r.Max));
                 rank++;
             }
-            return d.ToString();
+            return outl;
         }
 
         // ---- persistence ----
@@ -884,6 +922,17 @@ namespace PRKDamageMeter
             Text = "PRK Damage Meter";
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
             BuildRules(); LoadTags();
+            foreach (KeyValuePair<string, string> kv in PROF_ICON_B64)
+            {
+                try
+                {
+                    Bitmap raw = new Bitmap(new MemoryStream(Convert.FromBase64String(kv.Value)));
+                    Bitmap keyed = new Bitmap(raw);
+                    keyed.MakeTransparent(keyed.GetPixel(0, 0)); // strip the green chroma key
+                    profIcons[kv.Key] = keyed;
+                }
+                catch { }
+            }
             try
             {
                 string np = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "nanoprofs.txt");
@@ -1507,14 +1556,27 @@ namespace PRKDamageMeter
                     g.FillRectangle(fill, fillRect);
                 // rank
                 g.DrawString((i + 1).ToString(), fSmall, dim, 7 * s, y + 5 * s);
-                // prof chip (not on the casts tab - those rows are nanos, not players)
+                // prof icon (real in-game icons) or fallback chip (not on the casts tab)
                 float nameX = 26 * s;
                 if (tab != "casts")
                 {
-                    RectangleF chip = new RectangleF(20 * s, y + 4.5f * s, 24 * s, 14 * s);
-                    using (Brush cb = new SolidBrush(pc)) g.FillRectangle(cb, chip.X, chip.Y, chip.Width, chip.Height);
-                    g.DrawString(PROF_ABBR[prof], fChip, Brushes.Black, chip.X + 2 * s, chip.Y + 1.5f * s);
-                    nameX = 48 * s;
+                    Image icn;
+                    if (prof != "Unknown" && profIcons.TryGetValue(prof, out icn))
+                    {
+                        InterpolationMode om = g.InterpolationMode;
+                        g.InterpolationMode = InterpolationMode.NearestNeighbor;
+                        g.PixelOffsetMode = PixelOffsetMode.Half;
+                        g.DrawImage(icn, 21 * s, y + 3.5f * s, 16 * s, 16 * s);
+                        g.InterpolationMode = om;
+                        nameX = 41 * s;
+                    }
+                    else
+                    {
+                        RectangleF chip = new RectangleF(20 * s, y + 4.5f * s, 24 * s, 14 * s);
+                        using (Brush cb = new SolidBrush(pc)) g.FillRectangle(cb, chip.X, chip.Y, chip.Width, chip.Height);
+                        g.DrawString(PROF_ABBR[prof], fChip, Brushes.Black, chip.X + 2 * s, chip.Y + 1.5f * s);
+                        nameX = 48 * s;
+                    }
                 }
                 // value first (so the name can be clipped against it) — rate drawn bold for visibility
                 double dps = r.Total / (lastDurMs / 1000.0);
