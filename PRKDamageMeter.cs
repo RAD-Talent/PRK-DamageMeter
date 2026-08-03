@@ -28,7 +28,7 @@ namespace PRKDamageMeter
     public class Row
     {
         public string Name; public long Total; public bool HasPets;
-        public int Hits; public int Crits; public int Glances; public long Max;
+        public int Hits; public int Crits; public int Glances; public int Misses; public long Max;
         public long Weapon; public long Nano; public long Shield;
         public Dictionary<string, long> Types; public Dictionary<string, long[]> Specials;
     }
@@ -180,6 +180,7 @@ namespace PRKDamageMeter
         static Regex PETNAME = new Regex("^(.+?)'s (.+)$");
         class Tmr { public string Name; public long End; public long Total; public bool Ready; }
         List<Tmr> timers = new List<Tmr>();
+        Dictionary<string, long> nanoTimers = new Dictionary<string, long>(); // nano name -> auto-timer ms
 
         // ---- parser ----
         class Rule { public Regex Re; public Func<Match, Ev> Make; }
@@ -214,6 +215,11 @@ namespace PRKDamageMeter
             AddRule("You were hit for %u points of damage by %s's damage shield.", m => Dmg(m.Groups[2].Value, myName, m.Groups[1].Value, "shield"));
             AddRule("You were hit for %u points of damage by %s's reflect shield.", m => Dmg(m.Groups[2].Value, myName, m.Groups[1].Value, "shield"));
             AddRule("%s hit %s for %u points of %s damage.", m => Dmg(m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value, "weapon", m.Groups[4].Value, null));
+            AddRule("You tried to hit %s, but missed!", m => Miss(myName, m.Groups[1].Value));
+            AddRule("%s tried to hit you, but missed!", m => Miss(m.Groups[1].Value, myName));
+            AddRule("%s tries to attack you with %s, but misses!", m => Miss(m.Groups[1].Value, myName));
+            AddRule("%s parried your attack!", m => Miss(myName, m.Groups[1].Value));
+            AddRule("You parried the attack from %s!", m => Miss(m.Groups[1].Value, myName));
             AddRule("You healed %s for %d points of health.", m => Heal(myName, m.Groups[1].Value, m.Groups[2].Value));
             AddRule("You got healed by %s for %d points of health.", m => Heal(m.Groups[1].Value, myName, m.Groups[2].Value));
             AddRule("You were healed for %u points.", m => Heal("Unknown", myName, m.Groups[1].Value));
@@ -242,7 +248,9 @@ namespace PRKDamageMeter
             });
             rules.Add(new Rule
             {
-                Re = new Regex("^Unable to perform action, (.+?) skill is locked, able in (\\d+):(\\d+):(\\d+)\\.?$"),
+                // covers both: "Unable to perform action, X skill is locked, able in hh:mm:ss"
+                //          and: "Unable to perform action X perk is locked, able in hh:mm:ss"
+                Re = new Regex("^Unable to perform action,? (.+?) (?:skill|perk) is locked, able in (\\d+):(\\d+):(\\d+)\\.?$"),
                 Make = m => TimerEv(m.Groups[1].Value,
                     (long.Parse(m.Groups[2].Value) * 3600 + long.Parse(m.Groups[3].Value) * 60 + long.Parse(m.Groups[4].Value)) * 1000)
             });
@@ -279,7 +287,12 @@ namespace PRKDamageMeter
             }
             else if (lastCast != null && casts.ContainsKey(lastCast))
             {
-                if (what == "land") casts[lastCast][1]++;
+                if (what == "land")
+                {
+                    casts[lastCast][1]++;
+                    long ntMs; // user-defined auto-timer for this nano (e.g. Shadowweb Spinner 6h)
+                    if (nanoTimers.TryGetValue(lastCast, out ntMs)) StartTimer(lastCast, ntMs);
+                }
                 if (what == "resist") casts[lastCast][2]++;
                 if (what == "int") casts[lastCast][3]++;
             }
@@ -294,6 +307,7 @@ namespace PRKDamageMeter
         Ev Dmg(string src, string dst, string amt, string via) { return Dmg(src, dst, amt, via, null, null); }
         Ev Dmg(string src, string dst, string amt, string via, string dtype, string special) { return new Ev { Kind = "dmg", Src = src, Dst = dst, Amt = long.Parse(amt), Via = via, DType = dtype, Special = special }; }
         Ev Heal(string src, string dst, string amt) { return new Ev { Kind = "heal", Src = src, Dst = dst, Amt = long.Parse(amt), Via = "heal" }; }
+        Ev Miss(string src, string dst) { return new Ev { Kind = "miss", Src = src, Dst = dst, Amt = 0 }; }
 
         Ev ParseLine(string line)
         {
@@ -473,6 +487,14 @@ namespace PRKDamageMeter
             HashSet<string> withPets = new HashSet<string>();
             foreach (Ev e in src)
             {
+                if (e.Kind == "miss")
+                {
+                    string mwho = tab == "dmg" ? OwnerOf(e.Src) : tab == "taken" ? e.Dst : null;
+                    if (mwho == null || IsFiltered(mwho)) continue;
+                    Row mr; if (!agg.TryGetValue(mwho, out mr)) { mr = new Row { Name = mwho }; agg[mwho] = mr; }
+                    mr.Misses++;
+                    continue;
+                }
                 string who = null;
                 if (tab == "dmg" && e.Kind == "dmg") who = OwnerOf(e.Src);
                 else if (tab == "heal" && e.Kind == "heal") who = OwnerOf(e.Src);
@@ -603,6 +625,14 @@ namespace PRKDamageMeter
                 Dictionary<string, Row> heal = new Dictionary<string, Row>();
                 foreach (Ev e in pool)
                 {
+                    if (e.Kind == "miss")
+                    {
+                        string mw = OwnerOf(e.Src);
+                        if (IsFiltered(mw)) continue;
+                        Row mr; if (!dmg.TryGetValue(mw, out mr)) { mr = new Row { Name = mw }; dmg[mw] = mr; }
+                        mr.Misses++;
+                        continue;
+                    }
                     Dictionary<string, Row> tgt = e.Kind == "dmg" ? dmg : e.Kind == "heal" ? heal : null;
                     if (tgt == null) continue;
                     string who = OwnerOf(e.Src);
@@ -643,7 +673,9 @@ namespace PRKDamageMeter
                 double dps = r.Total / (dur / 1000.0);
                 double pct = grand > 0 ? 100.0 * r.Total / grand : 0;
                 d.Append(rank + ". <font color='#5fd7e2'>" + r.Name + "</font>" + (showProf && prof != null ? " <font color='#e05f8a'>(" + prof + ")</font>" : ""));
-                d.Append(" - " + FmtN(r.Total) + " (" + FmtRate(dps) + ", " + pct.ToString("0.0") + "%), " + r.Hits + " hits, " + r.Crits + " crits, max " + FmtN(r.Max) + "<br>");
+                d.Append(" - " + FmtN(r.Total) + " (" + FmtRate(dps) + ", " + pct.ToString("0.0") + "%), " + r.Hits + " hits, " + r.Crits + " crits"
+                    + (r.Misses > 0 ? ", " + r.Misses + " misses (hit " + (100.0 * r.Hits / Math.Max(1, r.Hits + r.Misses)).ToString("0") + "%)" : "")
+                    + ", max " + FmtN(r.Max) + "<br>");
                 rank++;
             }
             return d.ToString();
@@ -679,6 +711,14 @@ namespace PRKDamageMeter
                     }
                     if (p.Length >= 3 && p[0] == "prof") tags[p[1]] = p[2];
                     if (p.Length >= 3 && p[0] == "pet") petOwner[p[1]] = p[2];
+                    if (p.Length >= 3 && p[0] == "ntimer") { long ms; if (long.TryParse(p[2], out ms) && ms > 0) nanoTimers[p[1]] = ms; }
+                    if (p.Length >= 4 && p[0] == "timer")
+                    {
+                        long end, tot;
+                        if (long.TryParse(p[2], out end) && long.TryParse(p[3], out tot)
+                            && end > DateTimeOffset.Now.ToUnixTimeMilliseconds())
+                            timers.Add(new Tmr { Name = p[1], End = end, Total = tot });
+                    }
                 }
             }
             catch { }
@@ -696,6 +736,9 @@ namespace PRKDamageMeter
                 foreach (KeyValuePair<string, string> kv in tags) outl.Add("prof|" + kv.Key + "|" + kv.Value);
                 foreach (KeyValuePair<string, string> kv in petOwner) outl.Add("pet|" + kv.Key + "|" + kv.Value);
                 foreach (string h in hidden) outl.Add("hide|" + h);
+                foreach (KeyValuePair<string, long> kv in nanoTimers) outl.Add("ntimer|" + kv.Key + "|" + kv.Value);
+                long nowMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                foreach (Tmr tm in timers) if (!tm.Ready && tm.End > nowMs) outl.Add("timer|" + tm.Name + "|" + tm.End + "|" + tm.Total);
                 File.WriteAllLines(TagFile, outl.ToArray());
             }
             catch { }
@@ -970,6 +1013,65 @@ namespace PRKDamageMeter
             }
         }
 
+        void StartTimer(string name, long ms)
+        {
+            Tmr tm = timers.FirstOrDefault(x => x.Name == name);
+            if (tm == null) { tm = new Tmr { Name = name }; timers.Add(tm); }
+            tm.End = DateTimeOffset.Now.ToUnixTimeMilliseconds() + ms;
+            tm.Total = ms; tm.Ready = false;
+            SaveTags(); RecalcHeight(); Invalidate();
+        }
+        static long ParseDur(string s)
+        {
+            try
+            {
+                s = s.Trim().ToLowerInvariant();
+                if (s.Contains(":"))
+                {
+                    long sec = 0;
+                    foreach (string p in s.Split(':')) sec = sec * 60 + long.Parse(p.Trim());
+                    return sec * 1000;
+                }
+                MatchCollection mm = Regex.Matches(s, "(\\d+)\\s*([hms])");
+                if (mm.Count > 0)
+                {
+                    long sec = 0;
+                    foreach (Match m in mm)
+                    {
+                        long v = long.Parse(m.Groups[1].Value);
+                        sec += m.Groups[2].Value == "h" ? v * 3600 : m.Groups[2].Value == "m" ? v * 60 : v;
+                    }
+                    return sec * 1000;
+                }
+                double mins;
+                if (double.TryParse(s, NumberStyles.Any, CultureInfo.InvariantCulture, out mins)) return (long)(mins * 60000);
+            }
+            catch { }
+            return 0;
+        }
+        void PromptTimer()
+        {
+            Form d = new Form();
+            d.Text = "Add timer"; d.FormBorderStyle = FormBorderStyle.FixedDialog; d.StartPosition = FormStartPosition.CenterParent;
+            d.Width = 340; d.Height = 210; d.MaximizeBox = false; d.MinimizeBox = false; d.TopMost = true;
+            Label l1 = new Label(); l1.Text = "Name (use the EXACT nano name for auto-restart):"; l1.Left = 12; l1.Top = 10; l1.Width = 300;
+            TextBox tbN = new TextBox(); tbN.Left = 12; tbN.Top = 30; tbN.Width = 300;
+            Label l2 = new Label(); l2.Text = "Duration  (45s, 90m, 6h, 6h30m, 1:30:00):"; l2.Left = 12; l2.Top = 58; l2.Width = 300;
+            TextBox tbD = new TextBox(); tbD.Left = 12; tbD.Top = 78; tbD.Width = 300;
+            CheckBox cb = new CheckBox(); cb.Text = "Restart automatically every time this nano lands"; cb.Left = 12; cb.Top = 106; cb.Width = 310;
+            Button ok = new Button(); ok.Text = "Start"; ok.Left = 236; ok.Top = 136; ok.DialogResult = DialogResult.OK;
+            d.Controls.Add(l1); d.Controls.Add(tbN); d.Controls.Add(l2); d.Controls.Add(tbD); d.Controls.Add(cb); d.Controls.Add(ok);
+            d.AcceptButton = ok;
+            if (d.ShowDialog(this) == DialogResult.OK)
+            {
+                string nm = tbN.Text.Trim(); long ms = ParseDur(tbD.Text);
+                if (nm.Length == 0 || ms <= 0)
+                { MessageBox.Show(this, "Need a name and a duration like 45s, 90m, 6h or 1:30:00.", "PRK Damage Meter"); return; }
+                if (cb.Checked) nanoTimers[nm] = ms;
+                StartTimer(nm, ms);
+            }
+        }
+
         string Pct(long part, long whole) { return "  (" + (100.0 * part / Math.Max(1, whole)).ToString("0") + "%)"; }
         List<string[]> BuildTipLines(Row row)
         {
@@ -990,6 +1092,8 @@ namespace PRKDamageMeter
             L.Add(new string[] { row.Name + (prof != null ? "   (" + prof + ")" : ""), share.ToString("0.0") + "% of shown", "h" });
             L.Add(new string[] { "total", FmtN(row.Total) + "   " + FmtRate(row.Total / durSec), "" });
             L.Add(new string[] { "hits", row.Hits + "   (" + (row.Hits / durMin).ToString("0.0") + "/min)", "" });
+            if (tab != "heal")
+                L.Add(new string[] { "misses", row.Misses + "   (hit chance " + (100.0 * row.Hits / Math.Max(1, row.Hits + row.Misses)).ToString("0.0") + "%)", "" });
             L.Add(new string[] { "avg hit", FmtN(row.Hits > 0 ? row.Total / (double)row.Hits : 0), "" });
             L.Add(new string[] { "max hit", FmtN(row.Max), "" });
             L.Add(new string[] { "crits", row.Crits + "  (" + (100.0 * row.Crits / Math.Max(1, row.Hits)).ToString("0.0") + "%)", "" });
@@ -1066,12 +1170,19 @@ namespace PRKDamageMeter
 "  glance %, weapon/nano/shield split, damage types (melee, cold,\r\n" +
 "  poison...) and specials (Burst, Fling Shot...).\r\n" +
 "  Green dot (bottom-left) = watching your log live.\r\n\r\n" +
-"SKILL LOCK TIMERS (trimmers etc.)\r\n" +
-"  When the game says 'Cannot use the [skill] on this target for\r\n" +
-"  another X seconds' or 'skill is locked, able in hh:mm:ss', the\r\n" +
-"  meter shows a live countdown bar above the footer on every tab.\r\n" +
-"  It flashes READY (green) when the lock ends, then disappears.\r\n" +
-"  Tip: click the locked hotbar button once to (re)start the timer.\r\n\r\n" +
+"TIMERS (trimmers, perks, buffs, anything)\r\n" +
+"  Countdown bars appear above the footer on every tab and flash\r\n" +
+"  READY (green) when done. They start automatically from:\r\n" +
+"  - 'Cannot use the [skill] on this target for another X seconds'\r\n" +
+"  - 'Unable to perform action, X skill/perk is locked, able in ...'\r\n" +
+"  Click the locked hotbar button once to (re)start those.\r\n" +
+"  Right-click > Timers > Add timer... for manual ones - and if the\r\n" +
+"  name matches a nano EXACTLY (e.g. Shadowweb Spinner MK V) you can\r\n" +
+"  make it restart automatically every time that nano lands. Great\r\n" +
+"  for 6h buffs. Timers survive restarting the meter.\r\n\r\n" +
+"MISSES\r\n" +
+"  Missed and parried attacks are counted: hover a bar for miss\r\n" +
+"  count + hit chance, and /prkdmg includes misses per player.\r\n\r\n" +
 "THE 'UNKNOWN' ROW\r\n" +
 "  Some log lines name nobody: actions by characters OUTSIDE your\r\n" +
 "  team (an unteamed follower, a passer-by) and some heal-over-time\r\n" +
@@ -1247,6 +1358,27 @@ namespace PRKDamageMeter
             ToolStripMenuItem unhide = new ToolStripMenuItem("Unhide all");
             unhide.Click += delegate { hidden.Clear(); SaveTags(); Aggregate(); RecalcHeight(); Invalidate(); };
             m.Items.Add(unhide);
+            ToolStripMenuItem tmrs = new ToolStripMenuItem("Timers");
+            ToolStripMenuItem addT = new ToolStripMenuItem("Add timer...  (manual or auto-on-nano)");
+            addT.Click += delegate { PromptTimer(); };
+            tmrs.DropDownItems.Add(addT);
+            if (timers.Count > 0 || nanoTimers.Count > 0) tmrs.DropDownItems.Add(new ToolStripSeparator());
+            long nowMs2 = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            foreach (Tmr tm in timers.ToList())
+            {
+                Tmr tt = tm;
+                ToolStripMenuItem it = new ToolStripMenuItem("Cancel: " + tm.Name + "  (" + FmtDur(Math.Max(0, tm.End - nowMs2)) + " left)");
+                it.Click += delegate { timers.Remove(tt); SaveTags(); RecalcHeight(); Invalidate(); };
+                tmrs.DropDownItems.Add(it);
+            }
+            foreach (KeyValuePair<string, long> kv in nanoTimers.ToList())
+            {
+                string nn2 = kv.Key;
+                ToolStripMenuItem it = new ToolStripMenuItem("Remove auto-timer: " + kv.Key + "  (" + FmtDur(kv.Value) + ")");
+                it.Click += delegate { nanoTimers.Remove(nn2); SaveTags(); };
+                tmrs.DropDownItems.Add(it);
+            }
+            m.Items.Add(tmrs);
             ToolStripMenuItem setup = new ToolStripMenuItem("Set up in-game chat window...");
             setup.Click += delegate { SetupGameWindows(false); };
             m.Items.Add(setup);
