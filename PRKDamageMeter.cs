@@ -194,6 +194,8 @@ namespace PRKDamageMeter
         List<Ev> xpEvents = new List<Ev>();
         List<string[]> xpLines = new List<string[]>();
         long appStart = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        long resetAt = 0;          // Reset cut-off: events older than this never count
+        bool everLocked = false;   // true once we've parsed real events from the log we follow
         HashSet<string> knownActors = new HashSet<string>();
         static Regex PETNAME = new Regex("^(.+?)'s (.+)$");
         class Tmr { public string Name; public long End; public long Total; public bool Ready; }
@@ -348,6 +350,8 @@ namespace PRKDamageMeter
         void AddEvent(Ev ev)
         {
             if (ev == null || paused) return;
+            everLocked = true;               // real events parsed -> stay locked on this log
+            if (ev.T < resetAt) return;      // never resurrect fights from before a Reset
             if (ev.Kind == "xp" || ev.Kind == "xploss" || ev.Kind == "sk" || ev.Kind == "skloss" || ev.Kind == "axp")
             {
                 // xp session starts at app launch — ignore old lines replayed from the log
@@ -574,7 +578,7 @@ namespace PRKDamageMeter
             // Once real events are flowing we LOCK ON and never auto-switch - a combat
             // log is naturally silent between fights, and jumping to a chattier log
             // (e.g. a general chat window) would wipe the meter's data.
-            if (events.Count == 0 && casts.Count == 0 && xpEvents.Count == 0
+            if (!everLocked && events.Count == 0 && casts.Count == 0 && xpEvents.Count == 0
                 && Environment.TickCount - lastGrowthTick > 15000)
             {
                 lastGrowthTick = Environment.TickCount;
@@ -1030,7 +1034,7 @@ namespace PRKDamageMeter
                 if (PauseRect.Contains(e.Location)) { paused = !paused; Invalidate(); return; }
                 if (CloseRect.Contains(e.Location)) { try { Close(); } catch { } Application.Exit(); return; }
                 if (HelpRect.Contains(e.Location)) { ShowHelp(); return; }
-                if (ResetRect.Contains(e.Location)) { events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear(); Aggregate(); RecalcHeight(); Invalidate(); return; }
+                if (ResetRect.Contains(e.Location)) { resetAt = DateTimeOffset.Now.ToUnixTimeMilliseconds(); events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear(); Aggregate(); RecalcHeight(); Invalidate(); return; }
                 for (int i = 0; i < 5; i++)
                     if (tabRects[i].Contains(e.Location)) { tab = TABKEYS[i]; Aggregate(); RecalcHeight(); Invalidate(); return; }
                 if (viewRect.Contains(e.Location)) { overallView = !overallView; Aggregate(); RecalcHeight(); Invalidate(); return; }
@@ -1455,7 +1459,7 @@ namespace PRKDamageMeter
             };
             m.Items.Add(loginfo);
             ToolStripMenuItem reset = new ToolStripMenuItem("Reset data");
-            reset.Click += delegate { events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear(); Aggregate(); RecalcHeight(); Invalidate(); };
+            reset.Click += delegate { resetAt = DateTimeOffset.Now.ToUnixTimeMilliseconds(); events.Clear(); fights.Clear(); casts.Clear(); xpEvents.Clear(); Aggregate(); RecalcHeight(); Invalidate(); };
             m.Items.Add(reset);
             m.Items.Add(new ToolStripSeparator());
             ToolStripMenuItem exit = new ToolStripMenuItem("Exit");
