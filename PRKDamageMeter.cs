@@ -189,6 +189,7 @@ namespace PRKDamageMeter
         long lastDumpTick = 0;
         bool autoHideMobs = true;
         bool showDpm = true;
+        bool showTimers = true;   // cooldown/timer bars visible (tracking continues while hidden)
         int scroll = 0;
         long lastGrowthTick = 0;
         List<Ev> xpEvents = new List<Ev>();
@@ -739,6 +740,7 @@ namespace PRKDamageMeter
                     if (p.Length >= 2 && p[0] == "me") myName = p[1];
                     if (p.Length >= 2 && p[0] == "automob") autoHideMobs = p[1] == "1";
                     if (p.Length >= 2 && p[0] == "dpm") showDpm = p[1] == "1";
+                    if (p.Length >= 2 && p[0] == "tmrshow") showTimers = p[1] == "1";
                     if (p.Length >= 2 && p[0] == "width") { int w; if (int.TryParse(p[1], out w) && w >= 280 && w <= 700) Width = w; }
                     if (p.Length >= 3 && p[0] == "pos")
                     {
@@ -773,6 +775,7 @@ namespace PRKDamageMeter
                 outl.Add("me|" + myName);
                 outl.Add("automob|" + (autoHideMobs ? "1" : "0"));
                 outl.Add("dpm|" + (showDpm ? "1" : "0"));
+                outl.Add("tmrshow|" + (showTimers ? "1" : "0"));
                 outl.Add("width|" + Width);
                 outl.Add("pos|" + Location.X + "|" + Location.Y);
                 foreach (KeyValuePair<string, string> kv in tags) outl.Add("prof|" + kv.Key + "|" + kv.Value);
@@ -988,7 +991,7 @@ namespace PRKDamageMeter
             int desired = tab == "xp"
                 ? HeaderH + Math.Max(1, xpLines.Count) * XpRowH + FooterH
                 : HeaderH + Math.Max(1, lastRows.Count) * RowH + FooterH;
-            desired += timers.Count * TmrRowH;
+            if (showTimers) desired += timers.Count * TmrRowH;
             Height = Math.Min(desired, maxH);
             int maxScroll = Math.Max(0, lastRows.Count - VisibleRows());
             if (scroll > maxScroll) scroll = maxScroll;
@@ -1415,6 +1418,10 @@ namespace PRKDamageMeter
             ToolStripMenuItem addT = new ToolStripMenuItem("Add timer...  (manual or auto-on-nano)");
             addT.Click += delegate { PromptTimer(); };
             tmrs.DropDownItems.Add(addT);
+            ToolStripMenuItem showT = new ToolStripMenuItem("Show cooldown bars");
+            showT.Checked = showTimers;
+            showT.Click += delegate { showTimers = !showTimers; SaveTags(); RecalcHeight(); Invalidate(); };
+            tmrs.DropDownItems.Add(showT);
             if (timers.Count > 0 || nanoTimers.Count > 0) tmrs.DropDownItems.Add(new ToolStripSeparator());
             long nowMs2 = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             foreach (Tmr tm in timers.ToList())
@@ -1630,7 +1637,7 @@ namespace PRKDamageMeter
         // skill-lock countdown bars (trimmers etc.) — shown on every tab above the footer
         int DrawTimers(Graphics g, float s, int y, Font fSmall)
         {
-            if (timers.Count == 0) return y;
+            if (!showTimers || timers.Count == 0) return y;
             long nowMs = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             foreach (Tmr t in timers.OrderBy(x => x.End).ToList())
             {
