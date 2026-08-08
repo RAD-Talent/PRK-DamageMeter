@@ -401,7 +401,13 @@ namespace PRKDamageMeter
             f.Events.Add(ev);
             if (ev.T > f.End) f.End = ev.T;
         }
-        string OwnerOf(string n) { string o; return petOwner.TryGetValue(n, out o) ? o : n; }
+        // collapse "You" and case variants of the player's set name into one identity
+        string Canon(string n)
+        {
+            if (myName != "You" && n != null && (n == "You" || (n != myName && n.Equals(myName, StringComparison.OrdinalIgnoreCase)))) return myName;
+            return n;
+        }
+        string OwnerOf(string n) { string o; return Canon(petOwner.TryGetValue(n, out o) ? o : n); }
         bool IsFiltered(string who)
         {
             if (hidden.Contains(who)) return true;
@@ -512,7 +518,7 @@ namespace PRKDamageMeter
             {
                 if (e.Kind == "miss")
                 {
-                    string mwho = tab == "dmg" ? OwnerOf(e.Src) : tab == "taken" ? e.Dst : null;
+                    string mwho = tab == "dmg" ? OwnerOf(e.Src) : tab == "taken" ? Canon(e.Dst) : null;
                     if (mwho == null || IsFiltered(mwho)) continue;
                     Row mr; if (!agg.TryGetValue(mwho, out mr)) { mr = new Row { Name = mwho }; agg[mwho] = mr; }
                     mr.Misses++;
@@ -521,7 +527,7 @@ namespace PRKDamageMeter
                 string who = null;
                 if (tab == "dmg" && e.Kind == "dmg") who = OwnerOf(e.Src);
                 else if (tab == "heal" && e.Kind == "heal") who = OwnerOf(e.Src);
-                else if (tab == "taken" && e.Kind == "dmg") who = e.Dst;
+                else if (tab == "taken" && e.Kind == "dmg") who = Canon(e.Dst);
                 if (who == null || IsFiltered(who)) continue;
                 Row r; if (!agg.TryGetValue(who, out r)) { r = new Row { Name = who }; agg[who] = r; }
                 r.Total += e.Amt; r.Hits++;
@@ -1303,8 +1309,16 @@ namespace PRKDamageMeter
             d.Controls.Add(tb); d.Controls.Add(ok); d.AcceptButton = ok;
             if (d.ShowDialog(this) == DialogResult.OK && tb.Text.Trim().Length > 0)
             {
-                string old = myName; myName = tb.Text.Trim();
-                foreach (Ev ev in events) { if (ev.Src == old) ev.Src = myName; if (ev.Dst == old) ev.Dst = myName; }
+                string old = myName;
+                string typed = tb.Text.Trim();
+                myName = char.ToUpperInvariant(typed[0]) + typed.Substring(1).ToLowerInvariant(); // AO name casing
+                foreach (Ev ev in events)
+                {
+                    if (ev.Src == old || ev.Src == "You" || ev.Src.Equals(myName, StringComparison.OrdinalIgnoreCase)) ev.Src = myName;
+                    if (ev.Dst == old || ev.Dst == "You" || ev.Dst.Equals(myName, StringComparison.OrdinalIgnoreCase)) ev.Dst = myName;
+                }
+                foreach (string pk in petOwner.Keys.ToList())
+                    if (petOwner[pk] == old || petOwner[pk] == "You" || petOwner[pk].Equals(myName, StringComparison.OrdinalIgnoreCase)) petOwner[pk] = myName;
                 if (tags.ContainsKey(old)) { tags[myName] = tags[old]; tags.Remove(old); }
                 SaveTags(); Aggregate(); Invalidate();
             }
